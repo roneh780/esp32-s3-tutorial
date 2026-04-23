@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Introduction - ESP32-S3 Development Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">ESP32-S3 Development Board</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="module1.html">Introduction</a></li>
+                    <li><a href="module2.html">Hardware Preparation</a></li>
+                    <li><a href="module3.html">Arduino IDE Setup</a></li>
+                    <li><a href="module4.html">ESP32-S3 ESP-IDF Guide</a></li>
+                    <li><a href="module5.html">MicroPython Development</a></li>
+                    <li><a href="module6.html">ESP32 Advanced Tutorials</a></li>
+                    <li><a href="module7.html">Expansion & Summary</a></li>
+                    <li><a href="module8.html">Technical Support & FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside class="sidebar">
+            <h3>Guide Navigation</h3>
+            <ul class="sidebar-nav">
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module1.html">1. Introduction</a>
+                        <span class="toggle">-</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module1.html#module1-1">1.1 ESP32-S3 Series Overview</a></li>
+                        <li><a href="module1.html#module1-2">1.2 ESP32-S3 N16R8 Core Features</a></li>
+                        <li><a href="module1.html#module1-3">1.3 Typical Application Scenarios</a></li>
+                        <li><a href="module1.html#module1-4">1.4 Development Environment and Arduino Support</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module2.html">2. Hardware Preparation</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module2.html#module2-1">2.1 Required Materials</a></li>
+                        <li><a href="module2.html#module2-2">2.2 Notes</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module3.html">3. Arduino IDE Setup & Complete Guide</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module3.html#module3-1">3.1 Chapter 1: Arduino Development Environment Installation and Configuration</a></li>
+                        <li><a href="module3.html#module3-2">3.2 Chapter 2: Hardware Basics and Pin Description</a></li>
+                        <li><a href="module3.html#module3-3">3.3 Chapter 3: Arduino Programming Basics</a></li>
+                        <li><a href="module3.html#module3-4">3.4 Chapter 4: LED Control (Digital Output)</a></li>
+                        <li><a href="module3.html#module3-5">3.5 Chapter 5: Delay and Non-blocking Delay</a></li>
+                        <li><a href="module3.html#module3-6">3.6 Chapter 6: Buttons (Digital Input)</a></li>
+                        <li><a href="module3.html#module3-7">3.7 Chapter 7: External Interrupts</a></li>
+                        <li><a href="module3.html#module3-8">3.8 Chapter 8: Serial Communication</a></li>
+                        <li><a href="module3.html#module3-9">3.9 Chapter 9: Hardware Timers</a></li>
+                        <li><a href="module3.html#module3-10">3.10 Chapter 10: PWM Pulse Width Modulation</a></li>
+                        <li><a href="module3.html#module3-11">3.11 Chapter 11: ADC Analog-to-Digital Conversion</a></li>
+                        <li><a href="module3.html#module3-12">3.12 Chapter 12: I2C Communication</a></li>
+                        <li><a href="module3.html#module3-13">3.13 Chapter 13: SPI Communication</a></li>
+                        <li><a href="module3.html#module3-14">3.14 Chapter 14: WiFi Network Communication</a></li>
+                        <li><a href="module3.html#module3-15">3.15 Chapter 15: Bluetooth Communication</a></li>
+                        <li><a href="module3.html#module3-16">3.16 Chapter 16: DVP Camera Module Usage</a></li>
+                        <li><a href="module3.html#module3-17">3.17 Chapter 17: Comprehensive Project Practice</a></li>
+                        <li><a href="module3.html#module3-18">3.18 Chapter 18: Common Problems and Troubleshooting</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module4.html">4. ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition)</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module4.html#module4-1">第一部分：环境搭建与工具配置</a></li>
+                        <li><a href="module4.html#module4-2">第二部分：基础外设实验</a></li>
+                        <li><a href="module4.html#module4-3">第三部分：高级外设与通信协议</a></li>
+                        <li><a href="module4.html#module4-4">第四部分：网络与无线连接</a></li>
+                        <li><a href="module4.html#module4-5">第五部分：常见问题与调试</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module5.html">5. MicroPython 开发 ESP32-S3 学习教程</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module5.html#module5-1">第一部分：MicroPython 基础与环境搭建</a></li>
+                        <li><a href="module5.html#module5-2">第二部分：MicroPython 基础编程</a></li>
+                        <li><a href="module5.html#module5-3">第三部分：板载 RGB 灯控制（NeoPixel / WS2812B）</a></li>
+                        <li><a href="module5.html#module5-4">第四部分：WiFi 与网络通信</a></li>
+                        <li><a href="module5.html#module5-5">第五部分：外设接口与传感器应用</a></li>
+                        <li><a href="module5.html#module5-6">第六部分：USB 与 OTG 功能（HW-678 特色）</a></li>
+                        <li><a href="module5.html#module5-7">第七部分：低功耗与高级特性</a></li>
+                        <li><a href="module5.html#module5-8">第八部分：综合项目实战</a></li>
+                        <li><a href="module5.html#module5-9">附录</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module6.html">6. ESP32 拓展开发教程</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module6.html#module6-1">6.1 项目一：智能环境监测站</a></li>
+                        <li><a href="module6.html#module6-2">6.2 项目二：WiFi 智能开关</a></li>
+                        <li><a href="module6.html#module6-3">6.3 项目三：蓝牙低功耗设备</a></li>
+                        <li><a href="module6.html#module6-4">6.4 项目四：USB 设备模拟</a></li>
+                        <li><a href="module6.html#module6-5">6.5 项目五：低功耗传感器节点</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module7.html">7. Expansion & Summary</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module7.html#module7-1">7.1 Further Experiment Suggestions</a></li>
+                        <li><a href="module7.html#module7-2">7.2 Summary</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module8.html">8. Technical Support & FAQ</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module8.html#module8-1">8.1 Technical Support Resources</a></li>
+                        <li><a href="module8.html#module8-2">8.2 Frequently Asked Questions</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="module1" class="module">
+                <h2>1. Introduction</h2>
+                
+                <div id="module1-1" class="submodule">
+                    <h3>1.1 ESP32-S3 Series Overview</h3>
+                    <div class="submodule-content">
+                        <p>ESP32-S3 is a new generation of low-power, high-performance Wi-Fi + Bluetooth® LE MCU chip launched by Espressif Systems, designed for artificial intelligence of things (AIoT), edge computing, smart home, human-computer interaction, and other application scenarios. Compared to the previous generation ESP32, ESP32-S3 has significant improvements in computing power, AI acceleration capability, connection security, and storage expandability.</p>
+                        <p>The ESP32-S3 series includes multiple models, mainly differing in built-in Flash and PSRAM capacities. The model used in this tutorial is <strong>ESP32-S3 N16R8</strong>, with the following naming convention:</p>
+                        <ul>
+                            <li><strong>N16</strong>: Built-in 16 MB serial Flash (Nor Flash), used for storing program code and file system.</li>
+                            <li><strong>R8</strong>: Built-in 8 MB PSRAM (pseudo-static random access memory), which can significantly expand runtime memory, suitable for processing large memory tasks such as images, audio buffers, and complex data structures.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module1-2" class="submodule">
+                    <h3>1.2 ESP32-S3 N16R8 Core Features</h3>
+                    <div class="submodule-content">
+                        <h4>Processor and Computing Capability</h4>
+                        <ul>
+                            <li><strong>Dual-core Xtensa® LX7 processor</strong>: Maximum clock speed up to <strong>240 MHz</strong>, each core runs independently, supporting symmetric multiprocessing (SMP) and task allocation.</li>
+                            <li><strong>Vector instruction set</strong>: Provides SIMD (Single Instruction Multiple Data) acceleration, significantly improving digital signal processing (DSP) and neural network inference efficiency.</li>
+                            <li><strong>TensorFlow Lite Micro support</strong>: Can directly run lightweight machine learning models on the chip, enabling edge AI applications such as voice wake-up and image recognition.</li>
+                        </ul>
+
+                        <h4>Storage Configuration</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Storage Type</th>
+                                    <th>Capacity</th>
+                                    <th>Function</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Built-in Flash</td>
+                                    <td>16 MB</td>
+                                    <td>Program storage, file system, web resources</td>
+                                </tr>
+                                <tr>
+                                    <td>Built-in PSRAM</td>
+                                    <td>8 MB</td>
+                                    <td>Runtime dynamic memory, supports camera frame buffer, large arrays, graphics cache, etc.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><strong>Note</strong>: The large-capacity PSRAM of N16R8 makes ESP32-S3 more comfortable when processing OV2640/OV5640 camera data and driving high-resolution displays (such as ILI9341, ST7789), without system crashes due to insufficient memory.</p>
+
+                        <h4>Wireless Communication</h4>
+                        <ul>
+                            <li><strong>2.4 GHz Wi-Fi 802.11 b/g/n</strong>:
+                                <ul>
+                                    <li>Supports Station (client), SoftAP (hotspot), and Station + SoftAP mixed modes.</li>
+                                    <li>Supports WPA3-Personal encryption for improved security.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Bluetooth 5.0</strong>:
+                                <ul>
+                                    <li>Supports both classic Bluetooth (BR/EDR) and Bluetooth Low Energy (BLE).</li>
+                                    <li>Supports BLE Mesh networking, suitable for large-scale device networks.</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h4>Rich Peripheral Interfaces</h4>
+                        <p>ESP32-S3 N16R8 provides up to <strong>45 programmable GPIOs</strong>, with common interfaces as follows:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Interface Type</th>
+                                    <th>Quantity</th>
+                                    <th>Main Functions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ADC (12-bit)</td>
+                                    <td>2 (20 channels total)</td>
+                                    <td>Analog sensor acquisition (light sensors, potentiometers, microphones, etc.)</td>
+                                </tr>
+                                <tr>
+                                    <td>DAC (8-bit)</td>
+                                    <td>2</td>
+                                    <td>Analog voltage output (audio, analog signal generation)</td>
+                                </tr>
+                                <tr>
+                                    <td>Touch sensors</td>
+                                    <td>14 channels</td>
+                                    <td>Capacitive touch buttons, can penetrate insulating panels</td>
+                                </tr>
+                                <tr>
+                                    <td>UART</td>
+                                    <td>4</td>
+                                    <td>Serial communication (GPS, Bluetooth modules, debugging)</td>
+                                </tr>
+                                <tr>
+                                    <td>SPI</td>
+                                    <td>3</td>
+                                    <td>High-speed peripherals (displays, SD cards, sensors)</td>
+                                </tr>
+                                <tr>
+                                    <td>I2C</td>
+                                    <td>2</td>
+                                    <td>Low-speed sensors (temperature/humidity, IMU, OLED)</td>
+                                </tr>
+                                <tr>
+                                    <td>I2S</td>
+                                    <td>2</td>
+                                    <td>Digital audio input/output (microphones, speakers)</td>
+                                </tr>
+                                <tr>
+                                    <td>SDIO Host</td>
+                                    <td>1</td>
+                                    <td>Connect SD cards or SDIO devices</td>
+                                </tr>
+                                <tr>
+                                    <td>USB OTG</td>
+                                    <td>1</td>
+                                    <td>Configurable as USB host or device (supports keyboards, U disks, MIDI, etc.)</td>
+                                </tr>
+                                <tr>
+                                    <td>PWM</td>
+                                    <td>Any GPIO</td>
+                                    <td>Up to 16 independent PWM channels through LEDC controller</td>
+                                </tr>
+                                <tr>
+                                    <td>External interrupts</td>
+                                    <td>All GPIOs</td>
+                                    <td>Supports edge/level triggering, quick response to external events</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Artificial Intelligence Acceleration Features</h4>
+                        <p>ESP32-S3 is Espressif's first general-purpose MCU with a built-in <strong>vector instruction set</strong>. Combined with TensorFlow Lite Micro, it can complete the following tasks locally:</p>
+                        <ul>
+                            <li>Keyword wake-up (e.g., local recognition of "Hey Google")</li>
+                            <li>Gesture recognition (using accelerometer/gyroscope data)</li>
+                            <li>Image classification (with camera, such as face detection)</li>
+                            <li>Abnormal sound detection (industrial equipment fault warning)</li>
+                        </ul>
+                        <p>No need to upload raw data to the cloud, reducing latency and protecting privacy.</p>
+
+                        <h4>Security Features</h4>
+                        <p>ESP32-S3 provides industry-leading IoT security features:</p>
+                        <ul>
+                            <li><strong>Hardware encryption accelerator</strong>: AES-128/256, SHA-2 (256/384/512), RSA large number operations.</li>
+                            <li><strong>Secure boot</strong>: Ensures only signed firmware runs.</li>
+                            <li><strong>Flash encryption</strong>: Prevents external reading of firmware content.</li>
+                            <li><strong>Digital signature</strong>: Peripheral private keys cannot be read out, can be used for device identity authentication.</li>
+                            <li><strong>HMAC module</strong>: Used to generate message authentication codes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module1-3" class="submodule">
+                    <h3>1.3 Typical Application Scenarios</h3>
+                    <div class="submodule-content">
+                        <p>Based on the above features, ESP32-S3 N16R8 is particularly suitable for the following projects:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Application Field</th>
+                                    <th>Example Projects</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Smart Home</td>
+                                    <td>Multi-sensor environment monitoring station, smart speakers, Wi-Fi/BLE lighting control</td>
+                                </tr>
+                                <tr>
+                                    <td>Human-Computer Interaction</td>
+                                    <td>Voice assistants, gesture-controlled cars, touch panels</td>
+                                </tr>
+                                <tr>
+                                    <td>Edge AI</td>
+                                    <td>Facial recognition access control, mask detection, abnormal sound monitoring</td>
+                                </tr>
+                                <tr>
+                                    <td>IoT Gateway</td>
+                                    <td>BLE Mesh gateway, Modbus to MQTT gateway</td>
+                                </tr>
+                                <tr>
+                                    <td>Multimedia Processing</td>
+                                    <td>Network cameras, MP3 audio players, electronic photo albums</td>
+                                </tr>
+                                <tr>
+                                    <td>Industrial Control</td>
+                                    <td>Data acquisition terminals, remote relay control, motor speed regulation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="module1-4" class="submodule">
+                    <h3>1.4 Development Environment and Arduino Support</h3>
+                    <div class="submodule-content">
+                        <p>ESP32-S3 is fully compatible with the <strong>Arduino ecosystem</strong>. By installing Espressif's official esp32 board support package (version 3.0.x or higher), you can use Arduino IDE for development. This tutorial will be based on Arduino IDE, starting from scratch to configure the ESP32-S3 N16R8 development environment, and will cover:</p>
+                        <ul>
+                            <li>GPIO digital/analog input/output</li>
+                            <li>Interrupts, timers, PWM, ADC</li>
+                            <li>Serial communication (UART, I2C, SPI)</li>
+                            <li>Wi-Fi network and web server</li>
+                            <li>Bluetooth (BLE) communication</li>
+                            <li>Camera and display module driving</li>
+                            <li>Comprehensive practical projects</li>
+                        </ul>
+                        <p>Through the study of this tutorial, you will be able to skillfully use ESP32-S3 N16R8 to complete development from simple control to complex AIoT systems.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="module1.html">Introduction</a>
+                    <a href="module2.html">Hardware Preparation</a>
+                    <a href="module3.html">Arduino IDE Setup</a>
+                    <a href="module4.html">ESP32-S3 ESP-IDF Guide</a>
+                    <a href="module5.html">MicroPython Development</a>
+                    <a href="module6.html">ESP32 Advanced Tutorials</a>
+                    <a href="module7.html">Expansion & Summary</a>
+                    <a href="module8.html">Technical Support & FAQ</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2026 ESP32-S3 Getting Started Guide</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

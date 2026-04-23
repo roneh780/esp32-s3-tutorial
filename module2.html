@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Hardware Preparation - ESP32-S3 Development Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">ESP32-S3 Development Board</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="module1.html">Introduction</a></li>
+                    <li><a href="module2.html">Hardware Preparation</a></li>
+                    <li><a href="module3.html">Arduino IDE Setup</a></li>
+                    <li><a href="module4.html">ESP32-S3 ESP-IDF Guide</a></li>
+                    <li><a href="module5.html">MicroPython Development</a></li>
+                    <li><a href="module6.html">ESP32 Advanced Tutorials</a></li>
+                    <li><a href="module7.html">Expansion & Summary</a></li>
+                    <li><a href="module8.html">Technical Support & FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside class="sidebar">
+            <h3>Guide Navigation</h3>
+            <ul class="sidebar-nav">
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module1.html">1. Introduction</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module1.html#module1-1">1.1 ESP32-S3 Series Overview</a></li>
+                        <li><a href="module1.html#module1-2">1.2 ESP32-S3 N16R8 Core Features</a></li>
+                        <li><a href="module1.html#module1-3">1.3 Typical Application Scenarios</a></li>
+                        <li><a href="module1.html#module1-4">1.4 Development Environment and Arduino Support</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module2.html">2. Hardware Preparation</a>
+                        <span class="toggle">-</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module2.html#module2-1">2.1 Required Materials</a></li>
+                        <li><a href="module2.html#module2-2">2.2 Detailed Notes and Operation Specifications</a></li>
+                        <li><a href="module2.html#module2-3">2.3 Recommended Expansion Materials (Advanced Experiments)</a></li>
+                        <li><a href="module2.html#module2-4">2.4 Common Errors and Troubleshooting</a></li>
+                        <li><a href="module2.html#module2-5">2.5 Hardware Checklist (Before Each Experiment)</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module3.html">3. Arduino IDE Setup & Complete Guide</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module3.html#module3-1">3.1 Chapter 1: Arduino Development Environment Installation and Configuration</a></li>
+                        <li><a href="module3.html#module3-2">3.2 Chapter 2: Hardware Basics and Pin Description</a></li>
+                        <li><a href="module3.html#module3-3">3.3 Chapter 3: Arduino Programming Basics</a></li>
+                        <li><a href="module3.html#module3-4">3.4 Chapter 4: LED Control (Digital Output)</a></li>
+                        <li><a href="module3.html#module3-5">3.5 Chapter 5: Delay and Non-blocking Delay</a></li>
+                        <li><a href="module3.html#module3-6">3.6 Chapter 6: Buttons (Digital Input)</a></li>
+                        <li><a href="module3.html#module3-7">3.7 Chapter 7: External Interrupts</a></li>
+                        <li><a href="module3.html#module3-8">3.8 Chapter 8: Serial Communication</a></li>
+                        <li><a href="module3.html#module3-9">3.9 Chapter 9: Hardware Timers</a></li>
+                        <li><a href="module3.html#module3-10">3.10 Chapter 10: PWM Pulse Width Modulation</a></li>
+                        <li><a href="module3.html#module3-11">3.11 Chapter 11: ADC Analog-to-Digital Conversion</a></li>
+                        <li><a href="module3.html#module3-12">3.12 Chapter 12: I2C Communication</a></li>
+                        <li><a href="module3.html#module3-13">3.13 Chapter 13: SPI Communication</a></li>
+                        <li><a href="module3.html#module3-14">3.14 Chapter 14: WiFi Network Communication</a></li>
+                        <li><a href="module3.html#module3-15">3.15 Chapter 15: Bluetooth Communication</a></li>
+                        <li><a href="module3.html#module3-16">3.16 Chapter 16: DVP Camera Module Usage</a></li>
+                        <li><a href="module3.html#module3-17">3.17 Chapter 17: Comprehensive Project Practice</a></li>
+                        <li><a href="module3.html#module3-18">3.18 Chapter 18: Common Problems and Troubleshooting</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module4.html">4. ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition)</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module4.html#module4-1">1. Preparation</a></li>
+                        <li><a href="module4.html#module4-2">2. Install ESP-IDF Environment</a></li>
+                        <li><a href="module4.html#module4-3">3. Configure VS Code Development Environment</a></li>
+                        <li><a href="module4.html#module4-4">4. Create and Run First Project</a></li>
+                        <li><a href="module4.html#module4-5">5. Advanced: Using Built-in JTAG Debugging</a></li>
+                        <li><a href="module4.html#module4-6">6. Common Issues and Solutions</a></li>
+                        <li><a href="module4.html#module4-7">7. Next Learning Suggestions</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module5.html">5. MicroPython Development Guide for ESP32-S3</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module5.html#module5-1">1. MicroPython Basics and Environment Setup</a></li>
+                        <li><a href="module5.html#module5-2">2. MicroPython Basic Programming</a></li>
+                        <li><a href="module5.html#module5-3">3. On-board RGB LED Control (NeoPixel / WS2812B)</a></li>
+                        <li><a href="module5.html#module5-4">4. WiFi and Network Communication</a></li>
+                        <li><a href="module5.html#module5-5">5. Peripheral Interfaces and Sensor Applications</a></li>
+                        <li><a href="module5.html#module5-6">6. USB and OTG Features (HW-678 Special)</a></li>
+                        <li><a href="module5.html#module5-7">7. Low Power and Advanced Features</a></li>
+                        <li><a href="module5.html#module5-8">8. Comprehensive Project Practice</a></li>
+                        <li><a href="module5.html#module5-9">Appendix</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module6.html">6. ESP32 Advanced Tutorials</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module6.html#module6-1">6.1 Project 1: Smart Environment Monitoring Station</a></li>
+                        <li><a href="module6.html#module6-2">6.2 Project 2: WiFi Smart Switch</a></li>
+                        <li><a href="module6.html#module6-3">6.3 Project 3: Bluetooth Low Energy Device</a></li>
+                        <li><a href="module6.html#module6-4">6.4 Project 4: USB Device Simulation</a></li>
+                        <li><a href="module6.html#module6-5">6.5 Project 5: Low Power Sensor Node</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module7.html">7. Expansion & Summary</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module7.html#module7-1">7.1 Further Experiment Suggestions</a></li>
+                        <li><a href="module7.html#module7-2">7.2 Summary</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module8.html">8. Technical Support & FAQ</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module8.html#module8-1">8.1 Technical Support Resources</a></li>
+                        <li><a href="module8.html#module8-2">8.2 Frequently Asked Questions</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="module2" class="module">
+                <h2>2. Hardware Preparation</h2>
+                
+                <div id="module2-1" class="submodule">
+                    <h3>2.1 Required Materials</h3>
+                    <div class="submodule-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Specification</th>
+                                    <th>Recommended Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ESP32-S3 Development Board</td>
+                                    <td>Recommended: Official ESP32-S3-DevKitC-1 or compatible boards (e.g., Hezhou, Anxinke), ensure it has a USB Type-C interface</td>
+                                    <td>1 piece</td>
+                                </tr>
+                                <tr>
+                                    <td>USB Type-C Cable</td>
+                                    <td>Must support data transfer (not just charging), recommended length within 1m to reduce voltage drop</td>
+                                    <td>1 piece</td>
+                                </tr>
+                                <tr>
+                                    <td>LEDs</td>
+                                    <td>Red, green, yellow, blue, etc., 5mm or 3mm diameter, for indication, debugging, or simple output experiments</td>
+                                    <td>1-2 of each color</td>
+                                </tr>
+                                <tr>
+                                    <td>Resistors</td>
+                                    <td>220Ω or 330Ω (1/4W or 1/8W), for LED current limiting</td>
+                                    <td>10 pieces</td>
+                                </tr>
+                                <tr>
+                                    <td>Breadboard</td>
+                                    <td>400-hole or 830-hole, suitable for beginners to build prototype circuits</td>
+                                    <td>1 piece</td>
+                                </tr>
+                                <tr>
+                                    <td>Jumper Wires</td>
+                                    <td>Male-to-male (for breadboard to components), male-to-female (for development board pins to breadboard), length 20-30cm, multi-color for differentiation</td>
+                                    <td>1 pack each (about 40 wires)</td>
+                                </tr>
+                                <tr>
+                                    <td>Optional: 5V External Power Supply</td>
+                                    <td>5V/2A power adapter + USB-C cable, or high-quality power bank, for Wi-Fi or high-power peripherals</td>
+                                    <td>1 set</td>
+                                </tr>
+                                <tr>
+                                    <td>Optional: Buttons</td>
+                                    <td>6×6mm tactile switches, for digital input experiments</td>
+                                    <td>2-4 pieces</td>
+                                </tr>
+                                <tr>
+                                    <td>Optional: Potentiometer</td>
+                                    <td>10kΩ or 100kΩ rotary potentiometer, for analog input experiments</td>
+                                    <td>1 piece</td>
+                                </tr>
+                                <tr>
+                                    <td>Optional: Buzzer</td>
+                                    <td>Passive buzzer (can play tones) or active buzzer (single tone only), for sound feedback</td>
+                                    <td>1 piece</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="module2-2" class="submodule">
+                    <h3>2.2 Detailed Notes and Operation Specifications</h3>
+                    <div class="submodule-content">
+                        <h4>2.2.1 Power Supply and Voltage</h4>
+                        <p><strong>Power Supply Methods:</strong></p>
+                        <ul>
+                            <li>Default: Use USB Type-C to connect to computer or USB charger (5V) to power the development board.</li>
+                            <li>If using Wi-Fi, Bluetooth, or driving multiple peripherals simultaneously, it is recommended to use a 5V/2A external power supply (via USB-C port) to avoid repeated restarts or program anomalies due to insufficient USB power.</li>
+                        </ul>
+                        <p><strong>Voltage Levels:</strong></p>
+                        <ul>
+                            <li>All GPIO pins of ESP32-S3 are 3.3V logic level.</li>
+                            <li>Never directly connect 5V power or 5V signals to any GPIO pin, as this will burn the chip.</li>
+                            <li>If you need to connect 5V peripherals (such as certain sensors, buzzer modules), you must use a level conversion module (3.3V ↔ 5V) or ensure the peripheral is compatible with 3.3V input.</li>
+                        </ul>
+
+                        <h4>2.2.2 Wiring Order</h4>
+                        <p><strong>Connect GND first, then power:</strong></p>
+                        <ul>
+                            <li>When connecting any circuit, please connect the GND (ground) wire first, and finally connect the power wire (such as 3.3V or 5V).</li>
+                            <li>When disconnecting, first disconnect the power wire, then disconnect GND.</li>
+                            <li>This can prevent damage to the development board due to unstable power or accidental short circuits.</li>
+                        </ul>
+                        <p><strong>Common Ground Requirement:</strong></p>
+                        <ul>
+                            <li>When the development board works with external power supplies and sensor modules, all devices' GND must be connected together, otherwise signals cannot be transmitted normally.</li>
+                        </ul>
+
+                        <h4>2.2.3 ESD Protection and Operating Environment</h4>
+                        <p><strong>Electrostatic Discharge (ESD) Protection:</strong></p>
+                        <ul>
+                            <li>Before touching the development board or any electronic components, touch a metal object (such as a computer case, radiator) to discharge static electricity from your body.</li>
+                            <li>It is recommended to operate on an anti-static mat or wear an anti-static wristband.</li>
+                            <li>Avoid placing bare boards directly on dry carpets or plastic tables.</li>
+                        </ul>
+                        <p><strong>Avoid Moisture and Liquids:</strong></p>
+                        <ul>
+                            <li>Do not use or store the development board in humid environments (such as bathrooms, kitchens).</li>
+                            <li>If the board accidentally gets wet, immediately power it off and thoroughly dry it before testing.</li>
+                        </ul>
+
+                        <h4>2.2.4 Wire and Connection Quality</h4>
+                        <p><strong>USB Cable:</strong></p>
+                        <ul>
+                            <li>Many cheap USB cables only contain power wires (two wires) and lack data wires (D+, D-), so they cannot be used for program burning and serial communication. Please use a Type-C cable with data transfer capability.</li>
+                        </ul>
+                        <p><strong>Jumper Wires:</strong></p>
+                        <ul>
+                            <li>It is recommended to use 22AWG or thicker tinned copper wires, avoid using soft or low-quality wires, otherwise the contact resistance will be large and easy to loosen.</li>
+                            <li>Ensure that the jumper wire ends are completely inserted into the breadboard or development board pins when plugging.</li>
+                        </ul>
+
+                        <h4>2.2.5 LED Current Limiting Resistor</h4>
+                        <ul>
+                            <li>Each LED must be connected in series with a 220Ω or 330Ω resistor. Never directly connect an LED to a 3.3V or 5V power supply, otherwise the instantaneous current will be too large and burn the LED (or even damage the GPIO port).</li>
+                            <li>Calculation reference: The typical voltage drop of an LED is about 2V, when powered by 3.3V, current = (3.3-2)/220 ≈ 5.9mA, which is bright enough and safe.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module2-3" class="submodule">
+                    <h3>2.3 Recommended Expansion Materials (Advanced Experiments)</h3>
+                    <div class="submodule-content">
+                        <p>After completing basic GPIO, PWM, ADC, serial port experiments, the following components can expand more functions:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Purpose</th>
+                                    <th>Recommended Model/Interface</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>I2C OLED Display</td>
+                                    <td>Display sensor data, menus, status information</td>
+                                    <td>0.96 inch, SSD1306, I2C interface</td>
+                                </tr>
+                                <tr>
+                                    <td>Temperature and Humidity Sensor</td>
+                                    <td>Environmental monitoring</td>
+                                    <td>DHT11/DHT22 (single bus) or AHT10/BME280 (I2C)</td>
+                                </tr>
+                                <tr>
+                                    <td>Servo Motor</td>
+                                    <td>Small mechanical control (such as pointing, door opening)</td>
+                                    <td>SG90 (PWM control, 5V power supply)</td>
+                                </tr>
+                                <tr>
+                                    <td>RGB LED (WS2812)</td>
+                                    <td>Colorful indicators, running light effects</td>
+                                    <td>Single or strip (5V, level conversion required)</td>
+                                </tr>
+                                <tr>
+                                    <td>LDR + Voltage Divider Resistor</td>
+                                    <td>Light intensity detection</td>
+                                    <td>10kΩ LDR + 10kΩ fixed resistor</td>
+                                </tr>
+                                <tr>
+                                    <td>Bluetooth/Wi-Fi Debugging Tool</td>
+                                    <td>Mobile App or PC host computer</td>
+                                    <td>No specific hardware, requires software cooperation</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="module2-4" class="submodule">
+                    <h3>2.4 Common Errors and Troubleshooting</h3>
+                    <div class="submodule-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Symptom</th>
+                                    <th>Possible Cause</th>
+                                    <th>Solution</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Development board not recognized (no COM port on computer)</td>
+                                    <td>USB cable only for charging, driver not installed, cable damaged</td>
+                                    <td>Replace data cable; install CP210x or CH343 driver; check Type-C interface</td>
+                                </tr>
+                                <tr>
+                                    <td>Program upload failed or stuck at "Connecting..."</td>
+                                    <td>GPIO0 not properly pulled low (some boards need manual operation), unstable power</td>
+                                    <td>Hold BOOT button and press RESET once to enter download mode; use external power supply</td>
+                                </tr>
+                                <tr>
+                                    <td>LED not lit or very dim</td>
+                                    <td>Resistor too large (e.g., 10kΩ), LED polarity reversed</td>
+                                    <td>Change to 220Ω~470Ω; long leg is positive (anode) connected to GPIO, short leg is negative connected to GND</td>
+                                </tr>
+                                <tr>
+                                    <td>Development board frequently restarts</td>
+                                    <td>Insufficient USB power (especially when Wi-Fi is enabled)</td>
+                                    <td>Use 5V/2A external power supply; turn off high-power peripherals</td>
+                                </tr>
+                                <tr>
+                                    <td>Pin output abnormal or heating</td>
+                                    <td>Pin shorted to 5V or GND; output current too large</td>
+                                    <td>Immediately power off; check wiring; avoid directly driving motors, relays (need driver board)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="module2-5" class="submodule">
+                    <h3>2.5 Hardware Checklist (Before Each Experiment)</h3>
+                    <div class="submodule-content">
+                        <ul>
+                            <li>All components are in good condition, no burning, breakage, or pin oxidation</li>
+                            <li>USB data cable can normally transfer data (test with mobile phone or other devices first)</li>
+                            <li>Development board power supply is normal (red power indicator is on)</li>
+                            <li>No 5V signals directly connected to any GPIO pin</li>
+                            <li>Each LED is connected in series with a suitable resistor</li>
+                            <li>Breadboard and jumper connections are firm, no looseness or short circuit</li>
+                            <li>If using an external power supply, confirm its output voltage is 5V and shares ground with the development board</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="module1.html">Introduction</a>
+                    <a href="module2.html">Hardware Preparation</a>
+                    <a href="module3.html">Arduino IDE Setup</a>
+                    <a href="module4.html">ESP32-S3 ESP-IDF Guide</a>
+                    <a href="module5.html">MicroPython Development</a>
+                    <a href="module6.html">ESP32 Advanced Tutorials</a>
+                    <a href="module7.html">Expansion & Summary</a>
+                    <a href="module8.html">Technical Support & FAQ</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2026 ESP32-S3 Getting Started Guide</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

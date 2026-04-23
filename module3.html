@@ -1,0 +1,3927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Arduino IDE Setup - ESP32-S3 Development Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">ESP32-S3 Development Board</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="module1.html">Introduction</a></li>
+                    <li><a href="module2.html">Hardware Preparation</a></li>
+                    <li><a href="module3.html">Arduino IDE Setup</a></li>
+                    <li><a href="module4.html">ESP32-S3 ESP-IDF Guide</a></li>
+                    <li><a href="module5.html">MicroPython Development</a></li>
+                    <li><a href="module6.html">ESP32 Advanced Tutorials</a></li>
+                    <li><a href="module7.html">Expansion & Summary</a></li>
+                    <li><a href="module8.html">Technical Support & FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside class="sidebar">
+            <h3>Guide Navigation</h3>
+            <ul class="sidebar-nav">
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module1.html">1. Introduction</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module1.html#module1-1">1.1 ESP32-S3 Series Overview</a></li>
+                        <li><a href="module1.html#module1-2">1.2 ESP32-S3 N16R8 Core Features</a></li>
+                        <li><a href="module1.html#module1-3">1.3 Typical Application Scenarios</a></li>
+                        <li><a href="module1.html#module1-4">1.4 Development Environment and Arduino Support</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module2.html">2. Hardware Preparation</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module2.html#module2-1">2.1 Required Materials</a></li>
+                        <li><a href="module2.html#module2-2">2.2 Notes</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module3.html">3. Arduino IDE Setup & Complete Guide</a>
+                        <span class="toggle">-</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module3.html#module3-1">3.1 Chapter 1: Arduino Development Environment Installation and Configuration</a></li>
+                        <li><a href="module3.html#module3-2">3.2 Chapter 2: Hardware Basics and Pin Description</a></li>
+                        <li><a href="module3.html#module3-3">3.3 Chapter 3: Arduino Programming Basics</a></li>
+                        <li><a href="module3.html#module3-4">3.4 Chapter 4: LED Control (Digital Output)</a></li>
+                        <li><a href="module3.html#module3-5">3.5 Chapter 5: Delay and Non-blocking Delay</a></li>
+                        <li><a href="module3.html#module3-6">3.6 Chapter 6: Buttons (Digital Input)</a></li>
+                        <li><a href="module3.html#module3-7">3.7 Chapter 7: External Interrupts</a></li>
+                        <li><a href="module3.html#module3-8">3.8 Chapter 8: Serial Communication</a></li>
+                        <li><a href="module3.html#module3-9">3.9 Chapter 9: Hardware Timers</a></li>
+                        <li><a href="module3.html#module3-10">3.10 Chapter 10: PWM Pulse Width Modulation</a></li>
+                        <li><a href="module3.html#module3-11">3.11 Chapter 11: ADC Analog-to-Digital Conversion</a></li>
+                        <li><a href="module3.html#module3-12">3.12 Chapter 12: I2C Communication</a></li>
+                        <li><a href="module3.html#module3-13">3.13 Chapter 13: SPI Communication</a></li>
+                        <li><a href="module3.html#module3-14">3.14 Chapter 14: WiFi Network Communication</a></li>
+                        <li><a href="module3.html#module3-15">3.15 Chapter 15: Bluetooth Communication</a></li>
+                        <li><a href="module3.html#module3-16">3.16 Chapter 16: DVP Camera Module Usage</a></li>
+                        <li><a href="module3.html#module3-17">3.17 Chapter 17: Comprehensive Project Practice</a></li>
+                        <li><a href="module3.html#module3-18">3.18 Chapter 18: Common Problems and Troubleshooting</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module4.html">4. ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition)</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module4.html#module4-1">Part 1: Environment Setup and Tool Configuration</a></li>
+                        <li><a href="module4.html#module4-2">Part 2: Basic Peripheral Experiments</a></li>
+                        <li><a href="module4.html#module4-3">Part 3: Advanced Peripherals and Communication Protocols</a></li>
+                        <li><a href="module4.html#module4-4">Part 4: Network and Wireless Connection</a></li>
+                        <li><a href="module4.html#module4-5">Part 5: Common Problems and Debugging</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module5.html">5. MicroPython Development ESP32-S3 Learning Tutorial</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module5.html#module5-1">Part 1: MicroPython Basics and Environment Setup</a></li>
+                        <li><a href="module5.html#module5-2">Part 2: MicroPython Basic Programming</a></li>
+                        <li><a href="module5.html#module5-3">Part 3: On-board RGB LED Control (NeoPixel / WS2812B)</a></li>
+                        <li><a href="module5.html#module5-4">Part 4: WiFi and Network Communication</a></li>
+                        <li><a href="module5.html#module5-5">Part 5: Peripheral Interfaces and Sensor Applications</a></li>
+                        <li><a href="module5.html#module5-6">Part 6: USB and OTG Functions (HW-678 Feature)</a></li>
+                        <li><a href="module5.html#module5-7">Part 7: Low Power Consumption and Advanced Features</a></li>
+                        <li><a href="module5.html#module5-8">Part 8: Comprehensive Project Practice</a></li>
+                        <li><a href="module5.html#module5-9">Appendix</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module6.html">6. ESP32 Advanced Tutorials</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module6.html#module6-1">6.1 Project 1: Smart Environment Monitoring Station</a></li>
+                        <li><a href="module6.html#module6-2">6.2 Project 2: WiFi Smart Switch</a></li>
+                        <li><a href="module6.html#module6-3">6.3 Project 3: Bluetooth Low Energy Device</a></li>
+                        <li><a href="module6.html#module6-4">6.4 Project 4: USB Device Simulation</a></li>
+                        <li><a href="module6.html#module6-5">6.5 Project 5: Low Power Sensor Node</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module7.html">7. Expansion & Summary</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module7.html#module7-1">7.1 Further Experiment Suggestions</a></li>
+                        <li><a href="module7.html#module7-2">7.2 Summary</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module8.html">8. Technical Support & FAQ</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module8.html#module8-1">8.1 Technical Support Resources</a></li>
+                        <li><a href="module8.html#module8-2">8.2 Frequently Asked Questions</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="module3" class="module">
+                <h2>3. Arduino IDE Setup & Complete Guide</h2>
+                
+                <div id="module3-1" class="submodule">
+                    <h3>3.1 Chapter 1: Arduino Development Environment Installation and Configuration</h3>
+                    <div class="submodule-content">
+                        <h4>1.1 Arduino IDE Download and Installation</h4>
+                        <p>Goal: Install Arduino IDE 2.x (recommended) or 1.8.x on Windows / Mac / Linux.</p>
+                        <p>Steps:</p>
+                        <p>Visit Arduino official website:</p>
+                        <div class="code-box">
+                            <pre><code>https://www.arduino.cc/en/software</code></pre>
+                        </div>
+                        <p>Download the corresponding installation package according to your operating system:</p>
+                        <ul>
+                            <li>Windows: Download .exe (recommended: "Windows Win 10 and newer")</li>
+                            <li>macOS: Download .app (select Intel or Apple Silicon based on your chip)</li>
+                            <li>Linux: Download AppImage or use snap install arduino</li>
+                        </ul>
+                        <p>Run the installer and follow the prompts to complete the installation (on Windows, it is recommended to check the option to install USB drivers).</p>
+                        <p>Launch Arduino IDE.</p>
+                        <p>💡 Tip: If the official website is slow to access, you can use domestic mirrors (such as arduino.me) or offline packages provided by board manufacturers.</p>
+
+                        <h4>1.2 Add ESP32-S3 Official Board Support</h4>
+                        <p>YD-ESP32-S3 development board uses ESP32-S3 chip, which requires adding ESP32 board index in Arduino IDE.</p>
+                        <p>Steps:</p>
+                        <ul>
+                            <li>Open Arduino IDE, go to File → Preferences (Windows) or Arduino IDE → Settings (macOS).</li>
+                            <li>In "Additional Boards Manager URLs", click the icon to add the following link:</li>
+                        </ul>
+                        <div class="code-box">
+                            <pre><code>https://dl.espressif.com/dl/package_esp32_index.json</code></pre>
+                        </div>
+                        <p>(If there are other URLs already, add this one on a new line)</p>
+                        <ul>
+                            <li>Click OK to save.</li>
+                            <li>Click the Board Manager icon on the left (or Tools → Board → Board Manager).</li>
+                            <li>Search for esp32, find "esp32 by Espressif Systems"</li>
+                            <li>Select version 3.0.5 or higher (3.0.x stable version), click Install.</li>
+                            <li>After installation, close the Board Manager.</li>
+                        </ul>
+                        <p>Verification: In Tools → Board → ESP32 Arduino, you should see "ESP32S3 Dev Module" and other options.</p>
+
+                        <h4>1.3 Serial Driver Installation (CH343)</h4>
+                        <p>YD-ESP32-S3 development board uses CH343P chip for USB to serial conversion (Type-C port marked COM).</p>
+
+                        <p>Windows system</p>
+                        <p>Download CH343 driver from WCH official website:</p>
+                        <div class="code-box">
+                            <pre><code>http://www.wch.cn/download/CH343SER_EXE.html</code></pre>
+                        </div>
+                        <ul>
+                            <li>Run CH343SER.EXE and click Install.</li>
+                            <li>Connect the development board's COM port to the computer with a USB cable.</li>
+                            <li>Open Device Manager → Ports (COM and LPT), you should see USB-SERIAL CH343 (COMx).</li>
+                        </ul>
+
+                        <p>macOS system</p>
+                        <p>Mostly driver-free, if not recognized, you can install CH34x driver (provided by WCH official website).</p>
+
+                        <p>Linux system</p>
+                        <p>Kernel ≥5.5 already includes ch341 driver, after connecting, execute ls /dev/ttyUSB* to check.</p>
+
+                        <p>Common faults</p>
+                        <table>
+                            <tr>
+                                <th>Phenomenon</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>No new port</td>
+                                <td>Change USB cable (must support data transfer); change USB port; restart computer</td>
+                            </tr>
+                            <tr>
+                                <td>Yellow exclamation mark (Win)</td>
+                                <td>Right-click to update driver → manually select CH343 driver folder</td>
+                            </tr>
+                            <tr>
+                                <td>Port exists but cannot upload</td>
+                                <td>Close other serial software (such as serial monitor, Cura)</td>
+                            </tr>
+                        </table>
+
+                        <h4>1.4 Board Parameter Configuration (Critical! Must match your hardware version)</h4>
+                        <p>YD-ESP32-S3 has two hardware versions, please select the correct Flash and PSRAM configuration according to your module model.</p>
+
+                        <p>How to identify the version?</p>
+                        <p>Check the silkscreen on the module:</p>
+                        <ul>
+                            <li>ESP32-S3-WROOM-1-N16R8 → 16MB Flash + 8MB PSRAM (corresponds to HW-678A)</li>
+                            <li>ESP32-S3-WROOM-1-N8R2 → 8MB Flash + 2MB PSRAM (corresponds to HW-678B)</li>
+                        </ul>
+
+                        <p>Configure the following items in the Tools menu of Arduino IDE:</p>
+
+                        <table>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Recommended value (select based on your hardware)</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>Board</td>
+                                <td>ESP32S3 Dev Module</td>
+                                <td>General ESP32-S3 development board model</td>
+                            </tr>
+                            <tr>
+                                <td>USB CDC On Boot</td>
+                                <td>Disabled</td>
+                                <td>Use CH343 serial port, do not enable built-in USB serial</td>
+                            </tr>
+                            <tr>
+                                <td>CPU Frequency</td>
+                                <td>240MHz (WiFi)</td>
+                                <td>Default is fine</td>
+                            </tr>
+                            <tr>
+                                <td>Flash Size</td>
+                                <td>16MB (128Mb) or 8MB (64Mb)</td>
+                                <td>Match the module, wrong selection will cause upload failure</td>
+                            </tr>
+                            <tr>
+                                <td>PSRAM</td>
+                                <td>OPI PSRAM (8M for 16MB version) or OPI PSRAM (for N8R2)</td>
+                                <td>Note: N8R2 has 2MB PSRAM, need to enable; select OPI PSRAM for N8R2; select Disabled for N4 and other versions without PSRAM</td>
+                            </tr>
+                            <tr>
+                                <td>Partition Scheme</td>
+                                <td>Default 4MB with spiffs</td>
+                                <td>Default is fine for most cases</td>
+                            </tr>
+                            <tr>
+                                <td>Upload Speed</td>
+                                <td>921600</td>
+                                <td>Can reduce to 115200 if failed</td>
+                            </tr>
+                        </table>
+
+                        <p>🔥 Important reminder:</p>
+                        <ul>
+                            <li>If Flash Size is wrong, you will get "Flash config wrong" error during upload.</li>
+                            <li>If PSRAM is not enabled correctly, ESP.getPsramSize() will return 0, and later camera and other large memory functions will fail.</li>
+                            <li>This development board's RGB LED is connected to GPIO48 (WS2812), which will be used in subsequent experiments.</li>
+                        </ul>
+
+                        <p>Verify configuration (can be added in setup()):</p>
+                        <div class="code-box">
+                            <pre><code>Serial.begin(115200);
+Serial.printf("Flash size: %d MB\n", ESP.getFlashChipSize() / (1024*1024));
+Serial.printf("PSRAM size: %d bytes\n", ESP.getPsramSize());</code></pre>
+                        </div>
+
+                        <h4>1.5 First Verification Program: Light up the on-board RGB LED (WS2812)</h4>
+                        <p>YD-ESP32-S3 development board has a WS2812 RGB LED onboard, connected to GPIO48. We can use the Adafruit_NeoPixel library to control it and implement simple blinking.</p>
+
+                        <p>Step 1: Install NeoPixel library</p>
+                        <ul>
+                            <li>Open Arduino IDE, go to Tools → Manage Libraries.</li>
+                            <li>Search for Adafruit NeoPixel and install the latest version.</li>
+                        </ul>
+
+                        <p>Step 2: Write code</p>
+                        <div class="code-box">
+                            <pre><code>#include <Adafruit_NeoPixel.h>
+
+#define LED_PIN    48
+#define LED_COUNT  1
+
+Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  strip.begin();
+  strip.show();            // Initialize all LEDs to off state
+  strip.setBrightness(50); // Set brightness to 50 (0-255)
+}
+
+void loop() {
+  // Red
+  strip.setPixelColor(0, strip.Color(255, 0, 0));
+  strip.show();
+  delay(1000);
+  // Green
+  strip.setPixelColor(0, strip.Color(0, 255, 0));
+  strip.show();
+  delay(1000);
+  // Blue
+  strip.setPixelColor(0, strip.Color(0, 0, 255));
+  strip.show();
+  delay(1000);
+  // Off
+  strip.setPixelColor(0, strip.Color(0, 0, 0));
+  strip.show();
+  delay(1000);
+}</code></pre>
+                        </div>
+
+                        <p>Step 3: Upload program</p>
+                        <ul>
+                            <li>Connect the development board's COM port to the computer with a USB cable.</li>
+                            <li>Select the corresponding COM port (Windows) or /dev/cu.usbserial-* (macOS) in Tools → Port.</li>
+                            <li>Click the Upload button.</li>
+                            <li>Observe if the RGB LED blinks in red → green → blue → off cycle.</li>
+                        </ul>
+
+                        <p>Common upload errors and solutions</p>
+                        <table>
+                            <tr>
+                                <th>Error message</th>
+                                <th>Reason</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>Serial port not found</td>
+                                <td>Port not selected or driver not installed</td>
+                                <td>Re-select port; re-plug USB; install CH343 driver</td>
+                            </tr>
+                            <tr>
+                                <td>Timed out waiting for packet header</td>
+                                <td>Not in download mode</td>
+                                <td>Hold BOOT button, press EN button once, release BOOT, then click upload</td>
+                            </tr>
+                            <tr>
+                                <td>Flash config wrong</td>
+                                <td>Flash Size wrong</td>
+                                <td>Check Flash size (16MB or 8MB)</td>
+                            </tr>
+                            <tr>
+                                <td>PSRAM config error</td>
+                                <td>PSRAM setting wrong</td>
+                                <td>Correctly select OPI PSRAM or Disabled according to module model</td>
+                            </tr>
+                        </table>
+
+                        <p>Success sign</p>
+                        <p>After upload, the RGB LED starts to cycle through red, green, blue.</p>
+                        <p>If using the factory program, the RGB will stay on after WiFi connection (but this program has overwritten the factory program).</p>
+
+                        <p>Summary</p>
+                        <p>This chapter, based on the actual hardware parameters of YD-ESP32-S3 development board, completed:</p>
+                        <ul>
+                            <li>Installation of Arduino IDE.</li>
+                            <li>Addition of ESP32-S3 board support.</li>
+                            <li>Installation and troubleshooting of CH343 serial driver.</li>
+                            <li>Correct configuration of Flash/PSRAM (according to module model).</li>
+                            <li>First verification program: lighting up WS2812 RGB LED (GPIO48).</li>
+                        </ul>
+                        <p>The next chapter will detail the hardware resources, pin definitions, and usage taboos of this development board.</p>
+                    </div>
+                </div>
+
+                <div id="module3-2" class="submodule">
+                    <h3>3.2 Chapter 2: Hardware Basics and Pin Description</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+
+                        <ul>
+                            <li>Familiarize with the components on the YD-ESP32-S3 development board (RGB LED, buttons, USB interfaces, etc.) and their functions.</li>
+
+                            <li>Master the functional classification of all available GPIO pins (digital I/O, ADC, touch, special functions).</li>
+
+                            <li>Understand pin usage taboos and hardware safety precautions.</li>
+
+                            <li>Be able to correctly select and use pins based on schematics and silkscreen.</li>
+                        </ul>
+
+                        <h4>2.1 On-board Component Markings and Functions</h4>
+                        <p>Based on the product introduction documents and hardware images, the main components of the YD-ESP32-S3 development board are as follows:</p>
+
+                        <table>
+                            <tr>
+                                <th>Component</th>
+                                <th>Silkscreen Marking</th>
+                                <th>Function Description</th>
+                            </tr>
+                            <tr>
+                                <td>Main Control Module</td>
+                                <td>ESP32-S3-WROOM-1</td>
+                                <td>Integrated ESP32-S3 chip, Flash, PSRAM</td>
+                            </tr>
+                            <tr>
+                                <td>RGB LED</td>
+                                <td>No specific silkscreen (on-board)</td>
+                                <td>WS2812 programmable RGB LED, connected to GPIO48 (active high)</td>
+                            </tr>
+                            <tr>
+                                <td>USB to Serial Chip</td>
+                                <td>CH343P</td>
+                                <td>Connected to Type-C port marked COM, used for program upload and serial monitoring</td>
+                            </tr>
+                            <tr>
+                                <td>Native USB-OTG</td>
+                                <td>USB</td>
+                                <td>Directly connected to ESP32-S3 USB pins (GPIO19/GPIO20), can simulate keyboard/mouse or USB drive</td>
+                            </tr>
+                            <tr>
+                                <td>Reset Button</td>
+                                <td>RST</td>
+                                <td>Press to reset ESP32-S3 (restart program)</td>
+                            </tr>
+                            <tr>
+                                <td>Boot Button</td>
+                                <td>BOOT</td>
+                                <td>Connected to GPIO0, press during power-up to enter download mode; can be used as input button during normal operation</td>
+                            </tr>
+                            <tr>
+                                <td>Power Indicator</td>
+                                <td>Usually red LED</td>
+                                <td>Constantly on when board is powered</td>
+                            </tr>
+                            <tr>
+                                <td>Other Peripherals</td>
+                                <td>-</td>
+                                <td>Crystal oscillator, LDO voltage regulator (5V→3.3V), decoupling capacitors, etc.</td>
+                            </tr>
+                        </table>
+
+                        <h4>Dual USB Interface Usage Instructions</h4>
+                        <table>
+                            <tr>
+                                <th>Interface Silkscreen</th>
+                                <th>Purpose</th>
+                                <th>Can Upload Programs</th>
+                                <th>Notes</th>
+                            </tr>
+                            <tr>
+                                <td>COM</td>
+                                <td>UART serial port (CH343P)</td>
+                                <td>✅ Yes (standard method)</td>
+                                <td>Daily development, debugging, serial printing</td>
+                            </tr>
+                            <tr>
+                                <td>USB</td>
+                                <td>Native USB-OTG</td>
+                                <td>⚠️ Conditional (hold BOOT during power-up to enter DFU mode)</td>
+                                <td>Can simulate USB devices (keyboard/mouse), can also achieve upload through specific firmware</td>
+                            </tr>
+                        </table>
+
+                        <p>🔌 Power Input: Both Type-C ports can provide 5V power, but it is recommended to use the COM port for power supply. Do not power both ports simultaneously to avoid current backflow.</p>
+
+                        <h4>2.2 Core Pin Function Table (Based on YD-ESP32-S3 Schematic)</h4>
+                        <p>Based on the pin diagram you provided (generated by Doubao AI) and ESP32-S3 standard definitions, the following available GPIOs and their functions are organized.</p>
+
+                        <p>General Digital GPIO (can be used as input/output/PWM)</p>
+                        <table>
+                            <tr>
+                                <th>GPIO</th>
+                                <th>Digital Input</th>
+                                <th>Digital Output</th>
+                                <th>PWM</th>
+                                <th>Special Functions</th>
+                                <th>Notes</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>BOOT button (pull-up), low level during power-up enters download mode</td>
+                                <td>Can be used as normal button input</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH0</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH1, TOUCH0</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH2, TOUCH1</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH3, TOUCH2, RTC</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH4, TOUCH3, RTC</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH5, TOUCH4, RTC</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH6, TOUCH5, RTC</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH7, TOUCH6, RTC</td>
+                                <td>Default I2C0 SDA</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH8, TOUCH7, RTC</td>
+                                <td>Default I2C0 SCL</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC1_CH9, FSPICS0</td>
+                                <td>Default SPI CS</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH0, FSPID</td>
+                                <td>Default SPI MOSI</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH1, FSPICLK</td>
+                                <td>Default SPI SCK</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH2, FSPIQ</td>
+                                <td>Default SPI MISO</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH3, TOUCH8</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH4, TOUCH9</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH5, TOUCH10</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH6, TOUCH11</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>ADC2_CH7, TOUCH12</td>
+                                <td>Idle</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>❌</td>
+                                <td>USB-OTG D-</td>
+                                <td>Cannot be used as GPIO if using USB-OTG</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>❌</td>
+                                <td>USB-OTG D+</td>
+                                <td>Cannot be used as GPIO if using USB-OTG</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>Idle</td>
+                                <td>Recommended for use</td>
+                            </tr>
+                            <tr>
+                                <td>42</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>Idle (partially exposed)</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>43</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>UART0 TX (connected to CH343P RX)</td>
+                                <td>Do not use as normal I/O</td>
+                            </tr>
+                            <tr>
+                                <td>44</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>UART0 RX (connected to CH343P TX)</td>
+                                <td>Do not use as normal I/O</td>
+                            </tr>
+                            <tr>
+                                <td>45</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>Bootstrap (low level during power-up disables some functions)</td>
+                                <td>Recommended to keep high or floating</td>
+                            </tr>
+                            <tr>
+                                <td>46</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>Bootstrap (low level during power-up disables JTAG)</td>
+                                <td>Recommended to keep high or floating</td>
+                            </tr>
+                            <tr>
+                                <td>47</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>Idle</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>48</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>✅</td>
+                                <td>WS2812 RGB LED data line</td>
+                                <td>Controls on-board RGB LED (PWM output)</td>
+                            </tr>
+                        </table>
+
+                        <p>📌 About RGB LED: GPIO48 is connected to WS2812 (single-bus addressable LED), not a regular LED. Cannot be directly controlled with digitalWrite, must use NeoPixel library or RMT driver.</p>
+
+                        <h4>Detailed Explanation of Special Function Pins</h4>
+                        <table>
+                            <tr>
+                                <th>Pin</th>
+                                <th>Special Function</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>GPIO0</td>
+                                <td>BOOT mode selection</td>
+                                <td>Low level during power-up enters download mode. Can be used as input during normal operation (internal pull-up).</td>
+                            </tr>
+                            <tr>
+                                <td>GPIO45/46</td>
+                                <td>Bootstrap</td>
+                                <td>Level at power-up determines certain functions. It is recommended not to connect pull-down resistors, keep floating or pull-up.</td>
+                            </tr>
+                            <tr>
+                                <td>GPIO8/9</td>
+                                <td>I2C0 default pins</td>
+                                <td>Can be remapped via Wire.setPins().</td>
+                            </tr>
+                            <tr>
+                                <td>GPIO10~13</td>
+                                <td>SPI0 (FSPI) default pins</td>
+                                <td>Can be remapped, but usually used for SD cards, displays, etc.</td>
+                            </tr>
+                            <tr>
+                                <td>GPIO19/20</td>
+                                <td>USB-OTG D+/D-</td>
+                                <td>If not using USB-OTG, can be used as normal GPIO (but recommended to avoid).</td>
+                            </tr>
+                            <tr>
+                                <td>GPIO43/44</td>
+                                <td>UART0 (connected to CH343P)</td>
+                                <td>Fixed connection, cannot be used for other purposes, otherwise serial port will fail.</td>
+                            </tr>
+                        </table>
+
+                        <h4>RTC Domain Pins (Can Maintain State in Deep Sleep)</h4>
+                        <p>The following pins can maintain level or act as wake-up sources in deep sleep mode:</p>
+                        <p>GPIO0, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 42, 45, 46</p>
+
+                        <h4>ADC Pins (Analog-to-Digital Conversion)</h4>
+                        <p>ADC1 (can be used simultaneously with WiFi): GPIO1~GPIO10</p>
+                        <p>ADC2 (unavailable when WiFi is on): GPIO11~GPIO20</p>
+                        <p>12-bit resolution (0~4095), default range 0~3.3V. Can be extended to ~3.9V via analogSetAttenuation(ADC_11db).</p>
+                        <p>⚠️ Note: ADC2 conflicts with WiFi, reading ADC2 pins when WiFi is connected will return incorrect values.</p>
+
+                        <h4>Touch Pins</h4>
+                        <p>Total of 14 touch channels, distributed on some pins of GPIO1~14 (see ESP32-S3 datasheet). Capacitance values can be read using touchRead(pin).</p>
+
+                        <h4>Default Pins for Communication Interfaces</h4>
+                        <table>
+                            <tr>
+                                <th>Interface</th>
+                                <th>Default Pins</th>
+                                <th>Remappable</th>
+                            </tr>
+                            <tr>
+                                <td>UART0</td>
+                                <td>TX=GPIO43, RX=GPIO44</td>
+                                <td>No (board-level fixed)</td>
+                            </tr>
+                            <tr>
+                                <td>UART1</td>
+                                <td>No default</td>
+                                <td>Yes (Serial1.begin(baud, SERIAL_8N1, rxPin, txPin))</td>
+                            </tr>
+                            <tr>
+                                <td>I2C0</td>
+                                <td>SDA=GPIO8, SCL=GPIO9</td>
+                                <td>Yes (Wire.begin(sda, scl))</td>
+                            </tr>
+                            <tr>
+                                <td>SPI (FSPI)</td>
+                                <td>SCK=GPIO12, MISO=GPIO13, MOSI=GPIO11, CS=GPIO10</td>
+                                <td>Yes (SPI.begin(sck, miso, mosi, cs))</td>
+                            </tr>
+                        </table>
+
+                        <h4>2.3 Pin Usage Taboos (Very Important!)</h4>
+                        <p>1. Voltage Limitation: All GPIOs are 3.3V logic level</p>
+                        <ul>
+                            <li>Never directly input 5V voltage, otherwise the chip will be damaged.</li>
+                            <li>When connecting 5V modules, must use level conversion circuits (such as TXS0108E) or resistor voltage dividers.</li>
+                            <li>For some 5V modules (such as relays), signal input can be connected in series with 1kΩ resistor for current limiting, but long-term reliability is not guaranteed.</li>
+                        </ul>
+
+                        <p>2. Special Requirements for Bootstrap Pins</p>
+                        <ul>
+                            <li>GPIO0: Cannot be low level during power-up (unless entering download mode). Internal pull-up during normal use, external buttons are fine.</li>
+                            <li>GPIO45/46: Recommended to keep high or floating (internal pull-up) during power-up, do not connect pull-down resistors or buttons.</li>
+                        </ul>
+
+                        <p>3. Usage Limitations of USB Pins (GPIO19/20)</p>
+                        <ul>
+                            <li>If USB-OTG function is not needed, these two pins can be used as normal GPIO (3.3V logic).</li>
+                            <li>Once USB is initialized (e.g., calling Serial's USB CDC mode or USB.begin()), they are occupied by the USB controller and can no longer be used as GPIO.</li>
+                        </ul>
+
+                        <p>4. Dedicated Serial Pins (GPIO43/44)</p>
+                        <ul>
+                            <li>These two pins are already connected to the CH343P chip for UART0 communication.</li>
+                            <li>Do not use them as normal I/O, otherwise serial communication will fail, making it impossible to upload programs or print logs.</li>
+                        </ul>
+
+                        <p>5. Special Driving for RGB LED (GPIO48)</p>
+                        <ul>
+                            <li>WS2812 uses single-bus serial protocol, cannot be directly controlled with digitalWrite.</li>
+                            <li>Must use NeoPixel library or ESP32's RMT peripheral driver.</li>
+                            <li>Example code see Chapter 1.</li>
+                        </ul>
+
+                        <p>6. Other Notes</p>
+                        <ul>
+                            <li>Some GPIOs will have brief high or low level output during chip startup (e.g., GPIO2 will change during WiFi initialization), try to avoid using them for critical control.</li>
+                            <li>Try to avoid using GPIO11~20 as ADC inputs while enabling WiFi (ADC2 conflict).</li>
+                        </ul>
+
+                        <h4>2.4 Hardware Safety Instructions</h4>
+                        <p>Electrostatic Protection (ESD)</p>
+                        <ul>
+                            <li>Touch a metal object (such as computer case) to discharge before touching the development board.</li>
+                            <li>It is recommended to use anti-static wristband in dry environment.</li>
+                        </ul>
+
+                        <p>Short Circuit Protection</p>
+                        <ul>
+                            <li>Do not touch between pins with metal objects when powered on.</li>
+                            <li>Check for solder bridges before soldering headers.</li>
+                            <li>Pay attention to correct polarity when connecting external power supply (reverse connection will burn the voltage regulator chip).</li>
+                        </ul>
+
+                        <p>Power Overload Protection</p>
+                        <ul>
+                            <li>On-board 3.3V regulator maximum output current is about 500mA (varies by manufacturer).</li>
+                            <li>When connecting high-current modules (servos, motors, multiple sensors), use external 3.3V/5V power supply, do not draw power from on-board 3.3V.</li>
+                            <li>Each GPIO output current should not exceed 40mA (recommended ≤20mA), driving LED must be connected in series with current limiting resistor (220Ω~1kΩ) — but WS2812 has built-in current limiting, can be directly connected.</li>
+                        </ul>
+
+                        <p>Safety Checklist:</p>
+                        <ul>
+                            <li>✅ Use well-isolated USB data cable.</li>
+                            <li>✅ Measure power and GND for short circuit with multimeter before first power-up.</li>
+                            <li>✅ Connect GND first when hot-plugging.</li>
+                            <li>❌ Do not use bare board on damp or metal surfaces.</li>
+                            <li>❌ Do not touch running chips with hands (may burn).</li>
+                        </ul>
+
+                        <h4>2.5 Experiment: Verify On-board RGB LED and BOOT Button</h4>
+                        <p>To consolidate the knowledge in this chapter, write a simple program: when the BOOT button is pressed, the RGB LED displays red; when released, it displays green.</p>
+
+                        <p>Wiring: No external wiring required (on-board LED and button are already connected).</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>#include <Adafruit_NeoPixel.h>
+
+#define LED_PIN    48
+#define BUTTON_PIN 0
+
+Adafruit_NeoPixel strip(1, LED_PIN, NEO_GRB + NEO_KHZ800);
+
+void setup() {
+  strip.begin();
+  strip.show();
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+  if (digitalRead(BUTTON_PIN) == LOW) {  // Pressed
+    strip.setPixelColor(0, strip.Color(255, 0, 0)); // Red
+  } else {
+    strip.setPixelColor(0, strip.Color(0, 255, 0)); // Green
+  }
+  strip.show();
+  delay(50); // Simple debounce
+}</code></pre>
+                        </div>
+
+                        <p>Effect:</p>
+                        <ul>
+                            <li>When BOOT is not pressed, RGB LED displays green.</li>
+                            <li>When BOOT is pressed, displays red.</li>
+                            <li>Returns to green after release.</li>
+                        </ul>
+
+                        <p>Summary</p>
+                        <p>This chapter provides detailed introduction to the actual hardware of the YD-ESP32-S3 development board:</p>
+                        <ul>
+                            <li>On-board component locations and functions (RGB LED, dual USB ports, buttons, etc.).</li>
+                            <li>Complete pin function table (including GPIO, ADC, touch, communication interfaces).</li>
+                            <li>Pin usage taboos (3.3V logic, bootstrap, dedicated pins, RGB LED driving).</li>
+                            <li>Hardware safety precautions.</li>
+                        </ul>
+                        <p>The next chapter will enter Arduino programming basics, learning how to use these pins for input/output control.</p>
+                    </div>
+                </div>
+
+                <div id="module3-3" class="submodule">
+                    <h3>3.3 Chapter 3: Arduino Programming Basics</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+
+                        <ul>
+                            <li>Master the standard structure of Arduino programs (setup() and loop()).</li>
+
+                            <li>Proficiently use basic data types, variable scopes, constants, and arrays.</li>
+
+                            <li>Understand and be able to use core I/O functions (digital, analog, PWM).</li>
+
+                            <li>Master syntax such as conditional statements, loops, function definition, and overloading.</li>
+                        </ul>
+
+                        <h4>3.1 Basic Structure of Arduino Programs</h4>
+                        <p>Every Arduino program (Sketch) must contain two core functions:</p>
+
+                        <div class="code-box">
+                            <pre><code>void setup() {
+  // Initialization code, executed only once at program startup
+}
+
+void loop() {
+  // Main loop code, executed repeatedly
+}</code></pre>
+                        </div>
+
+                        <h4>setup() Function</h4>
+                        <p>Automatically runs once when the board is powered on or reset.</p>
+
+                        <p>Usually used for: setting pin modes (pinMode), initializing serial port (Serial.begin), configuring peripherals, etc.</p>
+
+                        <div class="code-box">
+                            <pre><code>void setup() {
+  pinMode(48, OUTPUT);       // Set GPIO48 as output (on-board RGB LED data line, but note WS2812 requires dedicated library)
+  Serial.begin(115200);      // Initialize serial port
+}</code></pre>
+                        </div>
+
+                        <p>Note: For the on-board RGB LED (WS2812) of YD-ESP32-S3, it cannot be directly controlled with digitalWrite, must use NeoPixel library. However, basic digital output experiments in this chapter can still use external LEDs or idle GPIOs.</p>
+
+                        <h4>loop() Function</h4>
+                        <p>Executes repeatedly after setup() completes.</p>
+
+                        <p>Usually used for: reading sensors, controlling outputs, communication processing, and other main logic.</p>
+
+                        <div class="code-box">
+                            <pre><code>void loop() {
+  digitalWrite(48, HIGH);
+  delay(1000);
+  digitalWrite(48, LOW);
+  delay(1000);
+}</code></pre>
+                        </div>
+
+                        <h4>Comments</h4>
+                        <p>Single-line comment: // to end of line.</p>
+
+                        <p>Multi-line comment: /* ... */.</p>
+
+                        <h4>3.2 Variables and Data Types</h4>
+                        <h5>Common Basic Types</h5>
+                        <table>
+                            <tr>
+                                <th>Type</th>
+                                <th>Keyword</th>
+                                <th>Size (bytes)</th>
+                                <th>Range</th>
+                                <th>Example</th>
+                            </tr>
+                            <tr>
+                                <td>Boolean</td>
+                                <td>bool</td>
+                                <td>1</td>
+                                <td>true / false</td>
+                                <td>bool flag = true;</td>
+                            </tr>
+                            <tr>
+                                <td>Character</td>
+                                <td>char</td>
+                                <td>1</td>
+                                <td>-128 ~ 127 or 0~255</td>
+                                <td>char ch = 'A';</td>
+                            </tr>
+                            <tr>
+                                <td>Byte</td>
+                                <td>byte</td>
+                                <td>1</td>
+                                <td>0 ~ 255</td>
+                                <td>byte val = 100;</td>
+                            </tr>
+                            <tr>
+                                <td>Integer</td>
+                                <td>int</td>
+                                <td>4 (ESP32)</td>
+                                <td>-2,147,483,648 ~ 2,147,483,647</td>
+                                <td>int count = 1000;</td>
+                            </tr>
+                            <tr>
+                                <td>Unsigned Integer</td>
+                                <td>unsigned int</td>
+                                <td>4</td>
+                                <td>0 ~ 4,294,967,295</td>
+                                <td>unsigned int a = 50000;</td>
+                            </tr>
+                            <tr>
+                                <td>Long</td>
+                                <td>long</td>
+                                <td>4</td>
+                                <td>Same as int</td>
+                                <td>long big = 123456L;</td>
+                            </tr>
+                            <tr>
+                                <td>Float</td>
+                                <td>float</td>
+                                <td>4</td>
+                                <td>±1.2E-38 ~ ±3.4E+38</td>
+                                <td>float temp = 23.5;</td>
+                            </tr>
+                            <tr>
+                                <td>Double</td>
+                                <td>double</td>
+                                <td>4 (same as float on ESP32)</td>
+                                <td>Same as float</td>
+                                <td>double pi = 3.1415926;</td>
+                            </tr>
+                            <tr>
+                                <td>String Class</td>
+                                <td>String</td>
+                                <td>Dynamic</td>
+                                <td>Variable length string</td>
+                                <td>String msg = "Hello";</td>
+                            </tr>
+                        </table>
+
+                        <h5>Global Variables and Local Variables</h5>
+                        <p>Global variables: Defined outside all functions, visible throughout the program.</p>
+
+                        <p>Local variables: Defined inside functions or code blocks {}, only valid within the block.</p>
+
+                        <div class="code-box">
+                            <pre><code>int globalVar = 0;  // Global variable
+
+void setup() {
+  int localVar = 5; // Local variable
+  globalVar = 10;
+}</code></pre>
+                        </div>
+
+                        <h5>Constant Definition (const)</h5>
+                        <div class="code-box">
+                            <pre><code>const int LED_PIN = 48;
+const float PI = 3.14159;
+// LED_PIN = 10;   // Compile error!</code></pre>
+                        </div>
+
+                        <h5>Array Definition and Usage</h5>
+                        <div class="code-box">
+                            <pre><code>int pins[] = {48, 1, 2, 3};
+int values[5];
+float temps[3] = {23.5, 24.0, 22.8};
+
+for (int i = 0; i < 4; i++) {
+  Serial.println(pins[i]);
+}</code></pre>
+                        </div>
+
+                        <h5>Common String Class Methods</h5>
+                        <div class="code-box">
+                            <pre><code>String s = "Hello";
+s += " World";              // Concatenation → "Hello World"
+int len = s.length();       // Length
+String sub = s.substring(0, 5);   // "Hello"
+int index = s.indexOf("World");   // 6
+s.replace("World", "Arduino");
+s.toUpperCase();
+float f = s.toFloat();</code></pre>
+                        </div>
+
+                        <p>📌 Recommendation: In memory-constrained situations, prioritize using char[] and C string functions.</p>
+
+                        <h4>3.3 Core Basic Functions of This Board</h4>
+                        <p>The YD-ESP32-S3 development board is based on the ESP32-S3 chip, with basically the same functions as standard Arduino, but some functions have extensions.</p>
+
+                        <h5>Pin Mode Setting: pinMode(pin, mode)</h5>
+                        <div class="code-box">
+                            <pre><code>pinMode(48, OUTPUT);          // Digital output
+pinMode(0, INPUT);            // High impedance input (floating)
+pinMode(0, INPUT_PULLUP);     // Internal pull-up input (default high)
+pinMode(1, INPUT_PULLDOWN);   // Internal pull-down input (default low)</code></pre>
+                        </div>
+
+                        <p>Internal pull-up/pull-down resistors are approximately 40kΩ~50kΩ.</p>
+
+                        <h5>Digital Output: digitalWrite(pin, value)</h5>
+                        <div class="code-box">
+                            <pre><code>digitalWrite(48, HIGH);   // Output 3.3V
+digitalWrite(48, LOW);    // Output 0V</code></pre>
+                        </div>
+
+                        <p>⚠️ Note: GPIO48 is connected to WS2812 RGB LED, cannot be directly controlled with digitalWrite. To light up the on-board LED, use NeoPixel library (see Chapter 1). For digital output experiments in this section, it is recommended to use external LEDs or idle GPIOs (such as GPIO1).</p>
+
+                        <h5>Digital Input: digitalRead(pin)</h5>
+                        <div class="code-box">
+                            <pre><code>int state = digitalRead(0);   // Read BOOT button state (LOW when pressed)
+if (state == LOW) {
+  // Button is pressed
+}</code></pre>
+                        </div>
+
+                        <h5>PWM Output: analogWrite(pin, value)</h5>
+                        <p>All GPIOs of ESP32 support PWM (via LEDC peripheral).</p>
+
+                        <p>value range: 0 (completely off) ~ 255 (completely on).</p>
+
+                        <div class="code-box">
+                            <pre><code>analogWrite(1, 128);   // GPIO1 outputs 50% duty cycle square wave</code></pre>
+                        </div>
+
+                        <p>For higher precision or frequency adjustment, use ledcSetup() and ledcAttachPin().</p>
+
+                        <h5>ADC Input: analogRead(pin)</h5>
+                        <p>12-bit resolution (0~4095), default range 0~3.3V.</p>
+
+                        <p>ADC1 pins (GPIO1~GPIO10) can be used simultaneously with WiFi.</p>
+
+                        <p>ADC2 pins (GPIO11~GPIO20) are unavailable when WiFi is on.</p>
+
+                        <div class="code-box">
+                            <pre><code>int adcValue = analogRead(1);   // Read analog voltage on GPIO1
+float voltage = adcValue * (3.3 / 4095.0);
+Serial.println(voltage);</code></pre>
+                        </div>
+
+                        <p>Range can be extended to ~3.9V via analogSetAttenuation(ADC_11db).</p>
+
+                        <h4>3.4 Basic Syntax</h4>
+                        <h5>Conditional Statements</h5>
+                        <div class="code-box">
+                            <pre><code>if (temperature > 30) {
+  digitalWrite(FAN_PIN, HIGH);
+} else if (temperature > 20) {
+  digitalWrite(FAN_PIN, LOW);
+} else {
+  // Do nothing
+}</code></pre>
+                        </div>
+
+                        <div class="code-box">
+                            <pre><code>switch (mode) {
+  case 1:
+    doSomething();
+    break;
+  case 2:
+    doOther();
+    break;
+  default:
+    doDefault();
+}</code></pre>
+                        </div>
+
+                        <h5>Loop Statements</h5>
+                        <div class="code-box">
+                            <pre><code>for (int i = 0; i < 10; i++) {
+  Serial.println(i);
+}
+
+int i = 0;
+while (i < 10) {
+  Serial.println(i);
+  i++;
+}
+
+do {
+  Serial.println(i);
+  i++;
+} while (i < 10);</code></pre>
+                        </div>
+
+                        <h5>Custom Functions</h5>
+                        <div class="code-box">
+                            <pre><code>int average(int a, int b) {
+  return (a + b) / 2;
+}
+
+void setup() {
+  Serial.begin(115200);
+  int result = average(10, 20);
+  Serial.println(result);   // Output 15
+}</code></pre>
+                        </div>
+
+                        <h5>Function Overloading and Default Parameters</h5>
+                        <div class="code-box">
+                            <pre><code>// Overloading
+int max(int a, int b) { return (a > b) ? a : b; }
+float max(float a, float b) { return (a > b) ? a : b; }
+
+// Default parameters
+void blinkLED(int pin, int times = 1, int interval = 500) {
+  for (int i = 0; i < times; i++) {
+    digitalWrite(pin, HIGH);
+    delay(interval);
+    digitalWrite(pin, LOW);
+    delay(interval);
+  }
+}
+// Calling methods
+blinkLED(48);           // Blink once, 500ms interval
+blinkLED(48, 3);        // Blink 3 times, 500ms interval
+blinkLED(48, 5, 200);   // Blink 5 times, 200ms interval</code></pre>
+                        </div>
+
+                        <h5>Scope and static Keyword</h5>
+                        <div class="code-box">
+                            <pre><code>void countCalls() {
+  static int counter = 0;   // Initialized only on first call
+  counter++;
+  Serial.println(counter);
+}
+// Each call outputs incrementing values: 1,2,3...</code></pre>
+                        </div>
+
+                        <h4>3.5 Experiment: Comprehensive Application of Basic Syntax (External LED Breathing Light)</h4>
+                        <p>Experiment purpose: Use external LED (connected to GPIO1) and PWM to implement breathing light effect, and print current brightness value through serial port. Also demonstrate the use of arrays, loops, and functions.</p>
+
+                        <p>Hardware connection:</p>
+
+                        <p>External LED anode connected to GPIO1 through 220Ω resistor, cathode connected to GND.</p>
+
+                        <p>Code:</p>
+
+                        <div class="code-box">
+                            <pre><code>const int LED_PIN = 1;   // Use GPIO1 (idle pin)
+int brightnessTable[] = {0, 64, 128, 192, 255};  // Brightness array
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void setBrightness(int value) {
+  analogWrite(LED_PIN, value);
+  Serial.print("Brightness: ");
+  Serial.println(value);
+}
+
+void loop() {
+  // Gradually brighten
+  for (int i = 0; i <= 255; i++) {
+    setBrightness(i);
+    delay(10);
+  }
+  // Gradually dim
+  for (int i = 255; i >= 0; i--) {
+    setBrightness(i);
+    delay(10);
+  }
+  // Use fixed brightness values from array
+  for (int i = 0; i < 5; i++) {
+    setBrightness(brightnessTable[i]);
+    delay(500);
+  }
+}</code></pre>
+                        </div>
+
+                        <p>Effect: LED brightness changes smoothly first, then jumps according to preset brightness values, serial monitor outputs brightness numbers.</p>
+
+                        <p>Summary</p>
+                        <p>This chapter covers all basic Arduino programming content, with explanations tailored to the YD-ESP32-S3 development board:</p>
+
+                        <ul>
+                            <li>Program structure (setup/loop/comments).</li>
+
+                            <li>Data types, variable scopes, constants, arrays, String class.</li>
+
+                            <li>Core I/O functions: pinMode, digital read/write, PWM (analogWrite), ADC (analogRead).</li>
+
+                            <li>Syntax: conditional statements, loops, custom functions, overloading, default parameters, static.</li>
+                        </ul>
+                        <p>The next chapter will learn LED control, starting with digital output, lighting up external LEDs and implementing various blinking patterns.</p>
+                    </div>
+                </div>
+
+                <div id="module3-4" class="submodule">
+                    <h3>3.4 Chapter 4: LED Control (Digital Output)</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+
+                        <ul>
+                            <li>Understand the basic principle of digital output: GPIO outputs high level (3.3V) or low level (0V).</li>
+
+                            <li>Master the use of pinMode() to configure pins as output mode, and digitalWrite() to control LED on/off.</li>
+
+                            <li>Since the YD-ESP32-S3 on-board RGB LED is WS2812 (cannot be directly controlled with digitalWrite), this chapter will focus on external LED control methods.</li>
+
+                            <li>Learn to troubleshoot common hardware and software issues when LEDs don't light up.</li>
+                        </ul>
+
+                        <h4>4.1 Experiment Objectives and Principles</h4>
+                        <p>Experiment objectives:</p>
+
+                        <ul>
+                            <li>Use external LED (any GPIO) to implement basic on/off control.</li>
+
+                            <li>Make LEDs blink at different frequencies through programs.</li>
+
+                            <li>Understand the necessity and calculation method of current limiting resistors.</li>
+                        </ul>
+
+                        <p>Digital output principle:</p>
+
+                        <ul>
+                            <li>After configuring GPIO as output mode, digitalWrite(pin, HIGH) makes the pin output 3.3V, digitalWrite(pin, LOW) outputs 0V.</li>
+
+                            <li>LED is a unidirectional conductive device, it lights up when the positive (anode) is connected to high level and the negative (cathode) is grounded (GND).</li>
+
+                            <li>Must connect in series with a current limiting resistor (typical value 220Ω~1kΩ) to prevent excessive current from burning the LED and GPIO.</li>
+                        </ul>
+
+                        <p>⚠️ About on-board RGB LED: The RGB LED on YD-ESP32-S3 development board is WS2812, which is an intelligent control LED that cannot be directly controlled through digitalWrite. It requires a dedicated single-bus protocol (using NeoPixel library or RMT driver). This chapter's experiments will use external ordinary LEDs for learning. The control of on-board WS2812 was demonstrated in Chapter 1 and will also be covered in subsequent chapters.</p>
+
+                        <h4>4.2 Hardware Preparation and Wiring</h4>
+                        <p>Required components:</p>
+
+                        <ul>
+                            <li>1 5mm ordinary LED (any color)</li>
+
+                            <li>1 220Ω resistor (can also use 330Ω, 470Ω, 1kΩ)</li>
+
+                            <li>Breadboard and several DuPont wires</li>
+
+                            <li>YD-ESP32-S3 development board</li>
+                        </ul>
+
+                        <p>Recommended GPIO: Choose idle pins without special functions, such as GPIO1, GPIO2, GPIO3, GPIO4, GPIO5, etc. (avoid GPIO0 (BOOT button), GPIO43/44 (serial port), GPIO48 (WS2812), etc.).</p>
+
+                        <p>Wiring steps:</p>
+
+                        <ul>
+                            <li>Connect the long leg (anode) of the LED in series with a resistor to the selected GPIO of ESP32-S3 (e.g., GPIO1).</li>
+
+                            <li>Connect the short leg (cathode) of the LED directly to the GND of the development board.</li>
+                        </ul>
+
+                        <p>ESP32 GPIO1  ----[ 220Ω ]---- LED Anode (long leg)</p>
+                        <p>                               LED Cathode (short leg)  ---- GND</p>
+
+                        <p>💡 Tip: If using a breadboard, make sure the connections are good.</p>
+
+                        <h4>4.3 Basic Experiment: External LED Blinking</h4>
+                        <p>Code (using GPIO1):</p>
+
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1   // GPIO connected to external LED
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH);   // Turn on LED
+  delay(1000);                   // Wait 1 second
+  digitalWrite(LED_PIN, LOW);    // Turn off LED
+  delay(1000);                   // Wait 1 second
+}</code></pre>
+                        </div>
+
+                        <p>Effect: LED turns on and off every 1 second, 2-second cycle.</p>
+
+                        <p>Extension: Different rhythm blinking</p>
+                        <div class="code-box">
+                            <pre><code>// Fast blinking (0.2s on, 0.2s off)
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  delay(200);
+  digitalWrite(LED_PIN, LOW);
+  delay(200);
+}
+
+// Slow blinking (2s on, 2s off)
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  delay(2000);
+  digitalWrite(LED_PIN, LOW);
+  delay(2000);
+}</code></pre>
+                        </div>
+
+                        <h4>4.4 Controlling Multiple External LEDs Simultaneously</h4>
+                        <p>Example: Two LEDs blinking alternately (GPIO1 and GPIO2).</p>
+
+                        <p>Wiring:</p>
+
+                        <ul>
+                            <li>LED1 (GPIO1) in series with 220Ω resistor</li>
+
+                            <li>LED2 (GPIO2) in series with 220Ω resistor</li>
+                        </ul>
+
+                        <p>Code:</p>
+
+                        <div class="code-box">
+                            <pre><code>#define LED1 1
+#define LED2 2
+
+void setup() {
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED1, HIGH);
+  digitalWrite(LED2, LOW);
+  delay(500);
+  digitalWrite(LED1, LOW);
+  digitalWrite(LED2, HIGH);
+  delay(500);
+}</code></pre>
+                        </div>
+
+                        <p>Effect: Two LEDs blink alternately, like a "chase light".</p>
+
+                        <h4>4.5 Common Problem Troubleshooting</h4>
+                        <h5>3 Common Reasons Why LEDs Don't Light Up</h5>
+                        <table>
+                            <tr>
+                                <th>Phenomenon</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>LED doesn't light up at all</td>
+                                <td>Reverse polarity</td>
+                                <td>Confirm that the long leg (anode) is connected to GPIO, short leg (cathode) to GND.</td>
+                            </tr>
+                            <tr>
+                                <td>LED doesn't light up or is very dim</td>
+                                <td>Missing current limiting resistor or resistor too large</td>
+                                <td>Must connect 220Ω~1kΩ resistor in series. Too large resistor value will result in very low brightness.</td>
+                            </tr>
+                            <tr>
+                                <td>LED doesn't light up</td>
+                                <td>Wrong pin</td>
+                                <td>Check if the pin number in the code matches the actual wiring.</td>
+                            </tr>
+                            <tr>
+                                <td>LED flickers weakly or unstable</td>
+                                <td>Insufficient power or poor contact</td>
+                                <td>Check breadboard connections; use reliable USB cable for power supply.</td>
+                            </tr>
+                            <tr>
+                                <td>No change in LED after program upload</td>
+                                <td>pinMode not called</td>
+                                <td>Confirm OUTPUT mode is set in setup().</td>
+                            </tr>
+                        </table>
+
+                        <h5>Pin Selection Notes</h5>
+                        <ul>
+                            <li>Avoid using GPIO0 (BOOT button, low level during power-up will enter download mode).</li>
+
+                            <li>Avoid using GPIO43/44 (fixed as serial port).</li>
+
+                            <li>Avoid using GPIO48 (WS2812, cannot be directly used for digital output).</li>
+
+                            <li>Recommended to use pins from GPIO1~GPIO21 without special functions (except GPIO19/20 can also be used if not using USB-OTG).</li>
+                        </ul>
+
+                        <h5>Verify if Pins Are Working Normally</h5>
+                        <p>Use a multimeter to measure: when digitalWrite(pin, HIGH), the pin voltage to GND should be 3.3V; when LOW, it should be close to 0V.</p>
+
+                        <h4>4.6 Experiment: Morse Code SOS</h4>
+                        <p>Extension task: Use LED blinking to send SOS signal (three short, three long, three short).</p>
+
+                        <p>Code (using GPIO1):</p>
+
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  // SOS: 3 short
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(LED_PIN, HIGH);
+    delay(200);
+    digitalWrite(LED_PIN, LOW);
+    delay(200);
+  }
+  delay(500);   // Inter-letter interval
+  
+  // 3 long
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(LED_PIN, HIGH);
+    delay(600);
+    digitalWrite(LED_PIN, LOW);
+    delay(200);
+  }
+  delay(500);
+  
+  // 3 short
+  for (int i = 0; i < 3; i++) {
+    digitalWrite(LED_PIN, HIGH);
+    delay(200);
+    digitalWrite(LED_PIN, LOW);
+    delay(200);
+  }
+  delay(2000);   // Repeat cycle
+}</code></pre>
+                        </div>
+
+                        <p>Effect: LED blinks repeatedly in SOS pattern.</p>
+
+                        <h4>4.7 Supplementary Note on On-board WS2812 RGB LED</h4>
+                        <p>The on-board RGB LED (WS2812) of YD-ESP32-S3 development board cannot be controlled using digitalWrite. To use it, please refer to the example code in Chapter 1 (using Adafruit_NeoPixel library). Subsequent chapters (such as PWM) will also cover achieving colorful effects through the NeoPixel library.</p>
+
+                        <p>Summary</p>
+                        <p>This chapter completes the basic experiments of digital output, with special focus on the characteristics of YD-ESP32-S3 development board:</p>
+
+                        <ul>
+                            <li>Use external LEDs for digital output experiments, avoiding the driving differences of on-board WS2812.</li>
+
+                            <li>Mastered LED wiring (series current limiting resistor, correct polarity), blinking control, and multi-LED alternation.</li>
+
+                            <li>Common troubleshooting methods.</li>
+                        </ul>
+                        <p>The next chapter will learn about delay and non-blocking delay, solving the problem that delay() prevents programs from executing multiple tasks simultaneously.</p>
+                    </div>
+                </div>
+
+                <div id="module3-5" class="submodule">
+                    <h3>3.5 Chapter 5: Delay and Non-blocking Delay</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+
+                        <ul>
+                            <li>Understand the blocking nature of delay() and its limitations.</li>
+
+                            <li>Master the use of millis() to implement non-blocking delay, executing multiple tasks simultaneously.</li>
+
+                            <li>Learn to use micros() for microsecond-level precise delay.</li>
+
+                            <li>Demonstrate two independent frequency tasks through external LED (or serial printing).</li>
+                        </ul>
+
+                        <p>About on-board LED: Since the YD-ESP32-S3 on-board WS2812 cannot be directly controlled with digitalWrite, this chapter's experiments use external ordinary LEDs (connected to GPIO1) or directly use serial printing to observe time. You can also use the NeoPixel library from Chapter 1 to control the RGB LED, but to focus on the delay concept, it is recommended to use external LED or serial port first.</p>
+
+                        <h4>5.1 Blocking Delay: delay(ms) Function</h4>
+                        <p>delay(ms) is the simplest delay function in Arduino, with the parameter being milliseconds. After calling, the program will pause at the current position until the specified time has passed before continuing to execute.</p>
+
+                        <div class="code-box">
+                            <pre><code>delay(1000);   // Wait 1 second</code></pre>
+                        </div>
+
+                        <h5>Different Rhythm Blinking Experiment (External LED)</h5>
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(LED_PIN, HIGH);
+  delay(500);   // On for 0.5 seconds
+  digitalWrite(LED_PIN, LOW);
+  delay(500);   // Off for 0.5 seconds
+}</code></pre>
+                        </div>
+
+                        <p>Modify the delay() parameter to change the frequency.</p>
+
+                        <h4>5.2 Limitations of Blocking Delay (Cannot Execute Multiple Tasks Simultaneously)</h4>
+                        <h5>Problem Demonstration: Trying to Make LED Blink and Serial Print Once Per Second Simultaneously</h5>
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop() {
+  // LED blinks once (0.5 second cycle)
+  digitalWrite(LED_PIN, HIGH);
+  delay(250);
+  digitalWrite(LED_PIN, LOW);
+  delay(250);
+  
+  // Serial print (expected once per second)
+  Serial.println("Hello");
+  delay(1000);
+}</code></pre>
+                        </div>
+
+                        <p>Actual effect: LED blinking and serial printing are executed sequentially, not simultaneously. Because delay() completely blocks the program, it cannot execute other code during the waiting period.</p>
+
+                        <h5>Fundamental Defects</h5>
+                        <ul>
+                            <li>The program is in a "busy waiting" state during delay(), CPU idles but does not respond to other operations.</li>
+
+                            <li>Cannot achieve true simultaneous (concurrent) tasks.</li>
+
+                            <li>For systems that require real-time response (such as reading buttons, processing communication), delay() will cause response delays.</li>
+                        </ul>
+
+                        <p>Solution: Clock-based non-blocking delay.</p>
+
+                        <h4>5.3 Non-blocking Delay: millis() Function</h4>
+                        <h5>Principle</h5>
+                        <p>millis() returns the number of milliseconds that have passed since the program started running (board power-on or reset), type unsigned long.</p>
+
+                        <p>Overflows and resets to zero after about 50 days, but correct handling of differences can avoid problems.</p>
+
+                        <p>The core of non-blocking delay: record the time of the last action, and continuously check whether the current time has reached the time for the next action.</p>
+
+                        <h5>Non-blocking LED Blinking Example (Replacing delay(500))</h5>
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1
+
+unsigned long previousMillis = 0;
+const long interval = 500;   // Toggle interval (milliseconds)
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  unsigned long currentMillis = millis();
+  
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+    digitalWrite(LED_PIN, !digitalRead(LED_PIN));   // Toggle state
+  }
+  
+  // Other tasks can run non-blockingly
+}</code></pre>
+                        </div>
+
+                        <h5>Key Points:</h5>
+
+                        <ul>
+                            <li>Use unsigned long to store time.</li>
+
+                            <li>The difference calculation current - previous >= interval can correctly handle overflow.</li>
+
+                            <li>Between condition checks, the program can execute other code.</li>
+                        </ul>
+
+                        <h5>Multi-task Parallel Implementation: Controlling LED Blinking and Serial Printing Simultaneously</h5>
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1
+
+unsigned long prevLed = 0;
+unsigned long prevSerial = 0;
+const long ledInterval = 300;    // LED toggles every 300ms
+const long serialInterval = 1000; // Serial prints every 1 second
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
+}
+
+void loop() {
+  unsigned long now = millis();
+  
+  // LED task
+  if (now - prevLed >= ledInterval) {
+    prevLed = now;
+    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+  }
+  
+  // Serial print task
+  if (now - prevSerial >= serialInterval) {
+    prevSerial = now;
+    Serial.println("Hello from non-blocking loop");
+  }
+}</code></pre>
+                        </div>
+
+                        <p>Effect: LED blinks with 300ms cycle, while serial port prints once per second, without interfering with each other.</p>
+
+                        <h4>5.4 Microsecond-level Delay: micros()</h4>
+                        <p>micros() returns the number of microseconds since the program started (1 second = 1,000,000 microseconds), type unsigned long.</p>
+
+                        <p>Overflows after about 71 minutes.</p>
+
+                        <p>Suitable for high-precision short delays (such as sensor pulse measurement).</p>
+
+                        <h5>Example: Generate a 10-microsecond High-level Pulse</h5>
+                        <div class="code-box">
+                            <pre><code>int pulsePin = 1;
+
+void setup() {
+  pinMode(pulsePin, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(pulsePin, HIGH);
+  unsigned long start = micros();
+  while (micros() - start < 10) {
+    // Busy wait for 10 microseconds
+  }
+  digitalWrite(pulsePin, LOW);
+  delay(1000);
+}</code></pre>
+                        </div>
+
+                        <p>For extremely short delays, you can also use delayMicroseconds(us) (blocking but precise).</p>
+
+                        <h4>5.5 Experiment: Using millis() to Implement Button Long Press Recognition (Non-blocking)</h4>
+                        <p>Combining YD-ESP32-S3's BOOT button (GPIO0) and external LED (GPIO1), implement:</p>
+
+                        <ul>
+                            <li>LED blinks with 500ms cycle (non-blocking).</li>
+
+                            <li>Press BOOT button for more than 1 second, serial port prints "Long press event", and LED blinks quickly 3 times as feedback.</li>
+                        </ul>
+
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1
+#define BUTTON_PIN 0
+
+unsigned long prevLed = 0;
+const long ledInterval = 500;
+
+unsigned long buttonPressStart = 0;
+bool buttonPressed = false;
+const long longPressTime = 1000;
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  Serial.begin(115200);
+}
+
+void loop() {
+  unsigned long now = millis();
+  
+  // LED blinking task (non-blocking)
+  if (now - prevLed >= ledInterval) {
+    prevLed = now;
+    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+  }
+  
+  // Button detection task (non-blocking)
+  bool reading = digitalRead(BUTTON_PIN);
+  if (reading == LOW) {   // Pressed
+    if (!buttonPressed) {
+      buttonPressed = true;
+      buttonPressStart = now;
+    } else {
+      if (now - buttonPressStart >= longPressTime) {
+        Serial.println("Long press detected!");
+        // Long press feedback: fast blink 3 times
+        for (int i = 0; i < 3; i++) {
+          digitalWrite(LED_PIN, HIGH);
+          delay(100);
+          digitalWrite(LED_PIN, LOW);
+          delay(100);
+        }
+        buttonPressed = false;  // Prevent repeated triggering
+      }
+    }
+  } else {
+    buttonPressed = false;
+  }
+}</code></pre>
+                        </div>
+
+                        <p>Effect: LED continues to blink; hold BOOT key for more than 1 second, serial port outputs prompt and LED blinks quickly.</p>
+
+                        <h4>5.6 Common Problems and Traps</h4>
+                        <ul>
+                            <li>millis() overflow handling: Use current - previous >= interval, not current >= previous + interval.</li>
+
+                            <li>Variable type must be unsigned long: Using int or long will cause overflow errors.</li>
+
+                            <li>Too many non-blocking tasks cause response delay: Ensure each task's condition check is lightweight, do not add delay() or long calculations in the loop.</li>
+
+                            <li>Microsecond-level delay accuracy: micros() is affected by interrupts, high-precision requirements should use hardware timers (see Chapter 9).</li>
+                        </ul>
+
+                        <p>Summary</p>
+                        <p>Core content of this chapter:</p>
+
+                        <ul>
+                            <li>The blocking nature of delay() limits multi-task concurrency.</li>
+
+                            <li>millis() is based on system clock, can implement non-blocking delay, running multiple periodic tasks simultaneously.</li>
+
+                            <li>micros() is used for microsecond-level precise delay.</li>
+
+                            <li>Mastered non-blocking design pattern through LED blinking and button long press experiments.</li>
+                        </ul>
+                        <p>The next chapter will learn about digital input - button reading, debouncing, and long/short press recognition.</p>
+                    </div>
+                </div>
+
+                <div id="module3-6" class="submodule">
+                    <h3>3.6 Chapter 6: Buttons (Digital Input)</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+                        <ul>
+                            <li>Master the basic principles and usage methods of digital input.</li>
+                            <li>Learn to use internal pull-up resistors and external pull-down resistors.</li>
+                            <li>Understand the necessity and implementation methods of button debouncing.</li>
+                            <li>Control LED state through buttons.</li>
+                        </ul>
+
+                        <h4>6.1 Digital Input Principle</h4>
+                        <p>Digital input is to read the logic level (high or low) of GPIO pins. In Arduino, use the <code>digitalRead(pin)</code> function to read the pin state, returning <code>HIGH</code> or <code>LOW</code>.</p>
+
+                        <h4>6.2 Button Connection Methods</h4>
+                        <h5>Method 1: Using Internal Pull-up Resistor</h5>
+                        <p>Connect one end of the button to GPIO and the other end to GND. In code, use <code>pinMode(pin, INPUT_PULLUP)</code> to enable the internal pull-up resistor.</p>
+                        <p>Characteristic: Pin is high level when not pressed, low level when pressed.</p>
+
+                        <h5>Method 2: Using External Pull-down Resistor</h5>
+                        <p>Connect one end of the button to GPIO and external pull-down resistor (10kΩ), and the other end to 3.3V. In code, use <code>pinMode(pin, INPUT)</code>.</p>
+                        <p>Characteristic: Pin is low level when not pressed, high level when pressed.</p>
+
+                        <h4>6.3 Button Debouncing</h4>
+                        <p>Mechanical buttons produce brief bounces when pressed and released, causing multiple triggers. Solutions:</p>
+                        <ul>
+                            <li>Hardware debouncing: Use RC filter circuit.</li>
+                            <li>Software debouncing: Add delay or state detection in code.</li>
+                        </ul>
+
+                        <h4>6.4 Experiment: Button Control LED</h4>
+                        <p>Use the on-board BOOT button (GPIO0) to control the on/off of external LED (GPIO1).</p>
+
+                        <div class="code-box">
+                            <pre><code>#define BUTTON_PIN 0
+#define LED_PIN 1
+
+void setup() {
+  pinMode(BUTTON_PIN, INPUT_PULLUP);  // Enable internal pull-up resistor
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  if (digitalRead(BUTTON_PIN) == LOW) {  // Button pressed
+    digitalWrite(LED_PIN, HIGH);
+    delay(20);  // Simple debouncing
+    while (digitalRead(BUTTON_PIN) == LOW);  // Wait for button release
+  } else {
+    digitalWrite(LED_PIN, LOW);
+  }
+}</code></pre>
+                        </div>
+
+                        <h4>6.5 Non-blocking Button Detection</h4>
+                        <p>Use <code>millis()</code> to implement non-blocking button detection, avoiding the use of <code>delay()</code> to block program execution.</p>
+
+                        <div class="code-box">
+                            <pre><code>#define BUTTON_PIN 0
+#define LED_PIN 1
+
+unsigned long lastDebounceTime = 0;
+unsigned long debounceDelay = 50;
+bool lastButtonState = HIGH;
+bool buttonState;
+bool ledState = false;
+
+void setup() {
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(LED_PIN, OUTPUT);
+}
+
+void loop() {
+  bool reading = digitalRead(BUTTON_PIN);
+  
+  if (reading != lastButtonState) {
+    lastDebounceTime = millis();
+  }
+  
+  if ((millis() - lastDebounceTime) > debounceDelay) {
+    if (reading != buttonState) {
+      buttonState = reading;
+      if (buttonState == LOW) {
+        ledState = !ledState;
+        digitalWrite(LED_PIN, ledState);
+      }
+    }
+  }
+  
+  lastButtonState = reading;
+  
+  // Other tasks can be executed here
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module3-7" class="submodule">
+                    <h3>3.7 Chapter 7: External Interrupts (YD-ESP32-S3 Adaptation Version)</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+
+                        <ul>
+                            <li>Understand the principle of external interrupts: hardware-triggered fast response mechanism.</li>
+
+                            <li>Master the feature that all GPIOs on YD-ESP32-S3 can be used as interrupt pins.</li>
+
+                            <li>Learn to configure interrupt trigger modes (rising edge, falling edge, level change).</li>
+
+                            <li>Use interrupts to implement immediate button response and resolve conflicts with delay().</li>
+
+                            <li>Understand the writing limitations of interrupt service routines (ISR) and the role of the volatile keyword.</li>
+                        </ul>
+
+                        <h4>7.1 External Interrupt Principle and Application Scenarios</h4>
+                        <p>What are external interrupts?</p>
+                        <p>When the level of a GPIO pin changes (e.g., from high to low), the hardware pauses the currently executing program, jumps to a pre-specified function (called an interrupt service routine, ISR) for execution. After execution, the program returns to its original position and continues running.</p>
+
+                        <p>Why do we need interrupts?</p>
+
+                        <ul>
+                            <li>Polling (constantly calling digitalRead in loop) consumes a lot of CPU time, and response delay is uncertain (may miss short pulses).</li>
+
+                            <li>Interrupts can achieve microsecond-level hardware response, very suitable for:</li>
+
+                            <ul>
+                                <li>Emergency stop buttons.</li>
+
+                                <li>Encoder pulse counting.</li>
+
+                                <li>Sensor signal capture (e.g., echo from ultrasonic modules).</li>
+
+                                <li>Waking up the chip from deep sleep.</li>
+                            </ul>
+                        </ul>
+
+                        <p>ESP32-S3 interrupt features:</p>
+
+                        <ul>
+                            <li>All GPIO pins can be used as external interrupt sources.</li>
+
+                            <li>Supports multiple trigger modes (see section 7.3).</li>
+
+                            <li>Interrupt priority can be set (default is medium priority).</li>
+                        </ul>
+
+                        <h4>7.2 Available Interrupt Pins (All GPIOs Support External Interrupts)</h4>
+                        <p>All digital GPIOs on the YD-ESP32-S3 development board can be configured for external interrupts, including:</p>
+                        <p>GPIO0~21, GPIO42~48 (avoid occupied special pins like GPIO43/44 used for serial port, but they can also be used as interrupts, it just affects serial communication).</p>
+
+                        <p>Recommended interrupt pins:</p>
+
+                        <ul>
+                            <li>On-board BOOT button (GPIO0) - convenient for testing.</li>
+
+                            <li>External buttons or sensors can be connected to free pins like GPIO1, GPIO2.</li>
+
+                            <li>Avoid using GPIO19/20 (dedicated to USB-OTG, can be used if USB is not needed).</li>
+                        </ul>
+
+                        <h4>7.3 Interrupt Trigger Modes</h4>
+                        <p>Set the trigger mode through the third parameter of attachInterrupt(pin, ISR, mode):</p>
+
+                        <table>
+                            <tr>
+                                <th>Mode</th>
+                                <th>Meaning</th>
+                                <th>Example Application</th>
+                            </tr>
+                            <tr>
+                                <td>RISING</td>
+                                <td>Rising edge (low level → high level)</td>
+                                <td>Button release (with pull-up resistor)</td>
+                            </tr>
+                            <tr>
+                                <td>FALLING</td>
+                                <td>Falling edge (high level → low level)</td>
+                                <td>Button press (commonly used)</td>
+                            </tr>
+                            <tr>
+                                <td>CHANGE</td>
+                                <td>Level change (rising or falling edge)</td>
+                                <td>Encoder signals</td>
+                            </tr>
+                            <tr>
+                                <td>LOW</td>
+                                <td>Low level trigger (continuous trigger while level remains low)</td>
+                                <td>Emergency stop (⚠️ Use with caution)</td>
+                            </tr>
+                            <tr>
+                                <td>HIGH</td>
+                                <td>High level trigger (similar to LOW)</td>
+                                <td>Rarely used</td>
+                            </tr>
+                        </table>
+
+                        <p>⚠️ LOW and HIGH modes need to be used cautiously on ESP32, as the interrupt will repeatedly trigger as long as the level is maintained, which may cause the program to freeze.</p>
+
+                        <p>Common examples:</p>
+
+                        <div class="code-box">
+                            <pre><code>attachInterrupt(0, buttonISR, FALLING);   // Trigger when button is pressed
+attachInterrupt(1, encoderISR, CHANGE);   // Trigger when encoder rotates</code></pre>
+                        </div>
+
+                        <h4>7.4 Basic Experiment: Button Triggered Interrupt to Toggle LED</h4>
+                        <p>Experiment purpose: When the BOOT button (GPIO0) is pressed, immediately toggle the state of the external LED (GPIO1) through interrupt, without using polling in the loop.</p>
+
+                        <p>Hardware connection:</p>
+
+                        <ul>
+                            <li>External LED connected to GPIO1 (in series with 220Ω resistor).</li>
+
+                            <li>On-board BOOT button (GPIO0, already pull-up, low level when pressed).</li>
+                        </ul>
+
+                        <p>Complete code:</p>
+
+                        <div class="code-box">
+                            <pre><code>#define BUTTON_PIN 0
+#define LED_PIN 1
+
+// volatile keyword tells the compiler that this variable may be modified in interrupts, disable optimization
+volatile bool ledState = false;
+
+void IRAM_ATTR buttonISR() {
+  // Cannot use delay(), Serial.print(), etc. in interrupt service routines
+  ledState = !ledState;          // Toggle state
+  digitalWrite(LED_PIN, ledState);   // Update LED immediately
+}
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  digitalWrite(LED_PIN, ledState);
+  
+  // Configure interrupt: falling edge trigger (when pressed)
+  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), buttonISR, FALLING);
+}
+
+void loop() {
+  // Main loop can execute other tasks, such as serial printing
+  // Note: Do not modify ledState in loop to avoid conflict with interrupts (need to disable interrupts if necessary)
+}</code></pre>
+                        </div>
+
+                        <p>Effect: Each time the BOOT button is pressed, the LED state immediately toggles, even if there is a delay(5000) in the main loop, it can respond immediately.</p>
+
+                        <p>Important function explanations:</p>
+
+                        <ul>
+                            <li>digitalPinToInterrupt(pin): Converts pin number to interrupt number (ESP32 can directly pass pin number, but for cross-platform compatibility, it is recommended to use this function).</li>
+
+                            <li>IRAM_ATTR: Puts the interrupt service routine into IRAM (internal RAM), ensuring execution even if Flash is occupied. Must be added.</li>
+
+                            <li>volatile: See below.</li>
+                        </ul>
+
+                        <h4>7.5 The Role of the volatile Keyword</h4>
+                        <p>Problem: During code optimization, the compiler may assume that the value of a variable does not change between two accesses, thus caching it in a register. If the variable is modified in an interrupt, the main loop may read the old value (due to optimization).</p>
+
+                        <p>Solution: Use volatile to modify variables, telling the compiler: "This variable may be modified unexpectedly at any time, and it must be re-read from memory every time it is used".</p>
+
+                        <p>Correct usage:</p>
+
+                        <div class="code-box">
+                            <pre><code>volatile bool flag = false;
+volatile int counter = 0;
+volatile unsigned long timestamp = 0;</code></pre>
+                        </div>
+
+                        <p>Error example (without volatile, may cause strange bugs):</p>
+
+                        <div class="code-box">
+                            <pre><code>bool flag = false;   // No volatile
+// In interrupt: flag = true;
+// In main loop: while (!flag);  // May never exit</code></pre>
+                        </div>
+
+                        <p>✅ Rule: All variables shared between interrupt service routines and the main loop must be of volatile type.</p>
+
+                        <h4>7.6 Interrupt Usage Instructions (Very Important!)</h4>
+                        <h5>1. Functions that cannot be used in interrupt service routines</h5>
+                        <ul>
+                            <li>Blocking functions: delay(), delayMicroseconds() (long delays).</li>
+
+                            <li>Serial output: Serial.print(), etc. (may deadlock or take too long).</li>
+
+                            <li>Dynamic memory allocation: new, malloc, String operations.</li>
+
+                            <li>Certain library functions: such as Wire, SPI read/write (usually include delays or locks).</li>
+
+                            <li>millis() / micros(): Can be called, but note that they themselves rely on interrupts, and calling them in interrupts may be inaccurate (not recommended).</li>
+                        </ul>
+
+                        <p>Why? During interrupts, other interrupts may be temporarily disabled. If the ISR takes too long, it will delay other interrupt responses and even cause watchdog reset.</p>
+
+                        <h5>2. Interrupt service routines should be as short as possible</h5>
+                        <ul>
+                            <li>Only do the most necessary things: such as setting flags, incrementing counters, digital writing.</li>
+
+                            <li>Complex processing should be placed in the main loop: set flags in ISR, and the main loop checks flags and executes time-consuming operations.</li>
+                        </ul>
+
+                        <p>Example: Move LED toggle operation to the main loop (avoid directly calling digitalWrite in ISR, although simple operations are allowed, but setting flags is a safer way).</p>
+
+                        <div class="code-box">
+                            <pre><code>volatile bool buttonPressed = false;
+
+void IRAM_ATTR buttonISR() {
+  buttonPressed = true;   // Only set flag
+}
+
+void loop() {
+  if (buttonPressed) {
+    buttonPressed = false;
+    digitalWrite(LED_PIN, !digitalRead(LED_PIN));
+  }
+}</code></pre>
+                        </div>
+
+                        <h5>3. Synchronization issues for shared variables</h5>
+                        <p>If the main loop and interrupt access the same variable (such as counter++) at the same time, data races may occur. For simple types (such as int), it is generally an atomic operation on 32-bit ESP32, but a safer method is:</p>
+
+                        <p>Temporarily disable interrupts before accessing shared variables: noInterrupts() / interrupts().</p>
+
+                        <div class="code-box">
+                            <pre><code>noInterrupts();
+int localCopy = counter;
+interrupts();</code></pre>
+                        </div>
+
+                        <h5>4. Separate interrupt sources</h5>
+                        <p>Multiple interrupts can be used simultaneously, but ensure their priority and response time are reasonable. By default, all external interrupts have the same priority.</p>
+
+                        <h4>7.7 Experiment: Using Interrupts to Implement Rotary Encoder Counting (Extension)</h4>
+                        <p>Hardware: EC11 rotary encoder (CLK connected to GPIO2, DT connected to GPIO3, common terminal connected to GND).</p>
+                        <p>Principle: When the encoder rotates, CLK and DT generate phase difference pulses. Detect the falling edge of CLK through interrupts and read the DT level to determine forward or reverse rotation.</p>
+
+                        <p>Code:</p>
+
+                        <div class="code-box">
+                            <pre><code>#define CLK_PIN 2
+#define DT_PIN 3
+
+volatile int encoderCount = 0;
+volatile bool changed = false;
+
+void IRAM_ATTR encoderISR() {
+  if (digitalRead(DT_PIN) == HIGH) {
+    encoderCount++;
+  } else {
+    encoderCount--;
+  }
+  changed = true;
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(CLK_PIN, INPUT_PULLUP);
+  pinMode(DT_PIN, INPUT_PULLUP);
+  attachInterrupt(CLK_PIN, encoderISR, FALLING);
+}
+
+void loop() {
+  if (changed) {
+    changed = false;
+    Serial.print("Count: ");
+    Serial.println(encoderCount);
+  }
+}</code></pre>
+                        </div>
+
+                        <p>Effect: Each time a scale is rotated, the serial port outputs the count value.</p>
+
+                        <h4>7.8 Common Problems and Troubleshooting</h4>
+                        <table>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>Interrupt not triggering</td>
+                                <td>Pin mode not set to INPUT or INPUT_PULLUP</td>
+                                <td>Check pinMode</td>
+                            </tr>
+                            <tr>
+                                <td>Interrupt triggering multiple times</td>
+                                <td>Mechanical bounce</td>
+                                <td>Add debouncing logic in ISR (use millis() to limit trigger frequency)</td>
+                            </tr>
+                            <tr>
+                                <td>Program freezing or resetting</td>
+                                <td>Called delay() or Serial.print() in ISR</td>
+                                <td>Remove these calls</td>
+                            </tr>
+                            <tr>
+                                <td>Variable value异常</td>
+                                <td>Not using volatile</td>
+                                <td>Add volatile modifier to shared variables</td>
+                            </tr>
+                            <tr>
+                                <td>Interrupt response delay</td>
+                                <td>Other long-running interrupts or delay() blocking</td>
+                                <td>Optimize ISR, avoid blocking</td>
+                            </tr>
+                        </table>
+
+                        <p>Implementing software debouncing in interrupts (example):</p>
+
+                        <div class="code-box">
+                            <pre><code>volatile unsigned long lastTrigger = 0;
+void IRAM_ATTR buttonISR() {
+  unsigned long now = millis();
+  if (now - lastTrigger > 50) {
+    lastTrigger = now;
+    // Valid trigger, execute action
+  }
+}</code></pre>
+                        </div>
+
+                        <p>Summary</p>
+                        <p>This chapter learned the core knowledge of external interrupts, targeting the YD-ESP32-S3 development board:</p>
+
+                        <ul>
+                            <li>Interrupt hardware fast response mechanism and applicable scenarios.</li>
+
+                            <li>All GPIOs can be configured with interrupts, supporting RISING, FALLING, CHANGE, etc. modes.</li>
+
+                            <li>Interrupt service routines must be short, avoid using delay(), Serial, etc.</li>
+
+                            <li>volatile keyword ensures the correctness of shared variables.</li>
+
+                            <li>Deepen understanding through button interrupt control LED and encoder counting experiments.</li>
+                        </ul>
+                        <p>The next chapter will learn about serial communication (UART), realizing data exchange with computers or other devices.</p>
+                    </div>
+                </div>
+
+                <div id="module3-8" class="submodule">
+                    <h3>3.8 Chapter 8: Serial Communication (YD-ESP32-S3 Adaptation Version)</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+
+                        <ul>
+                            <li>Understand the basic principles of serial communication (UART): concepts such as asynchronous, full-duplex, baud rate, etc.</li>
+
+                            <li>Master the serial port resources of YD-ESP32-S3: UART0 (connected to CH343P for debugging), UART1 (can be mapped to any GPIO).</li>
+
+                            <li>Learn to use the Serial object for data sending and receiving.</li>
+
+                            <li>Implement serial port定时 printing and LED control through serial commands.</li>
+
+                            <li>Master serial monitor usage skills.</li>
+                        </ul>
+
+                        <h4>8.1 Principles and Functions of Serial Communication</h4>
+                        <p>What is UART serial communication?</p>
+                        <p>UART (Universal Asynchronous Receiver/Transmitter) is a communication protocol that sends data bit by bit. It only requires two signal lines: TX (transmit) and RX (receive). Both communication parties must agree on the same baud rate (such as 9600, 115200). The data format is usually: start bit + 8 data bits + stop bit (optional parity bit).</p>
+
+                        <p>Role in Arduino development:</p>
+
+                        <ul>
+                            <li>Debug output: Use Serial.print() to send variable values and status information to the computer.</li>
+
+                            <li>Command control: The computer sends commands through the serial port to control the development board's actions.</li>
+
+                            <li>Communication with external serial devices (such as GPS modules, Bluetooth modules).</li>
+                        </ul>
+
+                        <p>YD-ESP32-S3 serial port features:</p>
+
+                        <ul>
+                            <li>Up to 3 hardware UART controllers (UART0, UART1, UART2).</li>
+
+                            <li>UART0's TX/RX is fixedly connected to the on-board CH343P chip, corresponding to GPIO43 (TX) and GPIO44 (RX).</li>
+
+                            <li>UART1 and UART2 can be mapped to any GPIO.</li>
+                        </ul>
+
+                        <h4>8.2 Serial Port Description of This Board</h4>
+                        <p>UART0: CH343P USB to serial port (default debugging serial port)</p>
+                        <p>TX: GPIO43 (connected to CH343P's RX)</p>
+
+                        <p>RX: GPIO44 (connected to CH343P's TX)</p>
+
+                        <p>This serial port is connected to the computer through the Type-C port marked COM, used for program uploading and Serial object communication.</p>
+
+                        <p>Note: GPIO43/44 are already fixedly connected to CH343P on the board, do not use them as ordinary I/O, otherwise it will affect serial port functionality.</p>
+
+                        <p>UART1 (mappable external serial port)</p>
+                        <p>No fixed default pins, users can arbitrarily specify TX/RX pins in code.</p>
+
+                        <p>Example: Serial1.begin(9600, SERIAL_8N1, rxPin, txPin).</p>
+
+                        <p>Commonly used to connect external serial devices (such as GPS, sensors).</p>
+
+                        <p>UART2 (optional)</p>
+                        <p>Usage is the same as UART1, operated through the Serial2 object.</p>
+
+                        <p>Multiple serial port objects:</p>
+
+                        <table>
+                            <tr>
+                                <th>Object Name</th>
+                                <th>Corresponding Hardware</th>
+                                <th>Default Pins</th>
+                                <th>Remappable</th>
+                            </tr>
+                            <tr>
+                                <td>Serial</td>
+                                <td>UART0</td>
+                                <td>TX=43, RX=44</td>
+                                <td>Not recommended (affects USB communication)</td>
+                            </tr>
+                            <tr>
+                                <td>Serial1</td>
+                                <td>UART1</td>
+                                <td>No default</td>
+                                <td>Can be arbitrarily specified</td>
+                            </tr>
+                            <tr>
+                                <td>Serial2</td>
+                                <td>UART2</td>
+                                <td>No default</td>
+                                <td>Can be arbitrarily specified</td>
+                            </tr>
+                        </table>
+
+                        <h4>8.3 Core Serial Functions</h4>
+                        <p>Initialization: Serial.begin(baud)</p>
+                        <div class="code-box">
+                            <pre><code>Serial.begin(115200);   // Start serial port at 115200 baud rate</code></pre>
+                        </div>
+                        <p>The baud rate must be consistent with the baud rate set in the serial monitor, otherwise garbled characters will be displayed.</p>
+
+                        <p>Common baud rates: 9600, 19200, 38400, 57600, 115200.</p>
+
+                        <p>Sending data</p>
+                        <p>Serial.print(value): Send data (no line break).</p>
+
+                        <p>Serial.println(value): Send data and line break (\r\n).</p>
+
+                        <p>Serial.write(data): Send raw bytes (suitable for binary data).</p>
+
+                        <div class="code-box">
+                            <pre><code>int x = 123;
+float pi = 3.14159;
+Serial.print("x = ");
+Serial.println(x);
+Serial.printf("pi = %.2f\n", pi);   // Supports printf style</code></pre>
+                        </div>
+
+                        <p>Receiving data</p>
+                        <p>Serial.available(): Returns the number of bytes available for reading in the receive buffer (non-blocking).</p>
+
+                        <p>Serial.read(): Reads one byte (returns int, -1 means no data).</p>
+
+                        <p>Serial.readString(): Reads all data until timeout, returns String.</p>
+
+                        <p>Serial.readBytes(buffer, length): Reads specified length of bytes into array.</p>
+
+                        <p>Common receiving mode: Poll Serial.available() in loop(), parse character by character or read complete string.</p>
+
+                        <h4>8.4 Experiment 1: Serial Port Timed Printing</h4>
+                        <p>Goal: Print a message through the serial port every 1 second, along with the system running time (milliseconds).</p>
+
+                        <p>Code:</p>
+
+                        <div class="code-box">
+                            <pre><code>void setup() {
+  Serial.begin(115200);
+  Serial.println("System started.");
+}
+
+void loop() {
+  static unsigned long lastPrint = 0;
+  unsigned long now = millis();
+  if (now - lastPrint >= 1000) {
+    lastPrint = now;
+    Serial.print("Uptime (ms): ");
+    Serial.println(now);
+  }
+  // Other tasks...
+}</code></pre>
+                        </div>
+
+                        <p>Effect: The serial monitor outputs one line per second, such as:</p>
+
+                        <div class="code-box">
+                            <pre><code>Uptime (ms): 1001
+Uptime (ms): 2002
+...</code></pre>
+                        </div>
+
+                        <h4>8.5 Experiment 2: Serial Command Control LED</h4>
+                        <p>Goal: Control the on/off and blinking frequency of external LED (GPIO1) by sending commands through the serial port.</p>
+
+                        <p>Send "ON" → Always on</p>
+
+                        <p>Send "OFF" → Off</p>
+
+                        <p>Send "BLINK 500" → Blink with 500ms period (parameter adjustable)</p>
+
+                        <p>Hardware: External LED connected to GPIO1 (in series with 220Ω resistor).</p>
+
+                        <p>Code (complete with comments):</p>
+
+                        <div class="code-box">
+                            <pre><code>#define LED_PIN 1
+
+String inputString = "";
+bool stringComplete = false;
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(LED_PIN, OUTPUT);
+  Serial.println("Ready. Commands: ON, OFF, BLINK <ms>");
+}
+
+void executeCommand(String cmd) {
+  cmd.trim();
+  if (cmd == "ON") {
+    digitalWrite(LED_PIN, HIGH);
+    Serial.println("LED turned ON");
+  }
+  else if (cmd == "OFF") {
+    digitalWrite(LED_PIN, LOW);
+    Serial.println("LED turned OFF");
+  }
+  else if (cmd.startsWith("BLINK")) {
+    int spaceIndex = cmd.indexOf(' ');
+    if (spaceIndex != -1) {
+      String param = cmd.substring(spaceIndex + 1);
+      int interval = param.toInt();
+      if (interval > 0) {
+        Serial.print("Blinking with interval ");
+        Serial.print(interval);
+        Serial.println(" ms");
+        // Simple demonstration: Blink 5 times (blocking method, for example only)
+        for (int i = 0; i < 5; i++) {
+          digitalWrite(LED_PIN, HIGH);
+          delay(interval);
+          digitalWrite(LED_PIN, LOW);
+          delay(interval);
+        }
+      } else {
+        Serial.println("Invalid interval");
+      }
+    } else {
+      Serial.println("Usage: BLINK <ms>");
+    }
+  }
+  else {
+    Serial.println("Unknown command");
+  }
+}
+
+void loop() {
+  while (Serial.available()) {
+    char c = Serial.read();
+    if (c == '\n') {
+      stringComplete = true;
+    } else if (c != '\r') {
+      inputString += c;
+    }
+  }
+  
+  if (stringComplete) {
+    executeCommand(inputString);
+    inputString = "";
+    stringComplete = false;
+  }
+}</code></pre>
+                        </div>
+
+                        <p>Effect:</p>
+
+                        <ul>
+                            <li>Input ON in the serial monitor and press Enter → LED stays on.</li>
+
+                            <li>Input OFF → LED turns off.</li>
+
+                            <li>Input BLINK 300 → LED blinks 5 times with 300ms interval.</li>
+                        </ul>
+
+                        <p>💡 Improvement suggestion: Change LED blinking to non-blocking mode (using millis()), so that other commands can still be received during blinking.</p>
+
+                        <h4>8.6 Serial Monitor Usage Tips</h4>
+                        <h5>1. Baud Rate Setting</h5>
+                        <p>Serial.begin(115200) in the code must be consistent with the baud rate in the lower right corner of the serial monitor.</p>
+
+                        <h5>2. Line Break Setting</h5>
+                        <p>When sending data from the serial monitor, you can choose the line break mode:</p>
+
+                        <ul>
+                            <li>No line break: Only sends the entered characters.</li>
+
+                            <li>New line: Sends \n (suitable for the above code).</li>
+
+                            <li>Carriage return: Sends \r.</li>
+
+                            <li>Both: Sends \r\n.</li>
+                        </ul>
+
+                        <p>To ensure commands are correctly recognized, it is recommended to handle both \n and \r in the code.</p>
+
+                        <h5>3. Auto-scroll and Clear</h5>
+                        <p>Check "Auto-scroll" to make the output scroll automatically.</p>
+
+                        <p>Send an empty line or click "Clear output" to clear previous content.</p>
+
+                        <h5>4. Show Timestamp</h5>
+                        <p>Some serial tools support displaying timestamps for each message, which is convenient for debugging timing issues.</p>
+
+                        <h4>8.7 Experiment 3: Using UART1 to Connect External Serial Devices (e.g., GPS Module)</h4>
+                        <p>Goal: Connect an external serial device (such as a GPS module) through UART1, read NMEA sentences and forward them to the computer serial port.</p>
+
+                        <p>Hardware connection:</p>
+
+                        <ul>
+                            <li>Connect the external device's TX to the development board's RX1 (e.g., GPIO17), and the external device's RX to the development board's TX1 (e.g., GPIO16).</li>
+
+                            <li>Common ground.</li>
+                        </ul>
+
+                        <p>Code:</p>
+
+                        <div class="code-box">
+                            <pre><code>#define RX1 17
+#define TX1 16
+
+void setup() {
+  Serial.begin(115200);           // Debug serial port (UART0)
+  Serial1.begin(9600, SERIAL_8N1, RX1, TX1);  // Communicate with external device
+  Serial.println("UART1 ready");
+}
+
+void loop() {
+  // Read data from external device and forward to computer
+  while (Serial1.available()) {
+    char c = Serial1.read();
+    Serial.write(c);
+  }
+  // Optional: Send data from computer to external device
+  while (Serial.available()) {
+    char c = Serial.read();
+    Serial1.write(c);
+  }
+}</code></pre>
+                        </div>
+
+                        <p>Effect: Data sent by the external device can be seen in the serial monitor, and commands can also be sent to the external device.</p>
+
+                        <h4>8.8 Common Problems and Troubleshooting</h4>
+                        <table>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>No output in serial monitor</td>
+                                <td>Baud rate inconsistency</td>
+                                <td>Check code and monitor baud rate</td>
+                            </tr>
+                            <tr>
+                                <td>Garbled output</td>
+                                <td>Incorrect baud rate or data bit/stop bit mismatch</td>
+                                <td>Unify to 8N1 (8 data bits, no parity, 1 stop bit)</td>
+                            </tr>
+                            <tr>
+                                <td>Serial port cannot be opened</td>
+                                <td>Port is occupied (occupied by other programs)</td>
+                                <td>Close other serial tools, re-plug USB</td>
+                            </tr>
+                            <tr>
+                                <td>Cannot receive complete command</td>
+                                <td>Line break not handled correctly</td>
+                                <td>Detect '\n' in code or use Serial.readStringUntil('\n')</td>
+                            </tr>
+                            <tr>
+                                <td>No data with Serial1</td>
+                                <td>Pin connection error or not begin</td>
+                                <td>Confirm pin numbers in begin match actual wiring</td>
+                            </tr>
+                            <tr>
+                                <td>No serial output after uploading program</td>
+                                <td>Serial.begin not called in code</td>
+                                <td>Add Serial.begin</td>
+                            </tr>
+                        </table>
+
+                        <p>Summary</p>
+                        <p>This chapter learned about the serial communication of YD-ESP32-S3:</p>
+
+                        <ul>
+                            <li>UART0 (GPIO43/44) connects to the computer through CH343P for debugging.</li>
+
+                            <li>UART1/2 can freely map pins to connect external devices.</li>
+
+                            <li>Core functions: begin, print, println, available, read.</li>
+
+                            <li>Mastered basic sending and receiving through timed printing and command-controlled LED experiments.</li>
+
+                            <li>Serial monitor usage skills (baud rate, line break, timestamp).</li>
+                        </ul>
+                        <p>The next chapter will learn about hardware timers, implementing more precise periodic tasks than millis().</p>
+                    </div>
+                </div>
+
+                <div id="module3-9" class="submodule">
+                    <h3>3.9 Chapter 9: Hardware Timers</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+                        <ul>
+                            <li>Understand the basic principles and advantages of hardware timers.</li>
+                            <li>Master the configuration and usage methods of ESP32-S3 hardware timers.</li>
+                            <li>Learn to write timer interrupt service functions.</li>
+                            <li>Implement experiments for controlling LED blinking with timers.</li>
+                        </ul>
+
+                        <h4>9.1 Timer Principles and Advantages</h4>
+                        <p>A hardware timer is a hardware module independent of the main loop that can automatically trigger interrupts at preset time intervals to execute specified tasks.</p>
+
+                        <p>Advantages:</p>
+                        <ul>
+                            <li>Does not occupy main loop time, the main loop can execute other tasks.</li>
+                            <li>High timing precision, not affected by main loop execution time.</li>
+                            <li>Can run multiple timers simultaneously to implement tasks with different time intervals.</li>
+                        </ul>
+
+                        <h4>9.2 Introduction to ESP32-S3 Hardware Timers</h4>
+                        <p>ESP32-S3 has 4 built-in general-purpose hardware timers (Timer 0-3), each with a 64-bit counter.</p>
+
+                        <h4>9.3 Basic Experiment: Timer Toggles LED Every Second</h4>
+                        <p>Goal: Use hardware timer to toggle LED state every second.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>#include "soc/timer_group_struct.h"
+#include "soc/timer_group_reg.h"
+
+const int LED_PIN = 48;
+bool ledState = LOW;
+
+// Timer interrupt service function
+void IRAM_ATTR onTimer() {
+  // Toggle LED state
+  ledState = !ledState;
+  digitalWrite(LED_PIN, ledState);
+  
+  // Clear interrupt flag
+  TIMERG0.int_clr_timers.t0 = 1;
+  // Re-enable timer
+  TIMERG0.hw_timer[0].config.alarm_en = TIMER_ALARM_EN;
+}
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
+  Serial.println("Hardware timer example started");
+  
+  // Configure timer
+  timer_config_t config;
+  config.divider = 80;  // Clock division, 80MHz / 80 = 1MHz
+  config.counter_dir = TIMER_COUNT_UP;
+  config.counter_en = TIMER_PAUSE;
+  config.alarm_en = TIMER_ALARM_EN;
+  config.intr_type = TIMER_INTR_LEVEL;
+  config.auto_reload = true;
+  
+  // Initialize timer 0
+  timer_init(TIMER_GROUP_0, TIMER_0, &config);
+  
+  // Set counter value to 0
+  timer_set_counter_value(TIMER_GROUP_0, TIMER_0, 0);
+  
+  // Set alarm value, 1 second = 1,000,000 microseconds
+  timer_set_alarm_value(TIMER_GROUP_0, TIMER_0, 1000000);
+  
+  // Register interrupt callback function
+  timer_isr_register(TIMER_GROUP_0, TIMER_0, onTimer, NULL, ESP_INTR_FLAG_IRAM, NULL);
+  
+  // Start timer
+  timer_start(TIMER_GROUP_0, TIMER_0);
+}
+
+void loop() {
+  // Main loop can execute other tasks
+  Serial.print(".");
+  delay(500);
+}
+</code></pre>
+                        </div>
+
+                        <p>Timer time calculation method:</p>
+                        <ul>
+                            <li>ESP32 system clock is 80MHz.</li>
+                            <li>Set the division through the divider parameter, for example, when divider=80, the timer clock is 1MHz.</li>
+                            <li>The unit of alarm value is microseconds, for example, 1000000 represents 1 second.</li>
+                        </ul>
+
+                        <h4>9.4 Essential Differences Between Timer and delay()</h4>
+                        <table>
+                            <tr>
+                                <th>Characteristic</th>
+                                <th>Hardware Timer</th>
+                                <th>delay() Function</th>
+                            </tr>
+                            <tr>
+                                <td>Execution Method</td>
+                                <td>Hardware runs independently, triggers interrupts</td>
+                                <td>Blocks main loop</td>
+                            </tr>
+                            <tr>
+                                <td>Precision</td>
+                                <td>High, not affected by main loop</td>
+                                <td>Low, affected by main loop execution time</td>
+                            </tr>
+                            <tr>
+                                <td>Multi-tasking</td>
+                                <td>Can run multiple timers simultaneously</td>
+                                <td>Can only execute one delay at a time</td>
+                            </tr>
+                            <tr>
+                                <td>Main Loop Impact</td>
+                                <td>No impact, main loop can execute other tasks</td>
+                                <td>Main loop is paused</td>
+                            </tr>
+                        </table>
+
+                        <h4>9.5 Experiment: Using Timer to Implement Stopwatch</h4>
+                        <p>Goal: Use hardware timer to implement a stopwatch that updates the count every 1 millisecond.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>#include "soc/timer_group_struct.h"
+#include "soc/timer_group_reg.h"
+
+volatile unsigned long milliseconds = 0;
+
+void IRAM_ATTR onTimer() {
+  milliseconds++;
+  TIMERG0.int_clr_timers.t0 = 1;
+  TIMERG0.hw_timer[0].config.alarm_en = TIMER_ALARM_EN;
+}
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("Stopwatch example started");
+  
+  timer_config_t config;
+  config.divider = 80;
+  config.counter_dir = TIMER_COUNT_UP;
+  config.counter_en = TIMER_PAUSE;
+  config.alarm_en = TIMER_ALARM_EN;
+  config.intr_type = TIMER_INTR_LEVEL;
+  config.auto_reload = true;
+  
+  timer_init(TIMER_GROUP_0, TIMER_0, &config);
+  timer_set_counter_value(TIMER_GROUP_0, TIMER_0, 0);
+  timer_set_alarm_value(TIMER_GROUP_0, TIMER_0, 1000);  // 1 millisecond
+  
+  timer_isr_register(TIMER_GROUP_0, TIMER_0, onTimer, NULL, ESP_INTR_FLAG_IRAM, NULL);
+  timer_start(TIMER_GROUP_0, TIMER_0);
+}
+
+void loop() {
+  static unsigned long lastPrint = 0;
+  if (milliseconds - lastPrint >= 1000) {  // Print every second
+    lastPrint = milliseconds;
+    Serial.print("Time: ");
+    Serial.print(milliseconds / 1000);
+    Serial.print(".");
+    Serial.println(milliseconds % 1000);
+  }
+  
+  // Main loop can execute other tasks
+  delay(100);
+}
+</code></pre>
+                        </div>
+
+                        <h4>9.6 Advanced Timer Applications</h4>
+                        <ul>
+                            <li><strong>Using multiple timers simultaneously</strong>: Different timers (Timer 0-3) can be used to implement tasks with different time intervals.</li>
+                            <li><strong>Precise PWM control</strong>: Use timers to generate precise PWM signals.</li>
+                            <li><strong>Real-time systems</strong>: Used in systems that require strict time control.</li>
+                            <li><strong>Frequency measurement</strong>: Use timers to measure the frequency of external signals.</li>
+                        </ul>
+
+                        <h4>9.7 Common Problems and Notes</h4>
+                        <ul>
+                            <li><strong>Interrupt service function</strong>: Timer interrupt service functions should be kept short, avoid using <code>delay()</code> and <code>Serial.print()</code>.</li>
+                            <li><strong>Memory access</strong>: Global variables modified in interrupt service functions should be decorated with <code>volatile</code>.</li>
+                            <li><strong>Timer selection</strong>: Different timers may be occupied by other functions, such as WiFi, Bluetooth, etc.</li>
+                            <li><strong>Clock division</strong>: The larger the division value, the lower the timer resolution, but the larger the range.</li>
+                        </ul>
+
+                        <p>Summary</p>
+                        <p>This chapter learned the use of hardware timers:</p>
+                        <ul>
+                            <li>Basic principles and advantages of hardware timers.</li>
+                            <li>Configuration methods for ESP32-S3 hardware timers.</li>
+                            <li>Writing timer interrupt service functions.</li>
+                            <li>Implementing timer-controlled LED blinking and stopwatch functionality.</li>
+                        </ul>
+                        <p>Hardware timers are a powerful tool that can achieve precise time control without affecting main loop execution. In scenarios that require precise timing or multi-task parallel execution, hardware timers are the best choice.</p>
+                    </div>
+                </div>
+
+                <div id="module3-10" class="submodule">
+                    <h3>3.10 Chapter 10: PWM Pulse Width Modulation</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+                        <ul>
+                            <li>Understand the basic principles and application scenarios of PWM.</li>
+                            <li>Master the configuration and usage methods of ESP32-S3 PWM.</li>
+                            <li>Learn to use LEDC functions to control LED brightness and motor speed.</li>
+                            <li>Implement PWM dimming and buzzer experiments.</li>
+                        </ul>
+
+                        <h4>10.1 PWM Principles and Application Scenarios</h4>
+                        <p>PWM (Pulse Width Modulation) is a technology that controls analog quantities by changing the pulse width.</p>
+
+                        <p>Principles:</p>
+                        <ul>
+                            <li>By quickly switching the output signal, change the duty cycle of the high level within a period to control the analog quantity.</li>
+                            <li>Duty cycle = high level time / cycle time.</li>
+                            <li>For LEDs, the larger the duty cycle, the higher the brightness.</li>
+                        </ul>
+
+                        <p>Application scenarios:</p>
+                        <ul>
+                            <li>LED dimming</li>
+                            <li>Motor speed control</li>
+                            <li>Servo angle control</li>
+                            <li>Audio output</li>
+                        </ul>
+
+                        <h4>10.2 PWM Pins of This Board</h4>
+                        <p>All GPIO pins of ESP32-S3 support PWM output.</p>
+
+                        <h4>10.3 Experiment 1: LED Breathing Light</h4>
+                        <p>Goal: Use PWM to achieve LED brightness gradient effect.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>const int LED_PIN = 48;
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
+  Serial.println("LED breathing light example");
+}
+
+void loop() {
+  // Gradually brighten
+  for (int brightness = 0; brightness <= 255; brightness++) {
+    analogWrite(LED_PIN, brightness);
+    delay(10);
+  }
+  
+  // Gradually dim
+  for (int brightness = 255; brightness >= 0; brightness--) {
+    analogWrite(LED_PIN, brightness);
+    delay(10);
+  }
+}
+</code></pre>
+                        </div>
+
+                        <p>Effect: The LED brightness changes from dark to bright and then to dark, forming a breathing effect.</p>
+
+                        <h4>10.4 Experiment 2: Using LEDC Advanced Control</h4>
+                        <p>Goal: Use LEDC functions to achieve more precise PWM control.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>const int LED_PIN = 48;
+const int LEDC_CHANNEL = 0;
+const int LEDC_TIMER = 0;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Configure LED PWM channel
+  ledcSetup(LEDC_CHANNEL, 5000, 8);  // 5kHz frequency, 8-bit resolution
+  ledcAttachPin(LED_PIN, LEDC_CHANNEL);
+  
+  Serial.println("LEDC PWM example started");
+}
+
+void loop() {
+  // Gradually increase brightness from 0 to 255
+  for (int duty = 0; duty <= 255; duty++) {
+    ledcWrite(LEDC_CHANNEL, duty);
+    delay(10);
+  }
+  
+  // Gradually decrease brightness from 255 to 0
+  for (int duty = 255; duty >= 0; duty--) {
+    ledcWrite(LEDC_CHANNEL, duty);
+    delay(10);
+  }
+}
+</code></pre>
+                        </div>
+
+                        <h4>10.5 Experiment 3: PWM Control Buzzer</h4>
+                        <p>Goal: Use PWM to control the buzzer to emit sounds of different tones.</p>
+
+                        <p>Hardware: Buzzer positive connected to GPIO2, negative connected to GND.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>const int BUZZER_PIN = 2;
+
+void setup() {
+  pinMode(BUZZER_PIN, OUTPUT);
+  Serial.begin(115200);
+  Serial.println("Buzzer PWM example");
+}
+
+void loop() {
+  // Play sounds of different frequencies
+  for (int freq = 200; freq <= 800; freq += 100) {
+    tone(BUZZER_PIN, freq);
+    delay(500);
+  }
+  noTone(BUZZER_PIN);
+  delay(1000);
+}
+</code></pre>
+                        </div>
+
+                        <h4>10.6 PWM Frequency and Resolution</h4>
+                        <ul>
+                            <li><strong>Frequency</strong>: The period of the PWM signal, unit Hz. The higher the frequency, the less obvious the LED flicker.</li>
+                            <li><strong>Resolution</strong>: The number of bits of the duty cycle, such as 8-bit resolution means the duty cycle can be divided into 256 levels (0-255).</li>
+                        </ul>
+
+                        <p>ESP32's LEDC supports 8-16 bit resolution, and the frequency can be adjusted between 10Hz-40MHz.</p>
+
+                        <h4>10.7 Common Problems and Troubleshooting</h4>
+                        <table>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>No change in LED brightness</td>
+                                <td>Pin not properly set to output mode</td>
+                                <td>Check pinMode setting</td>
+                            </tr>
+                            <tr>
+                                <td>Obvious LED flicker</td>
+                                <td>PWM frequency too low</td>
+                                <td>Increase frequency (e.g., use ledcSetup to set higher frequency)</td>
+                            </tr>
+                            <tr>
+                                <td>Buzzer does not sound</td>
+                                <td>Incorrect frequency setting or wiring error</td>
+                                <td>Adjust frequency, check wiring</td>
+                            </tr>
+                        </table>
+
+                        <p>Summary</p>
+                        <p>This chapter learned about the principles and applications of PWM:</p>
+                        <ul>
+                            <li>PWM controls analog quantities by changing the duty cycle.</li>
+                            <li>All GPIOs of ESP32-S3 support PWM output.</li>
+                            <li>Use analogWrite() and LEDC functions to implement PWM control.</li>
+                            <li>Mastered applications such as LED breathing light and buzzer control through experiments.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module3-11" class="submodule">
+                    <h3>3.11 Chapter 11: ADC Analog-to-Digital Conversion</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+                        <ul>
+                            <li>Understand the basic principles of ADC (Analog-to-Digital Conversion).</li>
+                            <li>Master the usage methods and precautions of ESP32-S3 ADC.</li>
+                            <li>Learn to read external analog signals (such as potentiometers).</li>
+                            <li>Implement ADC acquisition and serial port display experiments.</li>
+                        </ul>
+
+                        <h4>11.1 ADC Principles and Characteristics</h4>
+                        <p>ADC (Analog-to-Digital Converter) is a module that converts analog signals into digital signals. ESP32-S3 has 2 built-in ADC controllers (ADC1 and ADC2).</p>
+
+                        <p>ESP32-S3 ADC characteristics:</p>
+                        <ul>
+                            <li>12-bit resolution (0-4095).</li>
+                            <li>Default range 0-3.3V.</li>
+                            <li>Range can be extended to approximately 3.9V through analogSetAttenuation().</li>
+                            <li>ADC1 can be used simultaneously with WiFi, while ADC2 is unavailable when WiFi is enabled.</li>
+                        </ul>
+
+                        <h4>11.2 Available ADC Pins</h4>
+                        <p>ADC1 (can be used with WiFi): GPIO1~GPIO10</p>
+                        <p>ADC2 (unavailable when WiFi is enabled): GPIO11~GPIO20</p>
+
+                        <h4>11.3 Experiment 1: Reading Potentiometer Value</h4>
+                        <p>Goal: Use ADC to read the analog value of a potentiometer and display it through the serial port.</p>
+
+                        <p>Hardware: Potentiometer middle pin connected to GPIO1, two ends connected to 3.3V and GND respectively.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>const int ADC_PIN = 1;
+
+void setup() {
+  Serial.begin(115200);
+  Serial.println("ADC example started");
+}
+
+void loop() {
+  int adcValue = analogRead(ADC_PIN);
+  float voltage = adcValue * (3.3 / 4095.0);
+  
+  Serial.print("ADC value: ");
+  Serial.print(adcValue);
+  Serial.print(" | Voltage: ");
+  Serial.println(voltage);
+  
+  delay(100);
+}
+</code></pre>
+                        </div>
+
+                        <p>Effect: Rotate the potentiometer, the serial monitor displays the ADC value and corresponding voltage value.</p>
+
+                        <h4>11.4 Experiment 2: Using ADC to Control LED Brightness</h4>
+                        <p>Goal: Control LED brightness based on the ADC value of the potentiometer.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>const int ADC_PIN = 1;
+const int LED_PIN = 48;
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);
+  Serial.begin(115200);
+  Serial.println("ADC control LED example");
+}
+
+void loop() {
+  int adcValue = analogRead(ADC_PIN);
+  int brightness = map(adcValue, 0, 4095, 0, 255);
+  
+  analogWrite(LED_PIN, brightness);
+  
+  Serial.print("ADC: ");
+  Serial.print(adcValue);
+  Serial.print(" | Brightness: ");
+  Serial.println(brightness);
+  
+  delay(100);
+}
+</code></pre>
+                        </div>
+
+                        <h4>11.5 ADC Precision and Noise Processing</h4>
+                        <p>Methods to improve ADC precision:</p>
+                        <ul>
+                            <li>Multiple sampling and taking the average.</li>
+                            <li>Using appropriate reference voltage.</li>
+                            <li>Avoiding use in noisy environments.</li>
+                        </ul>
+
+                        <p>Example code (multiple sampling):</p>
+                        <div class="code-box">
+                            <pre><code>int readADC(int pin, int samples) {
+  int sum = 0;
+  for (int i = 0; i < samples; i++) {
+    sum += analogRead(pin);
+  }
+  return sum / samples;
+}
+
+void loop() {
+  int adcValue = readADC(1, 10);  // 10 samples averaged
+  // Process data...
+}
+</code></pre>
+                        </div>
+
+                        <h4>11.6 Common Problems and Troubleshooting</h4>
+                        <table>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>Unstable ADC value</td>
+                                <td>Noise interference or unstable power supply</td>
+                                <td>Multiple sampling and averaging, add filter capacitor</td>
+                            </tr>
+                            <tr>
+                                <td>No reading from ADC2</td>
+                                <td>WiFi is enabled</td>
+                                <td>Use ADC1 or disable WiFi</td>
+                            </tr>
+                            <tr>
+                                <td>Reading out of range</td>
+                                <td>Input voltage exceeds 3.3V</td>
+                                <td>Use voltage divider circuit to ensure input voltage does not exceed 3.3V</td>
+                            </tr>
+                        </table>
+
+                        <p>Summary</p>
+                        <p>This chapter learned about the use of ADC:</p>
+                        <ul>
+                            <li>ESP32-S3 has two ADC controllers with 12-bit resolution.</li>
+                            <li>ADC1 can be used simultaneously with WiFi, ADC2 cannot.</li>
+                            <li>Mastered reading potentiometer and controlling LED brightness through experiments.</li>
+                            <li>Learned methods to improve ADC precision.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module3-12" class="submodule">
+                    <h3>3.12 Chapter 12: I2C Communication</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+                        <ul>
+                            <li>Understand the basic principles of I2C (I²C) communication protocol.</li>
+                            <li>Master the configuration and usage methods of ESP32-S3 I2C.</li>
+                            <li>Learn to use the Wire library to communicate with I2C devices.</li>
+                            <li>Implement experiments for reading I2C temperature and humidity sensors.</li>
+                        </ul>
+
+                        <h4>12.1 I2C Principles and Characteristics</h4>
+                        <p>I2C (Inter-Integrated Circuit) is a two-wire serial communication protocol consisting of SDA (data line) and SCL (clock line).</p>
+
+                        <p>Characteristics:</p>
+                        <ul>
+                            <li>Multi-master, multi-slave architecture.</li>
+                            <li>Each slave has a unique 7-bit or 10-bit address.</li>
+                            <li>Synchronous communication, usually at 100kHz (standard mode) or 400kHz (fast mode).</li>
+                            <li>Suitable for short-distance communication (within a few meters).</li>
+                        </ul>
+
+                        <h4>12.2 I2C Pins of This Board</h4>
+                        <p>Default I2C0 pins:</p>
+                        <ul>
+                            <li>SDA: GPIO8</li>
+                            <li>SCL: GPIO9</li>
+                        </ul>
+
+                        <p>Can be remapped to other GPIOs through Wire.setPins().</p>
+
+                        <h4>12.3 Experiment 1: Scanning I2C Devices</h4>
+                        <p>Goal: Scan I2C devices on the bus and display their addresses.</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>#include &lt;Wire.h&gt;
+
+void setup() {
+  Wire.begin();
+  Serial.begin(115200);
+  Serial.println("I2C scanner started");
+}
+
+void loop() {
+  byte error, address;
+  int nDevices = 0;
+  
+  Serial.println("Scanning...");
+  
+  for (address = 1; address < 127; address++) {
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+    
+    if (error == 0) {
+      Serial.print("I2C device found at address 0x");
+      if (address < 16) Serial.print("0");
+      Serial.println(address, HEX);
+      nDevices++;
+    } else if (error == 4) {
+      Serial.print("Unknown error at address 0x");
+      if (address < 16) Serial.print("0");
+      Serial.println(address, HEX);
+    }
+  }
+  
+  if (nDevices == 0) {
+    Serial.println("No I2C devices found");
+  } else {
+    Serial.println("Done");
+  }
+  
+  delay(5000);
+}
+</code></pre>
+                        </div>
+
+                        <h4>12.4 Experiment 2: Reading I2C Temperature and Humidity Sensor (DHT11)</h4>
+                        <p>Goal: Use I2C interface to read DHT11 temperature and humidity sensor data.</p>
+
+                        <p>Note: DHT11 is actually a single-wire protocol, here we use it as an example for I2C. For real I2C sensors (such as BME280), the code is similar.</p>
+
+                        <p>Code (using DHT library):</p>
+                        <div class="code-box">
+                            <pre><code>#include &lt;DHT.h&gt;
+
+#define DHTPIN 8      // SDA pin
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+  Serial.println("DHT11 sensor example");
+}
+
+void loop() {
+  delay(2000);  // DHT11 recommends reading at least every 2 seconds
+  
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+  
+  Serial.print("Humidity: ");
+  Serial.print(h);
+  Serial.print("%");
+  Serial.print(" | Temperature: ");
+  Serial.print(t);
+  Serial.println("°C");
+}
+</code></pre>
+                        </div>
+
+                        <h4>12.5 I2C Multi-device Communication</h4>
+                        <p>Multiple devices can be connected on the same I2C bus, each with a unique address.</p>
+
+                        <p>Example: Connecting BME280 (temperature, humidity, pressure sensor) and OLED display simultaneously.</p>
+
+                        <h4>12.6 Common Problems and Troubleshooting</h4>
+                        <table>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>Cannot find I2C device</td>
+                                <td>Wiring error or address error</td>
+                                <td>Check SDA/SCL wiring, confirm device address</td>
+                            </tr>
+                            <tr>
+                                <td>Unstable communication</td>
+                                <td>Bus length too long or missing pull-up resistors</td>
+                                <td>Shorten bus length, add 4.7kΩ pull-up resistors</td>
+                            </tr>
+                            <tr>
+                                <td>Data reading error</td>
+                                <td>Device address conflict or timing issue</td>
+                                <td>Ensure unique device addresses, check communication rate</td>
+                            </tr>
+                        </table>
+
+                        <p>Summary</p>
+                        <p>This chapter learned about I2C communication:</p>
+                        <ul>
+                            <li>I2C is a two-wire serial communication protocol that supports multiple devices.</li>
+                            <li>ESP32-S3 default I2C0 pins are GPIO8(SDA) and GPIO9(SCL).</li>
+                            <li>Use the Wire library to implement I2C communication.</li>
+                            <li>Mastered device scanning and sensor reading through experiments.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module3-13" class="submodule">
+                    <h3>3.13 Chapter 13: SPI Communication</h3>
+                    <div class="submodule-content">
+                        <h4>Chapter Objectives:</h4>
+                        <ul>
+                            <li>Understand the basic principles of SPI (Serial Peripheral Interface) communication protocol.</li>
+                            <li>Master the configuration and usage methods of ESP32-S3 SPI.</li>
+                            <li>Learn to use the SPI library to communicate with SPI devices.</li>
+                            <li>Implement experiments for SPI reading and writing SD cards.</li>
+                        </ul>
+
+                        <h4>13.1 SPI Principles and Characteristics</h4>
+                        <p>SPI is a synchronous serial communication protocol consisting of four lines:</p>
+                        <ul>
+                            <li>SCLK: Serial clock (generated by the master).</li>
+                            <li>MOSI: Master output, slave input.</li>
+                            <li>MISO: Master input, slave output.</li>
+                            <li>SS/CS: Chip select signal (active low).</li>
+                        </ul>
+
+                        <p>Characteristics:</p>
+                        <ul>
+                            <li>Full-duplex communication.</li>
+                            <li>High-speed transmission (up to tens of MHz).</li>
+                            <li>Master-slave architecture, one master can connect multiple slaves.</li>
+                            <li>Suitable for short-distance communication.</li>
+                        </ul>
+
+                        <h4>13.2 SPI Pins of This Board</h4>
+                        <p>Default FSPI pins:</p>
+                        <ul>
+                            <li>SCLK: GPIO12</li>
+                            <li>MOSI: GPIO11</li>
+                            <li>MISO: GPIO13</li>
+                            <li>CS: Customizable (such as GPIO10)</li>
+                        </ul>
+
+                        <h4>13.3 Experiment 1: SPI Reading and Writing SD Card</h4>
+                        <p>Goal: Use SPI interface to read and write SD card.</p>
+
+                        <p>Hardware connection (SD card module → ESP32-S3):</p>
+                        <table>
+                            <tr>
+                                <th>SD Card Module</th>
+                                <th>ESP32-S3</th>
+                            </tr>
+                            <tr>
+                                <td>CS</td>
+                                <td>GPIO10</td>
+                            </tr>
+                            <tr>
+                                <td>SCK</td>
+                                <td>GPIO12</td>
+                            </tr>
+                            <tr>
+                                <td>MOSI</td>
+                                <td>GPIO11</td>
+                            </tr>
+                            <tr>
+                                <td>MISO</td>
+                                <td>GPIO13</td>
+                            </tr>
+                            <tr>
+                                <td>VCC</td>
+                                <td>5V (or 3.3V, depending on the module)</td>
+                            </tr>
+                            <tr>
+                                <td>GND</td>
+                                <td>GND</td>
+                            </tr>
+                        </table>
+
+                        <p>Library installation:</p>
+                        <ul>
+                            <li>Search and install the "SD" library (maintained by Arduino, SparkFun, usually built-in).</li>
+                            <li>Requires the "SPI" library (built-in).</li>
+                        </ul>
+
+                        <p>Complete code:</p>
+                        <div class="code-box">
+                            <pre><code>#include &lt;SPI.h&gt;
+#include &lt;SD.h&gt;
+
+// Define CS pin
+#define SD_CS 10
+
+File myFile;
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial) delay(10);
+  
+  Serial.print("Initializing SD card...");
+  if (!SD.begin(SD_CS)) {
+    Serial.println("initialization failed!");
+    return;
+  }
+  Serial.println("initialization done.");
+  
+  // Create/open file (FILE_WRITE will create a new file or overwrite existing file)
+  myFile = SD.open("/test.txt", FILE_WRITE);
+  if (myFile) {
+    Serial.print("Writing to test.txt...");
+    myFile.println("Hello, ESP32-S3!");
+    myFile.println("SPI SD card test.");
+    myFile.println("Line 3: 12345");
+    myFile.close();
+    Serial.println("done.");
+  } else {
+    Serial.println("error opening test.txt for writing");
+  }
+  
+  // Read file content
+  myFile = SD.open("/test.txt");
+  if (myFile) {
+    Serial.println("Reading test.txt:");
+    while (myFile.available()) {
+      Serial.write(myFile.read());
+    }
+    myFile.close();
+  } else {
+    Serial.println("error opening test.txt for reading");
+  }
+}
+
+void loop() {
+  // No operation
+}
+</code></pre>
+                        </div>
+
+                        <p>Effect:</p>
+                        <ul>
+                            <li>The serial monitor outputs initialization success information, then writes data, and finally reads and prints the file content.</li>
+                            <li>Insert the SD card into the computer, you can see the test.txt file contains the three lines of text written.</li>
+                        </ul>
+
+                        <h4>13.4 Advanced: Using SPIFFS File System (Alternative to SD Card)</h4>
+                        <p>The internal Flash of ESP32-S3 can be partitioned as a file system (SPIFFS or LittleFS) for storing web pages, configuration files, etc., without the need for an external SD card.</p>
+
+                        <p>Installing SPIFFS upload tool:</p>
+                        <ul>
+                            <li>Search for "ESP32FS" plugin in Arduino IDE (or use "ESP32 LittleFS").</li>
+                            <li>After installation, Tools → ESP32 Sketch Data Upload can upload the contents of the data folder to Flash.</li>
+                        </ul>
+
+                        <p>Code example (reading files in SPIFFS):</p>
+                        <div class="code-box">
+                            <pre><code>#include &lt;SPIFFS.h&gt;
+
+void setup() {
+  Serial.begin(115200);
+  if (!SPIFFS.begin(true)) {   // true means format (first run)
+    Serial.println("SPIFFS mount failed");
+    return;
+  }
+  
+  File file = SPIFFS.open("/config.txt", "r");
+  if (file) {
+    Serial.println("File content:");
+    while (file.available()) {
+      Serial.write(file.read());
+    }
+    file.close();
+  } else {
+    Serial.println("Failed to open file for reading");
+  }
+}
+
+void loop() {}
+</code></pre>
+                        </div>
+
+                        <h4>13.5 Experiment: SPI Reading RFID Card Number (RC522)</h4>
+                        <p>Goal: Use MFRC522 RFID module (SPI interface) to read the UID of IC cards.</p>
+
+                        <p>Hardware wiring (RC522 pins → ESP32-S3):</p>
+                        <table>
+                            <tr>
+                                <th>RC522</th>
+                                <th>ESP32-S3</th>
+                            </tr>
+                            <tr>
+                                <td>SDA</td>
+                                <td>GPIO10 (CS)</td>
+                            </tr>
+                            <tr>
+                                <td>SCK</td>
+                                <td>GPIO12</td>
+                            </tr>
+                            <tr>
+                                <td>MOSI</td>
+                                <td>GPIO11</td>
+                            </tr>
+                            <tr>
+                                <td>MISO</td>
+                                <td>GPIO13</td>
+                            </tr>
+                            <tr>
+                                <td>IRQ</td>
+                                <td>Not connected</td>
+                            </tr>
+                            <tr>
+                                <td>3.3V</td>
+                                <td>3.3V</td>
+                            </tr>
+                            <tr>
+                                <td>GND</td>
+                                <td>GND</td>
+                            </tr>
+                        </table>
+
+                        <p>Library installation: Search and install "MFRC522" (by Miguel Balboa).</p>
+
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+
+#define SS_PIN 10
+#define RST_PIN 9   // Can be any pin, here using GPIO9
+
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+
+void setup() {
+  Serial.begin(115200);
+  SPI.begin();
+  mfrc522.PCD_Init();
+  Serial.println("RFID reader ready");
+}
+
+void loop() {
+  if (!mfrc522.PICC_IsNewCardPresent()) return;
+  if (!mfrc522.PICC_ReadCardSerial()) return;
+  
+  Serial.print("Card UID: ");
+  for (byte i = 0; i < mfrc522.uid.size; i++) {
+    Serial.print(mfrc522.uid.uidByte[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
+  mfrc522.PICC_HaltA();
+}
+</code></pre>
+                        </div>
+
+                        <h4>13.6 SPI Bus Multi-device Sharing (Multiple Slaves)</h4>
+                        <p>Just assign independent CS pins for each slave, and connect other pins (SCK, MOSI, MISO) in parallel.</p>
+
+                        <p>Wiring example:</p>
+                        <ul>
+                            <li>SD card module CS → GPIO10</li>
+                            <li>RFID module CS → GPIO15</li>
+                            <li>SCK, MOSI, MISO are respectively connected in parallel to GPIO12, GPIO11, GPIO13.</li>
+                        </ul>
+
+                        <p>Switching devices in code:</p>
+                        <div class="code-box">
+                            <pre><code>// Before SD card operation
+digitalWrite(SD_CS, LOW);
+// SPI transmission...
+digitalWrite(SD_CS, HIGH);
+
+// Before RFID operation
+digitalWrite(RFID_CS, LOW);
+// Transmission...
+digitalWrite(RFID_CS, HIGH);
+</code></pre>
+                        </div>
+
+                        <h4>13.7 Common Problems and Troubleshooting</h4>
+                        <table>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>SD card initialization failed</td>
+                                <td>CS pin error, not formatted, or wiring error</td>
+                                <td>Check CS pin; format SD card to FAT32; check connections</td>
+                            </tr>
+                            <tr>
+                                <td>Slow SD card reading/writing</td>
+                                <td>SPI frequency too low</td>
+                                <td>Adjust SD.begin(CS, SPI, 40000000) to increase frequency (maximum 40 MHz)</td>
+                            </tr>
+                            <tr>
+                                <td>SPI data garbled</td>
+                                <td>Mode mismatch (CPOL/CPHA)</td>
+                                <td>Use SPI.setDataMode(SPI_MODE0) to set mode</td>
+                            </tr>
+                            <tr>
+                                <td>Multi-device conflict</td>
+                                <td>CS not properly pulled high</td>
+                                <td>Ensure other devices' CS are high before accessing one device</td>
+                            </tr>
+                        </table>
+
+                        <p>Summary</p>
+                        <p>This chapter learned about the SPI communication protocol and its applications on ESP32-S3:</p>
+                        <ul>
+                            <li>SPI four-wire system, full-duplex, high-speed, suitable for SD cards, TFT, RFID and other devices.</li>
+                            <li>Default SPI pins (FSPI) are SCK=12, MISO=13, MOSI=11, CS can be customized.</li>
+                            <li>SD card reading and writing experiments: create files, write text, read content.</li>
+                            <li>Introduced SPIFFS internal file system.</li>
+                            <li>Extension: RFID card reading and multi-device bus sharing.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module3-14" class="submodule">
+                    <h3>3.14 Chapter 14: WiFi Network Communication</h3>
+                    <div class="submodule-content">
+                        <h4>14.1 ESP32-S3 WiFi Function Introduction (2.4GHz, supporting STA/AP modes)</h4>
+
+                        <h4>14.2 Experiment 1: STA Mode Connecting to WiFi Hotspot</h4>
+                        <p>Code: Connect to WiFi and obtain IP address</p>
+                        <p>WiFi disconnection automatic reconnection mechanism</p>
+
+                        <h4>14.3 Experiment 2: AP Mode Creating WiFi Hotspot</h4>
+                        <p>Code: Create hotspot and display connected devices</p>
+
+                        <h4>14.4 Practice: WiFi Web Server Controlling LED</h4>
+                        <p>Code: Remote control on-board LED through mobile phone/computer webpage</p>
+                    </div>
+                </div>
+
+                <div id="module3-15" class="submodule">
+                    <h3>3.15 Chapter 15: Bluetooth Communication</h3>
+                    <div class="submodule-content">
+                        <h4>15.1 ESP32-S3 Bluetooth Function Introduction</h4>
+                        <p>ESP32-S3 has a built-in complete Bluetooth 5.0 Low Energy (BLE) subsystem. It supports various core functions, including long-range transmission using Coded PHY and Advertising Extensions, as well as a 2Mbps high-speed physical layer, which can provide higher data transmission rates and throughput.</p>
+                        <p>However, one key point to note is: ESP32-S3 itself does not support classic Bluetooth (BR/EDR). Therefore, it cannot directly use traditional Bluetooth headphones, Bluetooth speakers, etc., nor can it run classic Bluetooth (SPP) serial port programs based on the BluetoothSerial library.</p>
+                        <p>So, how to implement serial communication between a mobile phone and the development board on ESP32-S3? The answer is: use BLE UART (Bluetooth Low Energy Universal Asynchronous Receiver/Transmitter). This is a mechanism that simulates serial communication through the BLE protocol, allowing ESP32-S3 to transmit data with "Bluetooth Serial Assistant" applications on mobile phones just like classic Bluetooth. The ESP-IDF official also provides relevant demonstration programs to implement this function.</p>
+
+                        <h4>15.1.1 Bluetooth Protocol Stack Selection</h4>
+                        <p>In the Arduino environment, there are mainly the following two options for developing BLE applications for ESP32-S3:</p>
+                        <ul>
+                            <li><strong>BluetoothSerial library (not recommended)</strong>: This library is simple but actually designed for ESP32 chips that support classic Bluetooth. Using it on ESP32-S3 often results in compilation errors (for example, functions like esp_spp_connect, esp_bt_gap_resolve_eir_data are undefined), so it is no longer recommended.</li>
+                            <li><strong>ArduinoBLE library (official recommendation)</strong>: This is an official library specifically for BLE development, powerful and well-supported for ESP32-S3. This is also the method used in the subsequent experiments in this chapter.</li>
+                            <li><strong>NimBLE library (advanced option)</strong>: Compared to the official Bluedroid protocol stack, NimBLE is a more lightweight BLE protocol stack with lower resource consumption. It also supports ESP32-S3 and is compatible with some advanced Bluetooth 5.0 features. If you have higher requirements for performance or memory usage, you can study this library on your own.</li>
+                        </ul>
+
+                        <h4>15.2 Experiment: BLE Serial Communication</h4>
+                        <h4>15.2.1 Experiment Goal</h4>
+                        <p>This experiment will use the ArduinoBLE library to simulate ESP32-S3 as a Bluetooth Low Energy serial device (BLE UART). Finally, you can use a general Bluetooth debugging assistant application (such as "nRF Connect" or "LightBlue") on your mobile phone to connect to the development board and send text messages between the mobile phone and ESP32-S3 like using a wired serial port.</p>
+
+                        <h4>15.2.2 Preparation</h4>
+                        <ul>
+                            <li><strong>Library installation</strong>: In Arduino IDE, open Tools → Manage Libraries, search for and install the "ArduinoBLE" library.</li>
+                            <li><strong>Hardware</strong>: An ESP32-S3 development board.</li>
+                            <li><strong>Software (mobile phone side)</strong>: Install an application that supports BLE UART on your mobile phone.</li>
+                            <ul>
+                                <li>Android: Recommended "nRF Connect" or "Serial Bluetooth Terminal"</li>
+                                <li>iOS: Recommended "LightBlue Explorer" or "nRF Connect"</li>
+                            </ul>
+                        </ul>
+
+                        <h4>15.2.3 Complete Code</h4>
+                        <p>The following code shows how to create a BLE UART service. After the mobile phone connects, ESP32-S3 will send a welcome message via Bluetooth, and can print the data sent by the mobile phone to the serial monitor and automatically reply with a confirmation message.</p>
+                        <div class="code-box">
+                            <pre><code>#include &lt;ArduinoBLE.h&gt;
+
+// Define UUIDs for custom service and characteristics
+// Use standard Nordic UART Service (NUS) UUID for compatibility with common phone apps
+#define BLE_UART_SERVICE_UUID           "6E400001-B5A3-F393-E0A9-E50E24DCCA9E"
+#define BLE_UART_RX_CHARACTERISTIC_UUID "6E400002-B5A3-F393-E0A9-E50E24DCCA9E"
+#define BLE_UART_TX_CHARACTERISTIC_UUID "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
+
+BLEService uartService(BLE_UART_SERVICE_UUID);
+// RX characteristic (phone -> ESP32-S3)
+BLECharacteristic rxCharacteristic(BLE_UART_RX_CHARACTERISTIC_UUID, BLEWrite, 20);
+// TX characteristic (ESP32-S3 -> phone)
+BLECharacteristic txCharacteristic(BLE_UART_TX_CHARACTERISTIC_UUID, BLENotify, 20);
+
+String receivedData = "";
+bool dataReady = false;
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+
+  // Initialize BLE module
+  if (!BLE.begin()) {
+    Serial.println("BLE initialization failed!");
+    while (1);
+  }
+
+  // Set device name
+  BLE.setDeviceName("ESP32S3_BLE_UART");
+  BLE.setLocalName("ESP32S3_BLE_UART");
+
+  // Add service and characteristics
+  BLE.setAdvertisedService(uartService);
+  uartService.addCharacteristic(rxCharacteristic);
+  uartService.addCharacteristic(txCharacteristic);
+  BLE.addService(uartService);
+
+  // Set characteristic callback function
+  rxCharacteristic.setEventHandler(BLEWritten, onDataReceived);
+
+  // Start advertising
+  BLE.advertise();
+
+  Serial.println("BLE UART device started, waiting for connection...");
+  Serial.print("Device name: ");
+  Serial.println(BLE.deviceName());
+}
+
+void loop() {
+  // Poll BLE central device (e.g., phone) connection status and events
+  BLE.poll();
+  
+  // Handle serial input (ESP32-S3 -> phone)
+  if (Serial.available()) {
+    String serialInput = Serial.readString();
+    // Send data to phone via TX characteristic
+    txCharacteristic.writeValue(serialInput.c_str(), serialInput.length());
+    Serial.print("Sent via Bluetooth: ");
+    Serial.println(serialInput);
+  }
+  
+  // Handle data from phone
+  if (dataReady) {
+    Serial.print("Received phone data: ");
+    Serial.println(receivedData);
+    
+    // Send confirmation message back to phone
+    String ackMsg = "Received: " + receivedData;
+    txCharacteristic.writeValue(ackMsg.c_str(), ackMsg.length());
+    
+    receivedData = "";
+    dataReady = false;
+  }
+
+  delay(50);
+}
+
+// Callback function: Called when phone writes data via RX characteristic
+void onDataReceived(BLEDevice central, BLECharacteristic characteristic) {
+  String value = characteristic.value();
+  if (value.length() > 0) {
+    receivedData = value;
+    dataReady = true;
+  }
+}
+</code></pre>
+                        </div>
+
+                        <h4>15.2.4 Mobile Phone Connection and Testing</h4>
+                        <ul>
+                            <li><strong>Upload code</strong>: Upload the above code to your ESP32-S3 development board.</li>
+                            <li><strong>Open serial monitor</strong>: Set the baud rate to 115200. You will see the message "BLE UART device started, waiting for connection..."</li>
+                            <li><strong>Mobile phone connection</strong>: Open the BLE debugging application on your mobile phone (such as "nRF Connect"), scan for nearby Bluetooth devices, find the device named "ESP32S3_BLE_UART" and click "Connect". After successful connection, the application will display the services and characteristics we defined.</li>
+                            <li><strong>Data transmission</strong>:</li>
+                            <ul>
+                                <li>Mobile phone → Development board: In the "RX Characteristic" of the application, select "Write" or similar option, enter text (for example "Hello from phone") and send. You will see ESP32-S3 receive and print the message in the Arduino serial monitor.</li>
+                                <li>Development board → Mobile phone: Enter text in the Arduino IDE serial monitor and send. You will see the message from ESP32-S3 under the "TX Characteristic" of the mobile phone application.</li>
+                            </ul>
+                        </ul>
+                        <p>Congratulations! You have successfully implemented BLE data transparent transmission between ESP32-S3 and your mobile phone!</p>
+
+                        <h4>15.3 Introduction to BLE (Bluetooth Low Energy)</h4>
+                        <p>BLE is a Bluetooth standard designed for low power consumption and small data transmission. Compared to traditional Bluetooth, it has the following significant advantages:</p>
+                        <ul>
+                            <li><strong>Extremely low power consumption</strong>: This is the core advantage of BLE. It can maintain extremely low energy consumption when broadcasting or maintaining a connection, which is very suitable for devices powered by button batteries.</li>
+                            <li><strong>Fast connection</strong>: BLE devices can establish connections in milliseconds, without the need for complex pairing and setup like traditional Bluetooth.</li>
+                            <li><strong>Advertising mode</strong>: BLE supports "Advertising" mode, where devices can continuously send small data (such as beacon information, sensor readings) without establishing connections with any device, which is very suitable for IoT sensor networks.</li>
+                        </ul>
+
+                        <h4>15.3.1 GATT (Generic Attribute Profile) — The Core Architecture of BLE</h4>
+                        <p>GATT is the application layer protocol for data exchange between BLE devices. It defines how data is organized and transmitted. Understanding GATT architecture is crucial for developing BLE applications. The main concepts are as follows:</p>
+                        <ul>
+                            <li><strong>Service</strong>: A service is a collection of related "characteristics" used to complete specific functions. For example, a "Battery Service" will contain a "Battery Level" characteristic. A BLE device can contain multiple services.</li>
+                            <li><strong>Characteristic</strong>: A characteristic is the smallest data unit in GATT, containing a value and a set of properties (such as read, write, notify). The "RX characteristic" and "TX characteristic" in the above experiment are two characteristics used for sending and receiving data.</li>
+                            <li><strong>Descriptor</strong>: A descriptor is an attribute that provides additional information for a characteristic. For example, the "Client Characteristic Configuration Descriptor" (CCCD) is used to enable or disable "notify" or "indicate" functions.</li>
+                        </ul>
+
+                        <h4>15.3.2 BLE Communication Modes</h4>
+                        <p>In BLE, data interaction is mainly carried out through the following modes:</p>
+                        <ul>
+                            <li><strong>Read/Write</strong>: This is the most basic mode, initiated by the central device (such as a mobile phone), reading characteristic values from the peripheral (such as ESP32-S3) or writing new values to characteristics.</li>
+                            <li><strong>Notify/Indicate</strong>: This is the core of BLE low power mode. The peripheral can actively "push" data to the central device without a request from the central device. "Notify" is a one-way, unacknowledged transmission; "Indicate" requires acknowledgment of data packets to ensure the central device has received them.</li>
+                        </ul>
+
+                        <h4>15.3.3 BLE Roles (Central and Peripheral)</h4>
+                        <p>In BLE connections, devices play different roles:</p>
+                        <ul>
+                            <li><strong>Central device</strong>: Usually a more powerful device (such as a mobile phone, computer), responsible for scanning and connecting to other BLE peripherals. A central device can connect to multiple peripherals simultaneously.</li>
+                            <li><strong>Peripheral device</strong>: Usually a single-function, low-power device (such as a sensor, bracelet, ESP32-S3 development board), waiting for central device connection by broadcasting its presence. Each peripheral can only connect to one central device at a time.</li>
+                        </ul>
+                        <p>In the experiment of this chapter, ESP32-S3 plays the "peripheral" role, while your mobile phone plays the "central device" role.</p>
+
+                        <h4>15.4 Advanced: Broadcasting BLE iBeacon</h4>
+                        <p>ESP32-S3 can also be used as a BLE beacon. A beacon is a device that only broadcasts without connecting, commonly used in scenarios such as indoor positioning and information push.</p>
+                        <p>Code:</p>
+                        <div class="code-box">
+                            <pre><code>#include &lt;ArduinoBLE.h&gt;
+
+// iBeacon UUID (please replace with your UUID)
+const char* beaconUUID = "e2c56db5-dffb-48d2-b060-d0f5a71096e0";
+const uint16_t major = 100;
+const uint16_t minor = 1;
+const int8_t txPower = -59;  // Signal strength, usually -59
+
+void setup() {
+  Serial.begin(115200);
+  while (!Serial);
+
+  if (!BLE.begin()) {
+    Serial.println("BLE initialization failed!");
+    while (1);
+  }
+
+  // Set broadcast data packet to iBeacon format
+  BLE.setManufacturerData(const_cast&lt;uint8_t*&gt;(getBeaconPayload()), getBeaconPayloadLength());
+  
+  // Start advertising
+  BLE.advertise();
+  Serial.println("iBeacon started");
+}
+
+void loop() {
+  // No action needed for beacon mode
+  delay(1000);
+}
+
+// Helper function to generate iBeacon payload
+const uint8_t* getBeaconPayload() {
+  static uint8_t payload[30];
+  // iBeacon format implementation
+  // ...
+  return payload;
+}
+
+// Helper function to get payload length
+size_t getBeaconPayloadLength() {
+  return 30;
+}
+</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module3-16" class="submodule">
+                    <h3>3.16 Chapter 16: DVP Camera Module Usage</h3>
+                    <div class="submodule-content">
+                        <h4>16.1 Camera Support Description for This Board (supports OV2640/OV5640 and other DVP cameras)</h4>
+
+                        <h4>16.2 Camera Pin Definition (corresponding to the board's DVP interface)</h4>
+
+                        <h4>16.3 Experiment 1: Camera Initialization and Image Acquisition</h4>
+                        <p>Library installation</p>
+                        <p>Code: Basic image acquisition and serial port output</p>
+
+                        <h4>16.4 Experiment 2: Web Camera Real-time Preview</h4>
+                        <p>Code: Combine WiFi to realize browser real-time camera viewing</p>
+                    </div>
+                </div>
+
+                <div id="module3-17" class="submodule">
+                    <h3>3.17 Chapter 17: Comprehensive Project Practice</h3>
+                    <div class="submodule-content">
+                        <h4>17.1 Project 1: WiFi Temperature and Humidity Monitor</h4>
+                        <p>Function description: Collect temperature and humidity data and display through webpage</p>
+                        <p>Hardware list: DHT11 temperature and humidity sensor</p>
+                        <p>Wiring diagram</p>
+                        <p>Complete code</p>
+
+                        <h4>17.2 Project 2: Bluetooth Remote Control LED Light</h4>
+                        <p>Function description: Mobile phone Bluetooth APP controls LED brightness and on/off</p>
+                        <p>Hardware list</p>
+                        <p>Wiring diagram</p>
+                        <p>Complete code</p>
+                    </div>
+                </div>
+
+                <div id="module3-18" class="submodule">
+                    <h3>3.18 Chapter 18: Common Problems and Troubleshooting</h3>
+                    <div class="submodule-content">
+                        <h4>18.1 Development Environment Problems</h4>
+                        <h4>18.2 Hardware Connection Problems</h4>
+                        <h4>18.3 Code Compilation Problems</h4>
+                        <h4>18.4 Runtime Problems</h4>
+                        <h4>18.5 Network Connection Problems</h4>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ESP32-S3 Development Board Guide. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

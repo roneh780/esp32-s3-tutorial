@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: ESP32 Advanced Tutorials - Small Project Development - ESP32-S3 Development Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">ESP32-S3 Development Board</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="module1.html">Introduction</a></li>
+                    <li><a href="module2.html">Hardware Preparation</a></li>
+                    <li><a href="module3.html">Arduino IDE Setup</a></li>
+                    <li><a href="module4.html">ESP32-S3 ESP-IDF Guide</a></li>
+                    <li><a href="module5.html">MicroPython Development</a></li>
+                    <li><a href="module6.html">ESP32 Advanced Tutorials</a></li>
+                    <li><a href="module7.html">Expansion & Summary</a></li>
+                    <li><a href="module8.html">Technical Support & FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside class="sidebar">
+            <h3>Guide Navigation</h3>
+            <ul class="sidebar-nav">
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module1.html">1. Introduction</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module1.html#module1-1">1.1 ESP32-S3 Series Overview</a></li>
+                        <li><a href="module1.html#module1-2">1.2 ESP32-S3 N16R8 Core Features</a></li>
+                        <li><a href="module1.html#module1-3">1.3 Typical Application Scenarios</a></li>
+                        <li><a href="module1.html#module1-4">1.4 Development Environment and Arduino Support</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module2.html">2. Hardware Preparation</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module2.html#module2-1">2.1 Required Materials</a></li>
+                        <li><a href="module2.html#module2-2">2.2 Notes</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module3.html">3. Arduino IDE Setup & Complete Guide</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module3.html#module3-1">3.1 Chapter 1: Arduino Development Environment Installation and Configuration</a></li>
+                        <li><a href="module3.html#module3-2">3.2 Chapter 2: Hardware Basics and Pin Description</a></li>
+                        <li><a href="module3.html#module3-3">3.3 Chapter 3: Arduino Programming Basics</a></li>
+                        <li><a href="module3.html#module3-4">3.4 Chapter 4: LED Control (Digital Output)</a></li>
+                        <li><a href="module3.html#module3-5">3.5 Chapter 5: Delay and Non-blocking Delay</a></li>
+                        <li><a href="module3.html#module3-6">3.6 Chapter 6: Buttons (Digital Input)</a></li>
+                        <li><a href="module3.html#module3-7">3.7 Chapter 7: External Interrupts</a></li>
+                        <li><a href="module3.html#module3-8">3.8 Chapter 8: Serial Communication</a></li>
+                        <li><a href="module3.html#module3-9">3.9 Chapter 9: Hardware Timers</a></li>
+                        <li><a href="module3.html#module3-10">3.10 Chapter 10: PWM Pulse Width Modulation</a></li>
+                        <li><a href="module3.html#module3-11">3.11 Chapter 11: ADC Analog-to-Digital Conversion</a></li>
+                        <li><a href="module3.html#module3-12">3.12 Chapter 12: I2C Communication</a></li>
+                        <li><a href="module3.html#module3-13">3.13 Chapter 13: SPI Communication</a></li>
+                        <li><a href="module3.html#module3-14">3.14 Chapter 14: WiFi Network Communication</a></li>
+                        <li><a href="module3.html#module3-15">3.15 Chapter 15: Bluetooth Communication</a></li>
+                        <li><a href="module3.html#module3-16">3.16 Chapter 16: DVP Camera Module Usage</a></li>
+                        <li><a href="module3.html#module3-17">3.17 Chapter 17: Comprehensive Project Practice</a></li>
+                        <li><a href="module3.html#module3-18">3.18 Chapter 18: Common Problems and Troubleshooting</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module4.html">4. ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition)</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module4.html#module4-1">1. Preparation</a></li>
+                        <li><a href="module4.html#module4-2">2. Install ESP-IDF Environment</a></li>
+                        <li><a href="module4.html#module4-3">3. Configure VS Code Development Environment</a></li>
+                        <li><a href="module4.html#module4-4">4. Create and Run First Project</a></li>
+                        <li><a href="module4.html#module4-5">5. Advanced: Using Built-in JTAG Debugging</a></li>
+                        <li><a href="module4.html#module4-6">6. Common Issues and Solutions</a></li>
+                        <li><a href="module4.html#module4-7">7. Next Learning Suggestions</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module5.html">5. MicroPython Development Guide for ESP32-S3</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module5.html#module5-1">1. MicroPython Basics and Environment Setup</a></li>
+                        <li><a href="module5.html#module5-2">2. MicroPython Basic Programming</a></li>
+                        <li><a href="module5.html#module5-3">3. On-board RGB LED Control (NeoPixel / WS2812B)</a></li>
+                        <li><a href="module5.html#module5-4">4. WiFi and Network Communication</a></li>
+                        <li><a href="module5.html#module5-5">5. Peripheral Interfaces and Sensor Applications</a></li>
+                        <li><a href="module5.html#module5-6">6. USB and OTG Features (HW-678 Special)</a></li>
+                        <li><a href="module5.html#module5-7">7. Low Power and Advanced Features</a></li>
+                        <li><a href="module5.html#module5-8">8. Comprehensive Project Practice</a></li>
+                        <li><a href="module5.html#module5-9">Appendix</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module6.html">6. ESP32 Advanced Tutorials</a>
+                        <span class="toggle">-</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module6.html#module6-1">6.1 Project 1: Smart Environment Monitoring Station</a></li>
+                        <li><a href="module6.html#module6-2">6.2 Project 2: WiFi Smart Switch</a></li>
+                        <li><a href="module6.html#module6-3">6.3 Project 3: Bluetooth Low Energy Device</a></li>
+                        <li><a href="module6.html#module6-4">6.4 Project 4: USB Device Simulation</a></li>
+                        <li><a href="module6.html#module6-5">6.5 Project 5: Low Power Sensor Node</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module7.html">7. Expansion & Summary</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module7.html#module7-1">7.1 Further Experiment Suggestions</a></li>
+                        <li><a href="module7.html#module7-2">7.2 Summary</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module8.html">8. Technical Support & FAQ</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module8.html#module8-1">8.1 Technical Support Resources</a></li>
+                        <li><a href="module8.html#module8-2">8.2 Frequently Asked Questions</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="module6" class="module">
+                <h2>6. ESP32 Advanced Tutorials - Small Project Development</h2>
+                
+                <div id="module6-1" class="submodule">
+                    <h3>6.1 Project 1: Smart Environment Monitoring Station</h3>
+                    <div class="submodule-content">
+                        <h4>Project Overview</h4>
+                        <p>Using ESP32-S3 development board and DHT22 temperature and humidity sensor, build an intelligent monitoring station that can real-time monitor environmental temperature and humidity and upload data via WiFi.</p>
+                        
+                        <h4>Required Materials</h4>
+                        <ul>
+                            <li>ESP32-S3 development board</li>
+                            <li>DHT22 temperature and humidity sensor</li>
+                            <li>OLED display (optional)</li>
+                            <li>Breadboard and connecting wires</li>
+                        </ul>
+                        
+                        <h4>Implementation Steps</h4>
+                        <ol>
+                            <li>Connect DHT22 sensor to GPIO pin of ESP32-S3</li>
+                            <li>Install DHT library and WiFi library</li>
+                            <li>Write code to read temperature and humidity data</li>
+                            <li>Upload data to IoT platform via WiFi (such as ThingSpeak, Alibaba Cloud IoT, etc.)</li>
+                            <li>Optional: Add OLED display to show data in real-time</li>
+                        </ol>
+                        
+                        <h4>Code Example</h4>
+                        <pre><code>#include &lt;WiFi.h&gt;
+#include &lt;DHT.h&gt;
+
+const char* ssid = "your_SSID";
+const char* password = "your_PASSWORD";
+#define DHTPIN 4  // DHT22 connected to GPIO4
+#define DHTTYPE DHT22  // DHT 22 (AM2302)
+
+DHT dht(DHTPIN, DHTTYPE);
+
+void setup() {
+  Serial.begin(115200);
+  dht.begin();
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi connected");
+}
+
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+  
+  Serial.print("Humidity: ");
+  Serial.print(h);
+  Serial.print(" %\t");
+  Serial.print("Temperature: ");
+  Serial.print(t);
+  Serial.println(" *C");
+  
+  // Add code here to upload data to IoT platform
+  
+  delay(2000);
+}</code></pre>
+                    </div>
+                </div>
+
+                <div id="module6-2" class="submodule">
+                    <h3>6.2 Project 2: WiFi Smart Switch</h3>
+                    <div class="submodule-content">
+                        <h4>Project Overview</h4>
+                        <p>Utilize the WiFi function of ESP32-S3 to build a smart switch that can be remotely controlled through mobile APP or web page, used to control home appliances.</p>
+                        
+                        <h4>Required Materials</h4>
+                        <ul>
+                            <li>ESP32-S3 development board</li>
+                            <li>Relay module</li>
+                            <li>Button (optional)</li>
+                            <li>Breadboard and connecting wires</li>
+                        </ul>
+                        
+                        <h4>Implementation Steps</h4>
+                        <ol>
+                            <li>Connect relay module to GPIO pin of ESP32-S3</li>
+                            <li>Write code to create WiFi server</li>
+                            <li>Design simple web control interface</li>
+                            <li>Implement relay control logic</li>
+                            <li>Optional: Add local button control function</li>
+                        </ol>
+                        
+                        <h4>Code Example</h4>
+                        <pre><code>#include &lt;WiFi.h&gt;
+
+const char* ssid = "your_SSID";
+const char* password = "your_PASSWORD";
+const int relayPin = 5;  // Relay connected to GPIO5
+
+WiFiServer server(80);
+
+void setup() {
+  pinMode(relayPin, OUTPUT);
+  digitalWrite(relayPin, LOW);
+  
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi connected");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
+  server.begin();
+}
+
+void loop() {
+  WiFiClient client = server.available();
+  if (client) {
+    String request = client.readStringUntil('\r');
+    client.println("HTTP/1.1 200 OK");
+    client.println("Content-type:text/html");
+    client.println();
+    
+    if (request.indexOf("/ON") != -1) {
+      digitalWrite(relayPin, HIGH);
+    } else if (request.indexOf("/OFF") != -1) {
+      digitalWrite(relayPin, LOW);
+    }
+    
+    client.println("&lt;html&gt;&lt;body&gt;");
+    client.println("&lt;h1&gt;ESP32 WiFi Smart Switch&lt;/h1&gt;");
+    client.println("&lt;p&gt;&lt;a href=\"/ON\"&gt;&lt;button&gt;Turn ON&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+    client.println("&lt;p&gt;&lt;a href=\"/OFF\"&gt;&lt;button&gt;Turn OFF&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;");
+    client.println("&lt;/body&gt;&lt;/html&gt;");
+    client.println();
+    client.stop();
+  }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div id="module6-3" class="submodule">
+                    <h3>6.3 Project 3: Bluetooth Low Energy Device</h3>
+                    <div class="submodule-content">
+                        <h4>Project Overview</h4>
+                        <p>Using the Bluetooth Low Energy (BLE) function of ESP32-S3, build a device that can communicate with mobile APP, such as Bluetooth remote control or sensor data transmission device.</p>
+                        
+                        <h4>Required Materials</h4>
+                        <ul>
+                            <li>ESP32-S3 development board</li>
+                            <li>Mobile phone (install nRF Connect or similar BLE debugging APP)</li>
+                        </ul>
+                        
+                        <h4>Implementation Steps</h4>
+                        <ol>
+                            <li>Initialize BLE service and characteristic</li>
+                            <li>Set up BLE advertising</li>
+                            <li>Implement data read/write functions</li>
+                            <li>Test communication with mobile APP</li>
+                        </ol>
+                        
+                        <h4>Code Example</h4>
+                        <pre><code>#include &lt;BLEDevice.h&gt;
+#include &lt;BLEUtils.h&gt;
+#include &lt;BLEServer.h&gt;
+
+#define SERVICE_UUID        "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
+#define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+
+BLEServer* pServer = NULL;
+BLECharacteristic* pCharacteristic = NULL;
+bool deviceConnected = false;
+
+class MyServerCallbacks: public BLEServerCallbacks {
+    void onConnect(BLEServer* pServer) {
+      deviceConnected = true;
+    };
+    void onDisconnect(BLEServer* pServer) {
+      deviceConnected = false;
+    }
+};
+
+void setup() {
+  Serial.begin(115200);
+  BLEDevice::init("ESP32 BLE Device");
+  pServer = BLEDevice::createServer();
+  pServer->setCallbacks(new MyServerCallbacks());
+  BLEService *pService = pServer->createService(SERVICE_UUID);
+  pCharacteristic = pService->createCharacteristic(
+                      CHARACTERISTIC_UUID,
+                      BLECharacteristic::PROPERTY_READ |
+                      BLECharacteristic::PROPERTY_WRITE
+                    );
+  pCharacteristic->setValue("Hello BLE");
+  pService->start();
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->addServiceUUID(SERVICE_UUID);
+  pAdvertising->setScanResponse(true);
+  pAdvertising->setMinPreferred(0x06);
+  pAdvertising->setMinPreferred(0x12);
+  BLEDevice::startAdvertising();
+  Serial.println("Waiting for a client connection...");
+}
+
+void loop() {
+  if (deviceConnected) {
+    // You can add data transmission logic here
+    delay(1000);
+  }
+}</code></pre>
+                    </div>
+                </div>
+
+                <div id="module6-4" class="submodule">
+                    <h3>6.4 Project 4: USB Device Simulation</h3>
+                    <div class="submodule-content">
+                        <h4>Project Overview</h4>
+                        <p>Utilize the USB-OTG function of ESP32-S3 to simulate USB devices, such as USB keyboard, mouse, or storage device.</p>
+                        
+                        <h4>Required Materials</h4>
+                        <ul>
+                            <li>ESP32-S3 development board (supporting USB-OTG)</li>
+                            <li>USB data cable</li>
+                            <li>Computer or other USB host device</li>
+                        </ul>
+                        
+                        <h4>Implementation Steps</h4>
+                        <ol>
+                            <li>Enable USB-OTG function of ESP32-S3 (short corresponding jumper)</li>
+                            <li>Install USB HID library</li>
+                            <li>Write code to simulate USB device</li>
+                            <li>Test connection with computer</li>
+                        </ol>
+                        
+                        <h4>Code Example</h4>
+                        <pre><code>#include &lt;USB.h&gt;
+#include &lt;USBHID.h&gt;
+
+USBHID HID;
+const uint8_t REPORT_ID = 0x01;
+
+void setup() {
+  Serial.begin(115200);
+  HID.begin();
+  while (!HID.begin()) {
+    Serial.println("HID begin failed");
+    delay(1000);
+  }
+  Serial.println("HID ready");
+}
+
+void loop() {
+  // Simulate pressing 'A' key
+  uint8_t report[8] = {0};
+  report[2] = 0x04;  // Scan code for 'A' key
+  HID.sendReport(REPORT_ID, report, sizeof(report));
+  delay(100);
+  
+  // Release key
+  memset(report, 0, sizeof(report));
+  HID.sendReport(REPORT_ID, report, sizeof(report));
+  delay(2000);
+}</code></pre>
+                    </div>
+                </div>
+
+                <div id="module6-5" class="submodule">
+                    <h3>6.5 Project 5: Low Power Sensor Node</h3>
+                    <div class="submodule-content">
+                        <h4>Project Overview</h4>
+                        <p>Design a low-power ESP32-S3 sensor node using deep sleep mode to extend battery life, suitable for long-term monitoring applications.</p>
+                        
+                        <h4>Required Materials</h4>
+                        <ul>
+                            <li>ESP32-S3 development board</li>
+                            <li>Battery or power bank</li>
+                            <li>Sensor (such as light-dependent resistor, temperature sensor, etc.)</li>
+                        </ul>
+                        
+                        <h4>Implementation Steps</h4>
+                        <ol>
+                            <li>Connect sensor to ESP32-S3</li>
+                            <li>Write code to implement sensor data collection</li>
+                            <li>Configure deep sleep mode</li>
+                            <li>Test battery life</li>
+                        </ol>
+                        
+                        <h4>Code Example</h4>
+                        <pre><code>#include &lt;WiFi.h&gt;
+
+const char* ssid = "your_SSID";
+const char* password = "your_PASSWORD";
+const int sensorPin = 34;  // Sensor connected to GPIO34
+
+void setup() {
+  Serial.begin(115200);
+  delay(1000);
+  
+  // Connect to WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi connected");
+  
+  // Read sensor data
+  int sensorValue = analogRead(sensorPin);
+  Serial.print("Sensor value: ");
+  Serial.println(sensorValue);
+  
+  // You can add code here to upload data to server
+  
+  // Disconnect WiFi to save power
+  WiFi.disconnect();
+  
+  // Configure deep sleep, wake up after 5 seconds
+  esp_sleep_enable_timer_wakeup(5 * 1000000);  // 5 seconds
+  esp_deep_sleep_start();
+}
+
+void loop() {
+  // Will not execute here after deep sleep, will restart
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="module1.html">Introduction</a>
+                    <a href="module2.html">Hardware Preparation</a>
+                    <a href="module3.html">Arduino IDE Setup</a>
+                    <a href="module4.html">ESP32-S3 ESP-IDF Guide</a>
+                    <a href="module5.html">MicroPython Development</a>
+                    <a href="module6.html">ESP32 Advanced Tutorials</a>
+                    <a href="module7.html">Expansion & Summary</a>
+                    <a href="module8.html">Technical Support & FAQ</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2026 ESP32-S3 Getting Started Guide</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,3397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: MicroPython Development Guide for ESP32-S3 - ESP32-S3 Development Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">ESP32-S3 Development Board</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="module1.html">Introduction</a></li>
+                    <li><a href="module2.html">Hardware Preparation</a></li>
+                    <li><a href="module3.html">Arduino IDE Setup</a></li>
+                    <li><a href="module4.html">ESP32-S3 ESP-IDF Guide</a></li>
+                    <li><a href="module5.html">MicroPython Development</a></li>
+                    <li><a href="module6.html">ESP32 Advanced Tutorials</a></li>
+                    <li><a href="module7.html">Expansion & Summary</a></li>
+                    <li><a href="module8.html">Technical Support & FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside class="sidebar">
+            <h3>Guide Navigation</h3>
+            <ul class="sidebar-nav">
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module1.html">1. Introduction</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module1.html#module1-1">1.1 ESP32-S3 Series Overview</a></li>
+                        <li><a href="module1.html#module1-2">1.2 ESP32-S3 N16R8 Core Features</a></li>
+                        <li><a href="module1.html#module1-3">1.3 Typical Application Scenarios</a></li>
+                        <li><a href="module1.html#module1-4">1.4 Development Environment and Arduino Support</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module2.html">2. Hardware Preparation</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module2.html#module2-1">2.1 Required Materials</a></li>
+                        <li><a href="module2.html#module2-2">2.2 Notes</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module3.html">3. Arduino IDE Setup & Complete Guide</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module3.html#module3-1">3.1 Chapter 1: Arduino Development Environment Installation and Configuration</a></li>
+                        <li><a href="module3.html#module3-2">3.2 Chapter 2: Hardware Basics and Pin Description</a></li>
+                        <li><a href="module3.html#module3-3">3.3 Chapter 3: Arduino Programming Basics</a></li>
+                        <li><a href="module3.html#module3-4">3.4 Chapter 4: LED Control (Digital Output)</a></li>
+                        <li><a href="module3.html#module3-5">3.5 Chapter 5: Delay and Non-blocking Delay</a></li>
+                        <li><a href="module3.html#module3-6">3.6 Chapter 6: Buttons (Digital Input)</a></li>
+                        <li><a href="module3.html#module3-7">3.7 Chapter 7: External Interrupts</a></li>
+                        <li><a href="module3.html#module3-8">3.8 Chapter 8: Serial Communication</a></li>
+                        <li><a href="module3.html#module3-9">3.9 Chapter 9: Hardware Timers</a></li>
+                        <li><a href="module3.html#module3-10">3.10 Chapter 10: PWM Pulse Width Modulation</a></li>
+                        <li><a href="module3.html#module3-11">3.11 Chapter 11: ADC Analog-to-Digital Conversion</a></li>
+                        <li><a href="module3.html#module3-12">3.12 Chapter 12: I2C Communication</a></li>
+                        <li><a href="module3.html#module3-13">3.13 Chapter 13: SPI Communication</a></li>
+                        <li><a href="module3.html#module3-14">3.14 Chapter 14: WiFi Network Communication</a></li>
+                        <li><a href="module3.html#module3-15">3.15 Chapter 15: Bluetooth Communication</a></li>
+                        <li><a href="module3.html#module3-16">3.16 Chapter 16: DVP Camera Module Usage</a></li>
+                        <li><a href="module3.html#module3-17">3.17 Chapter 17: Comprehensive Project Practice</a></li>
+                        <li><a href="module3.html#module3-18">3.18 Chapter 18: Common Problems and Troubleshooting</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module4.html">4. ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition)</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module4.html#module4-1">1. Preparation</a></li>
+                        <li><a href="module4.html#module4-2">2. Install ESP-IDF Environment</a></li>
+                        <li><a href="module4.html#module4-3">3. Configure VS Code Development Environment</a></li>
+                        <li><a href="module4.html#module4-4">4. Create and Run First Project</a></li>
+                        <li><a href="module4.html#module4-5">5. Advanced: Using Built-in JTAG Debugging</a></li>
+                        <li><a href="module4.html#module4-6">6. Common Issues and Solutions</a></li>
+                        <li><a href="module4.html#module4-7">7. Next Learning Suggestions</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module5.html">5. MicroPython Development Guide for ESP32-S3</a>
+                        <span class="toggle">-</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module5.html#module5-1">1. Board Overview and MicroPython Introduction</a></li>
+                        <li><a href="module5.html#module5-2">2. Development Environment Setup</a></li>
+                        <li><a href="module5.html#module5-3">3. GPIO Basic Control</a></li>
+                        <li><a href="module5.html#module5-4">4. Onboard RGB-LED (WS2812) Programming</a></li>
+                        <li><a href="module5.html#module5-5">5. Button Input and Interrupts</a></li>
+                        <li><a href="module5.html#module5-6">6. Serial Communication (UART)</a></li>
+                        <li><a href="module5.html#module5-7">7. I2C and SPI Interfaces</a></li>
+                        <li><a href="module5.html#module5-8">8. WiFi Networking and Network Communication</a></li>
+                        <li><a href="module5.html#module5-9">9. USB-OTG Function Usage</a></li>
+                        <li><a href="module5.html#module5-10">10. Timers and PWM</a></li>
+                        <li><a href="module5.html#module5-11">11. Advanced Features and Project Practice</a></li>
+                        <li><a href="module5.html#module5-12">12. Common Issues and Debugging Tips</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module6.html">6. ESP32 Advanced Tutorials</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module6.html#module6-1">6.1 Project 1: Smart Environment Monitoring Station</a></li>
+                        <li><a href="module6.html#module6-2">6.2 Project 2: WiFi Smart Switch</a></li>
+                        <li><a href="module6.html#module6-3">6.3 Project 3: Bluetooth Low Energy Device</a></li>
+                        <li><a href="module6.html#module6-4">6.4 Project 4: USB Device Simulation</a></li>
+                        <li><a href="module6.html#module6-5">6.5 Project 5: Low Power Sensor Node</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module7.html">7. Expansion & Summary</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module7.html#module7-1">7.1 Further Experiment Suggestions</a></li>
+                        <li><a href="module7.html#module7-2">7.2 Summary</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module8.html">8. Technical Support & FAQ</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module8.html#module8-1">8.1 Technical Support Resources</a></li>
+                        <li><a href="module8.html#module8-2">8.2 Frequently Asked Questions</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="module5" class="module">
+                <h2>5. MicroPython Development Guide for ESP32-S3</h2>
+                
+                <div id="module5-1" class="submodule">
+                    <h3>1. Board Overview and MicroPython Introduction</h3>
+                    <div class="submodule-content">
+                        <h4>1.1 Board Hardware Overview</h4>
+                        <p>The development board used in this guide is based on the ESP32-S3-WROOM-1 module as the main controller, which is a powerful IoT development board with rich interfaces. Here's a detailed introduction to its core hardware resources.</p>
+                        
+                        <h4>1.1.1 Main Controller Module: ESP32-S3-WROOM-1</h4>
+                        <p>Chip Model: ESP32-S3 (Xtensa® dual-core 32-bit LX7 processor, up to 240 MHz clock speed)</p>
+                        <p>Available Configurations:</p>
+                        <ul>
+                            <li>N16R8: 16 MB Flash + 8 MB PSRAM</li>
+                            <li>N8R8: 8 MB Flash + 8 MB PSRAM</li>
+                            <li>N8R2: 8 MB Flash + 2 MB PSRAM</li>
+                        </ul>
+                        <p>Wireless Features: 2.4 GHz Wi-Fi (802.11 b/g/n) and Bluetooth 5 (LE + Mesh)</p>
+                        <p>Features: Supports AI instruction extensions, vector acceleration, large memory capacity, suitable for complex algorithms and multimedia applications</p>
+                        
+                        <h4>1.1.2 Onboard Key Resources</h4>
+                        <table>
+                            <tr>
+                                <th>Resource</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>RGB-LED</td>
+                                <td>WS2812 smart RGB light, control pin is GPIO48, active high, can independently display 256 levels of color</td>
+                            </tr>
+                            <tr>
+                                <td>USB to Serial</td>
+                                <td>CH343P chip, connected to the Type-C interface marked "COM", used for firmware flashing and log printing</td>
+                            </tr>
+                            <tr>
+                                <td>USB-OTG</td>
+                                <td>Another Type-C interface, can be used as USB Host/Device after shorting the resistor on the board (or using a 0Ω resistor), supports USB drives, keyboards, etc.</td>
+                            </tr>
+                            <tr>
+                                <td>Buttons</td>
+                                <td>RST button (reset), BOOT button (enter download mode during flashing)</td>
+                            </tr>
+                            <tr>
+                                <td>Power</td>
+                                <td>LDO voltage regulator, supports 3.3~5V power supply (input through either Type-C port)</td>
+                            </tr>
+                            <tr>
+                                <td>IO Ports</td>
+                                <td>About 36 available GPIOs, including I2C, SPI, UART, ADC, touch and other peripheral functions</td>
+                            </tr>
+                        </table>
+                        <p>Notes:</p>
+                        <ul>
+                            <li>Before using USB-OTG functionality, you need to short the "USB" pad on the board (usually a 0Ω resistor or shorting jumper).</li>
+                            <li>The two Type-C interfaces have different functions: the one with "COM" silkscreen is for serial communication and firmware download; the other "USB" interface is for OTG functionality (can also be used for download by holding BOOT while powering up).</li>
+                        </ul>
+                        
+                        <h4>1.1.3 Hardware Pinout Key Points</h4>
+                        <p>Common function pins (based on typical board layout):</p>
+                        <ul>
+                            <li>UART0: GPIO43 (TX0), GPIO44 (RX0) → connected to CH343P, communicates with PC</li>
+                            <li>BOOT button: GPIO0 (low level when pressed)</li>
+                            <li>RGB-LED (WS2812): GPIO48</li>
+                            <li>I2C: typically GPIO1(SDA)/GPIO2(SCL) or GPIO4(SDA)/GPIO5(SCL) (refer to schematic for specifics)</li>
+                            <li>ADC1: multiple channels including GPIO1~GPIO10</li>
+                        </ul>
+                        <p>Pin voltage: All are 3.3V logic, do not directly input 5V, otherwise the chip may be damaged</p>
+                        <p>For detailed pin mapping, please refer to the official ESP32-S3 datasheet and development board schematic (available from customer service).</p>
+                        
+                        <h4>1.2 MicroPython Introduction and Advantages</h4>
+                        <p>MicroPython is a streamlined and efficient implementation of Python 3, specifically designed for microcontrollers and embedded systems. It preserves the core syntax of Python while providing direct hardware manipulation interfaces, allowing developers to easily control GPIO, I2C, SPI, WiFi and other peripherals with Python.</p>
+                        
+                        <h4>1.2.1 Why Choose MicroPython?</h4>
+                        <ul>
+                            <li>Easy to learn and use: Python syntax is concise, no complex compilation environment configuration required, suitable for rapid prototyping.</li>
+                            <li>Interactive programming: Through serial REPL (interactive interpreter), you can execute code in real-time and debug hardware, similar to "command line operation".</li>
+                            <li>Rich library support: Built-in modules like machine, network, neopixel, socket, covering common hardware and network functions.</li>
+                            <li>Cross-platform: The same code can run on multiple development boards like ESP32, ESP8266, RP2040 with minor modifications.</li>
+                            <li>Strong community: Plenty of open-source examples and third-party libraries, shortening development cycle.</li>
+                        </ul>
+                        
+                        <h4>1.2.2 MicroPython Adaptation to ESP32-S3</h4>
+                        <p>ESP32-S3 has large PSRAM (up to 8MB) and dual-core processor, and MicroPython firmware has been fully optimized for it:</p>
+                        <ul>
+                            <li>Supports dual-core mode, can implement multi-threading through _thread module.</li>
+                            <li>Supports USB-OTG (TinyUSB library), can simulate keyboard, mouse or read/write USB drives.</li>
+                            <li>Supports simultaneous WiFi and Bluetooth operation.</li>
+                            <li>Built-in NeoPixel (WS2812) driver for direct RGB-LED control.</li>
+                        </ul>
+                        
+                        <h4>1.3 Target Audience and Learning Objectives</h4>
+                        <h4>1.3.1 Target Audience</h4>
+                        <ul>
+                            <li>Enthusiasts with some Python foundation who want to get started with IoT hardware</li>
+                            <li>Students or engineers in electronics and computer-related majors</li>
+                            <li>Designers who need to quickly validate IoT product prototypes</li>
+                            <li>Learners who want to switch from Arduino to a more efficient language</li>
+                        </ul>
+                        
+                        <h4>1.3.2 Learning Objectives</h4>
+                        <p>After completing this guide, you will be able to:</p>
+                        <ul>
+                            <li>Independently set up the ESP32-S3 MicroPython development environment (firmware flashing, IDE configuration).</li>
+                            <li>Control onboard resources: light up RGB-LED, read buttons, use serial port for debugging information.</li>
+                            <li>Connect external sensors: read temperature and humidity, display OLED through I2C/SPI.</li>
+                            <li>Implement WiFi communication: connect to network, send HTTP requests, build simple web server.</li>
+                            <li>Apply USB-OTG: read/write USB drives, connect keyboard/mouse.</li>
+                            <li>Complete practical projects: such as WiFi clock, remote control RGB light, MQTT data reporting, etc.</li>
+                        </ul>
+                        
+                        <h4>Chapter Summary</h4>
+                        <p>This chapter introduced the hardware composition of the development board (ESP32-S3-WROOM-1 module, WS2812 RGB-LED, dual Type-C interfaces, buttons, etc.), explained the basic concept of MicroPython and its advantages on ESP32-S3, and provided the learning audience and objectives of this guide. Starting from the next chapter, we will set up the development environment and write our first MicroPython program.</p>
+                    </div>
+                </div>
+
+                <div id="module5-2" class="submodule">
+                    <h3>2. Development Environment Setup</h3>
+                    <div class="submodule-content">
+                        <p>After completing the hardware introduction in Chapter 1, this chapter will guide you through setting up the ESP32-S3 MicroPython development environment from scratch. The entire process is divided into four steps: firmware acquisition → flashing tool installation → firmware flashing → IDE configuration and testing. This chapter adopts a progressive structure of "toolchain configuration → firmware flashing → IDE debugging", and it is recommended to follow the order.</p>
+                        
+                        <h4>2.1 Firmware Acquisition</h4>
+                        <h4>2.1.1 MicroPython Official Firmware Download</h4>
+                        <p>MicroPython officially provides precompiled firmware for ESP32-S3, which can be obtained by visiting the official download page.</p>
+                        <p>Open your browser and visit the MicroPython official download page: <code>https://micropython.org/download/ESP32_GENERIC_S3/</code></p>
+                        <p>You can see multiple versions of firmware files in the list. It is recommended to choose the version with SPIRAM_OCT identifier (corresponding to the PSRAM equipped on your development board). The common configuration of this development board is N16R8 (16MB Flash + 8MB PSRAM), so it is recommended to select the firmware in the format of ESP32_GENERIC_S3-SPIRAM_OCT-xxx.bin.</p>
+                        <p>Download the .bin format firmware file and save it to an easily accessible local path (such as desktop or a dedicated folder). The official website download speed may be slow, and you can also use the firmware file provided in the supporting materials package.</p>
+                        <p>Note: Do not download .dfu or other format files. ESP32-S3 requires .bin format firmware.</p>
+                        
+                        <h4>2.2 Flashing Tool Installation</h4>
+                        <p>To flash MicroPython firmware into the ESP32-S3 Flash, you need to use the esptool.py flashing tool provided by Espressif. This tool is based on Python and can be easily installed through pip.</p>
+                        
+                        <h4>2.2.1 Install Python (if not already installed)</h4>
+                        <p>Visit the Python official website: <code>https://www.python.org/downloads/</code></p>
+                        <p>Download Python 3.7 or higher version (recommended 3.10+), and make sure to check the "Add Python to PATH" option during installation.</p>
+                        <p>After installation is complete, open the command line (CMD or PowerShell) and enter the following command to verify the installation:</p>
+                        <pre><code>python --version</code></pre>
+                        <p>If the Python version number is displayed, the installation is successful.</p>
+                        
+                        <h4>2.2.2 Install esptool</h4>
+                        <p>Execute the following command in the command line:</p>
+                        <pre><code>pip install esptool</code></pre>
+                        <p>If you encounter permission issues (e.g., on Linux/macOS), you can add the --user parameter:</p>
+                        <pre><code>pip install esptool --user</code></pre>
+                        <p>After installation, you can verify the version:</p>
+                        <pre><code>esptool.py version</code></pre>
+                        <p>Note: On some systems, you may need to use python -m esptool instead of directly calling the esptool command.</p>
+                        
+                        <h4>2.2.3 Install Serial Driver (CH343P)</h4>
+                        <p>This development board uses CH343P as the USB-to-serial chip, and you need to install the corresponding driver to recognize the serial port on the computer.</p>
+                        
+                        <p>Windows system:</p>
+                        <ul>
+                            <li>Visit WCH's official download page: <code>https://www.wch.cn/downloads/CH343SER_EXE.html</code></li>
+                            <li>Download the "CH343SER_EXE" one-click installation program.</li>
+                            <li>Double-click to run, click the "Install" button, and wait for the installation to complete.</li>
+                        </ul>
+                        
+                        <p>macOS system:</p>
+                        <ul>
+                            <li>Visit WCH's official website to download the CH343 macOS driver package.</li>
+                            <li>After decompression, double-click the .dmg file and drag the driver into the "Applications" folder to complete the installation.</li>
+                        </ul>
+                        
+                        <p>Linux system:</p>
+                        <p>The Linux kernel has built-in CH34x series drivers, so no additional installation is usually required. The system will automatically recognize the development board when it is plugged in.</p>
+                        
+                        <p>After the driver is installed, connect the development board to the computer via a Type-C cable (please use a USB cable that supports data transmission, not just a charging cable), and open "Device Manager" (Windows) to check if a new COM port (such as COM3, COM4, etc.) appears under "Ports (COM and LPT)". If you can see it, the driver installation is successful and the development board has been correctly recognized.</p>
+                        
+                        <h4>2.3 Firmware Flashing</h4>
+                        <h4>2.3.1 Comparison of Two Flashing Methods</h4>
+                        <p>Two flashing methods are provided for different user habits:</p>
+                        
+                        <table>
+                            <tr>
+                                <th>Comparison</th>
+                                <th>Method 1: Command-line flashing (esptool)</th>
+                                <th>Method 2: One-click flashing in Thonny</th>
+                            </tr>
+                            <tr>
+                                <td>Target users</td>
+                                <td>Developers familiar with command line</td>
+                                <td>Beginners, those who want one-stop configuration</td>
+                            </tr>
+                            <tr>
+                                <td>Flexibility</td>
+                                <td>High (customizable erase and flash parameters)</td>
+                                <td>Medium (automated process)</td>
+                            </tr>
+                            <tr>
+                                <td>Additional dependencies</td>
+                                <td>Requires separate installation of esptool</td>
+                                <td>Only requires Thonny installation</td>
+                            </tr>
+                            <tr>
+                                <td>Recommended scenario</td>
+                                <td>Firmware upgrade, batch flashing</td>
+                                <td>Initial environment setup</td>
+                            </tr>
+                        </table>
+                        
+                        <p>Both methods can complete firmware flashing. It is recommended for beginners to use Method 2 (one-click flashing in Thonny) first, as it is simpler and more intuitive. The following introduces them respectively.</p>
+                        
+                        <h4>Method 1: Command-line flashing (esptool)</h4>
+                        <h4>Step 1: Put the development board into download mode</h4>
+                        <p>Before flashing MicroPython firmware, you need to put ESP32-S3 into download (flashing) mode:</p>
+                        <ul>
+                            <li>Connect the development board (Type-C interface marked COM) to the computer using a USB data cable.</li>
+                            <li>Hold down the BOOT button.</li>
+                            <li>Press the RST button once (then release the RST button).</li>
+                            <li>Release the BOOT button.</li>
+                        </ul>
+                        <p>The development board is now in flashing mode, waiting to receive firmware.</p>
+                        <p>Note: For some development boards during first flashing or when firmware is damaged, the above operation is necessary; if the development board already has MicroPython and only needs firmware upgrade, sometimes you can flash directly without pressing the BOOT button, but for safety, it is recommended to perform this operation every time.</p>
+                        
+                        <h4>Step 2: Check the serial port number corresponding to the development board</h4>
+                        <p>Execute the following command in the command line to check available serial ports:</p>
+                        <pre><code>python -m serial.tools.list_ports</code></pre>
+                        <p>Or check in Windows Device Manager under "Ports (COM and LPT)", usually displayed as COM3, COM4, etc.</p>
+                        
+                        <h4>Step 3: Erase Flash (important)</h4>
+                        <p>Before flashing new firmware, it is recommended to erase the original data on Flash to avoid conflicts caused by residual data:</p>
+                        <pre><code>esptool.py --chip esp32s3 --port COM4 erase_flash</code></pre>
+                        <p>Replace COM4 with your actual serial port number.</p>
+                        
+                        <h4>Step 4: Flash firmware</h4>
+                        <p>Execute the following command to flash the firmware (note to modify the firmware path and serial port number):</p>
+                        <pre><code>esptool.py --chip esp32s3 --port COM4 --baud 115200 write_flash 0x0 "firmware_file_path.bin"</code></pre>
+                        <p>Example:</p>
+                        <pre><code>esptool.py --chip esp32s3 --port COM4 --baud 115200 write_flash 0x0 "C:\Users\YourName\Desktop\ESP32_GENERIC_S3-SPIRAM_OCT-xxx.bin"</code></pre>
+                        <p>Key note: The Flash start address of ESP32-S3 is 0x0, which is different from ESP32 (address is 0x1000). Be sure not to fill it wrong.</p>
+                        
+                        <h4>Step 5: Verify flashing success</h4>
+                        <p>After flashing is completed, the command line will display success prompts such as "Hash of data verified". At this time, press the RST button to reset the development board and start it, and you can enter the MicroPython environment.</p>
+                        
+                        <h4>Method 2: One-click flashing in Thonny (recommended for beginners)</h4>
+                        <h4>Step 1: Install Thonny</h4>
+                        <ul>
+                            <li>Visit Thonny official website: <code>https://thonny.org/</code></li>
+                            <li>Download the corresponding installation package according to your operating system.</li>
+                            <li>Run the installation program and follow the prompts to complete the installation (it is recommended to use an English path for the installation path, do not include Chinese characters).</li>
+                        </ul>
+                        
+                        <h4>Step 2: Connect the development board</h4>
+                        <p>Connect the development board to the computer via a USB cable (using the Type-C interface marked COM).</p>
+                        
+                        <h4>Step 3: Open Thonny and configure the interpreter</h4>
+                        <ul>
+                            <li>Open Thonny and click Menu → Run → Configure Interpreter (or directly click the Python version area in the lower right corner of the Thonny window to quickly access).</li>
+                            <li>In the pop-up window, select "MicroPython (ESP32)".</li>
+                            <li>In the "Port" drop-down box, select the COM port corresponding to the development board.</li>
+                        </ul>
+                        
+                        <h4>Step 4: Flash firmware</h4>
+                        <ul>
+                            <li>Click the "Install or update MicroPython (esptool)" button in the lower right corner of the window.</li>
+                            <li>Click the "≡" icon next to "Install" and select "Select local MicroPython image...".</li>
+                            <li>In the pop-up file selection dialog, find and select the .bin firmware file you downloaded earlier, and click "Open".</li>
+                            <li>After confirming that "Target port" is the correct COM port, click "Install" to start flashing.</li>
+                            <li>Wait for the progress bar to complete, and display "Done!" flashing success prompt.</li>
+                        </ul>
+                        
+                        <h4>Step 5: Complete configuration</h4>
+                        <p>After flashing is completed, click "OK", and the Shell window at the bottom of Thonny will appear with the >>> prompt, indicating that you have successfully connected to the ESP32-S3 REPL, and the environment setup is complete.</p>
+                        
+                        <h4>2.4 Development Tool Selection and Configuration</h4>
+                        <h4>2.4.1 Comparison of Three Mainstream IDEs</h4>
+                        <table>
+                            <tr>
+                                <th>IDE</th>
+                                <th>Supported Platforms</th>
+                                <th>Advantages</th>
+                                <th>Disadvantages</th>
+                            </tr>
+                            <tr>
+                                <td>Thonny</td>
+                                <td>Win/Mac/Linux</td>
+                                <td>Lightweight, simple, built-in REPL and file management</td>
+                                <td>Relatively basic features</td>
+                            </tr>
+                            <tr>
+                                <td>Mu Editor</td>
+                                <td>Win/Mac/Linux</td>
+                                <td>Designed for MicroPython, clean interface</td>
+                                <td>Lower update frequency</td>
+                            </tr>
+                            <tr>
+                                <td>VS Code + PyMakr</td>
+                                <td>Win/Mac/Linux</td>
+                                <td>Powerful features, supports code completion and Git</td>
+                                <td>Slightly complex configuration</td>
+                            </tr>
+                        </table>
+                        
+                        <p>Beginners are recommended to use Thonny, which has complete functions and is ready to use. The following instructions take Thonny as an example.</p>
+                        
+                        <h4>2.4.2 Thonny Basic Configuration and Usage</h4>
+                        <p>After successful connection, the Thonny interface is divided into two areas:</p>
+                        <ul>
+                            <li>Upper code editing area: used for writing and saving Python scripts.</li>
+                            <li>Lower Shell window (REPL): can directly interact with ESP32-S3 and execute MicroPython commands line by line.</li>
+                        </ul>
+                        <p>Enter the following command in the Shell window to test the connection:</p>
+                        <pre><code>print("Hello ESP32-S3!")</code></pre>
+                        <p>If you can see the output, the development environment is fully configured successfully.</p>
+                        
+                        <h4>2.4.3 Thonny File Management Function</h4>
+                        <p>Through View → Files (or the file icon on the toolbar), you can open the file manager panel. The panel is divided into left and right sides:</p>
+                        <ul>
+                            <li>Left side: Local computer files.</li>
+                            <li>Right side: Files on the ESP32-S3 development board.</li>
+                        </ul>
+                        <p>You can transfer .py files between the computer and the development board through drag and drop or right-click menu. Save the code file as main.py and upload it to the root directory of the development board, and the development board will automatically run this file the next time it starts.</p>
+                        
+                        <h4>2.4.4 Alternative IDE: VS Code + PyMakr (recommended for advanced users)</h4>
+                        <p>If you are already used to using VS Code for development, you can get a better development experience by installing the PyMakr extension.</p>
+                        <ul>
+                            <li>Search for and install PyMakr in the VS Code extension marketplace.</li>
+                            <li>After installation, configure the serial port baud rate in the settings (ESP32-S3 is usually 115200).</li>
+                            <li>Select "PyMakr: Connect" through the command palette (Ctrl+Shift+P) to connect to the development board.</li>
+                            <li>After successful connection, you can write code, run scripts, and manage files in VS Code.</li>
+                        </ul>
+                        <p>The advantage of PyMakr over Thonny is that it has more complete code completion and supports Git version control integration, which is suitable for scenarios with larger project scale or team collaboration.</p>
+                        
+                        <h4>2.5 First MicroPython Program</h4>
+                        <h4>2.5.1 Run directly through REPL</h4>
+                        <p>Enter the following code in the Thonny Shell window:</p>
+                        <pre><code>from machine import Pin
+import time
+
+led = Pin(2, Pin.OUT)   # Assume onboard LED is on GPIO2 (adjust according to actual development board)
+led.value(1)            # Turn on LED
+time.sleep(1)           # Delay 1 second
+led.value(0)            # Turn off LED</code></pre>
+                        <p>Note: The onboard LED pins of different development boards may be different. If GPIO2 has no response, you can check the development board schematic to confirm the actual pin number of the onboard LED. The WS2812 RGB-LED control pin of this development board is GPIO48, but WS2812 needs to be controlled through the NeoPixel library, which will be detailed in Chapter 4. This is just to verify the REPL function.</p>
+                        
+                        <h4>2.5.2 Save and run script</h4>
+                        <ul>
+                            <li>Enter the above code in the Thonny code editing area.</li>
+                            <li>Click Menu → File → Save As...</li>
+                            <li>In the pop-up window, select "MicroPython Device", save the file to the development board, and name the file main.py.</li>
+                            <li>Press the RST button to reset the development board, and the program will run automatically.</li>
+                        </ul>
+                        
+                        <h4>2.5.3 Testing and debugging tips</h4>
+                        <ul>
+                            <li>Press Ctrl+C in the Shell to interrupt the running program.</li>
+                            <li>Press Ctrl+D to perform a soft reset (software reset, does not clear memory).</li>
+                            <li>Enter help() to view help information for MicroPython built-in modules.</li>
+                            <li>Press Ctrl+E to enter paste mode, where you can paste multiple lines of code into the REPL for execution at once.</li>
+                        </ul>
+                        
+                        <h4>2.6 Common Issues and Solutions</h4>
+                        <h4>Q1: Computer cannot recognize the development board serial port (no new port in Device Manager)</h4>
+                        <p>Reason 1: CH343P driver is not installed correctly.</p>
+                        <p>Solution: Re-download and install the CH343P driver, then re-plug the USB cable after installation.</p>
+                        <p>Reason 2: The USB cable is only for charging and does not support data transmission.</p>
+                        <p>Solution: Replace with a USB cable that supports data transmission.</p>
+                        
+                        <h4>Q2: Prompt "Failed to connect to ESP32-S3" during flashing</h4>
+                        <p>Reason: The development board is not in download mode.</p>
+                        <p>Solution: Ensure strictly following the sequence of "hold BOOT → press RST → release RST → release BOOT".</p>
+                        
+                        <h4>Q3: Cannot connect to REPL after flashing, no >>> prompt in Shell window</h4>
+                        <p>Reason: Firmware flashing is incomplete or Flash is not erased.</p>
+                        <p>Solution: First execute esptool.py erase_flash to erase the entire Flash, then re-flash the firmware.</p>
+                        
+                        <h4>Q4: Prompt "write_flash address 0x0" error during flashing</h4>
+                        <p>Reason: The Flash start address of ESP32-S3 is 0x0. If you use ESP32's flashing parameters (such as 0x1000), an error will be reported.</p>
+                        <p>Solution: Confirm that the address in the flashing command is 0x0.</p>
+                        
+                        <h4>Q5: Progress bar gets stuck or no response for a long time when flashing with Thonny</h4>
+                        <p>Solution: Disconnect the development board connection, close Thonny, reopen it and follow the steps to re-flash. If it still fails, you can use the command-line esptool method.</p>
+                        
+                        <h4>Chapter Summary</h4>
+                        <p>This chapter completed the complete setup of the ESP32-S3 MicroPython development environment. The core steps include:</p>
+                    </div>
+                </div>
+
+                <div id="module5-3" class="submodule">
+                    <h3>3. GPIO Basic Control</h3>
+                    <div class="submodule-content">
+                        <p>This chapter will introduce the basic usage methods of the general-purpose input/output (GPIO) pins of ESP32-S3. You will learn how to configure pins as digital outputs (controlling LED on/off) and digital inputs (reading button status), as well as how to configure internal pull-up/pull-down resistors. This knowledge is the foundation for all hardware control projects.</p>
+                        
+                        <h4>3.1 Pin Numbering Rules (Based on Board Testing)</h4>
+                        <p>In MicroPython, the machine.Pin class is used to operate GPIO. Pin numbers directly use the GPIO numbers on the chip, for example, Pin(4) represents GPIO4.</p>
+                        
+                        <table>
+                            <tr>
+                                <th>GPIO</th>
+                                <th>Main Function (According to Schematic)</th>
+                                <th>Notes</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>BOOT button (active low)</td>
+                                <td>Pulling low at power-on enters download mode, not recommended as normal output</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>General GPIO</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>General GPIO</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ADC1_2, TOUCH3</td>
+                                <td>Available (ADC1 channel)</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>ADC1_3, TOUCH4</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>General GPIO</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>ADC1_5, TOUCH6</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>ADC1_6, TOUCH7</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>ADC1_7, TOUCH8</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>ADC1_8, TOUCH9</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>ADC1_9, TOUCH10</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>ADC1_0, TOUCH11</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>ADC1_1, TOUCH12</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>ADC1_2, TOUCH13</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td>ADC1_3, TOUCH14</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td>ADC1_4, U0RTS</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td>ADC1_5, U0CTS</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td>ADC1_6, U1TXD</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td>ADC1_7, U1RXD</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td>USB_D-</td>
+                                <td>Cannot be used as normal GPIO when using USB-OTG</td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td>USB_D+</td>
+                                <td>Cannot be used as normal GPIO when using USB-OTG</td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td>General GPIO (RTC available)</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>35</td>
+                                <td>SPII06 / FSPID / SUBSPID</td>
+                                <td>Available (SPI bus related)</td>
+                            </tr>
+                            <tr>
+                                <td>36</td>
+                                <td>SPII07 / FSPICLK / SUBSPICLK</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>37</td>
+                                <td>SPIDQS / FSPIQ / SUBSPIQ</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>38</td>
+                                <td>FSPIWP / SUBSPIWP</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>39</td>
+                                <td>MTCK / CLK_OUT3</td>
+                                <td>Available (Note: ADC2 is affected by WiFi)</td>
+                            </tr>
+                            <tr>
+                                <td>40</td>
+                                <td>MTDO / CLK_OUT2</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>41</td>
+                                <td>MTDI / CLK_OUT1</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>42</td>
+                                <td>MTMS</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>43</td>
+                                <td>U0TXD (Main serial port TX)</td>
+                                <td>Connected to CH343P, used for REPL</td>
+                            </tr>
+                            <tr>
+                                <td>44</td>
+                                <td>U0RXD (Main serial port RX)</td>
+                                <td>Connected to CH343P, used for REPL</td>
+                            </tr>
+                            <tr>
+                                <td>45</td>
+                                <td>VSPI</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>46</td>
+                                <td>LOG (Debug output)</td>
+                                <td>May be occupied by system, use with caution</td>
+                            </tr>
+                            <tr>
+                                <td>47</td>
+                                <td>SPICLK_P</td>
+                                <td>Available</td>
+                            </tr>
+                            <tr>
+                                <td>48</td>
+                                <td>RGB / RGB_LED (WS2812 control)</td>
+                                <td>Unique control pin for onboard RGB-LED</td>
+                            </tr>
+                        </table>
+                        
+                        <p>Important Limitations Summary：</p>
+                        <ul>
+                            <li>GPIO0: Connected to BOOT button, has internal pull-up resistor, low level when pressed. If low at reset, it enters download mode, so it should not be pulled low for long periods or used as an output to drive loads in programs.</li>
+                            <li>GPIO19 and GPIO20: USB function pins. If USB-OTG is enabled (e.g., using usb_cdc or usb_hid functions), these pins cannot be used as normal GPIO.</li>
+                            <li>ADC2 channels (some pins in GPIO11~20) cannot be used normally when WiFi is enabled because the WiFi protocol stack occupies ADC2. It is recommended to use ADC1 (GPIO1~10) for analog acquisition.</li>
+                            <li>All GPIO are 3.3V logic level, do not directly input 5V, otherwise the chip may be damaged.</li>
+                        </ul>
+                        
+                        <h4>3.1.2 Quick Detection of Available Pins</h4>
+                        <p>You can quickly verify which pins can be used normally through the following MicroPython code:</p>
+                        <pre><code>from machine import Pin
+
+# List of possible pin numbers on the development board
+candidate_pins = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,
+                   35,36,37,38,39,40,41,42,43,44,45,46,47,48]
+
+for gpio in candidate_pins:
+    try:
+        p = Pin(gpio, Pin.IN)
+        print(f"GPIO{gpio} is available")
+    except ValueError:
+        print(f"GPIO{gpio} is not available")
+    except Exception as e:
+        print(f"GPIO{gpio} error: {e}")</code></pre>
+                        
+                        <h4>3.2 Digital Output: Controlling LED</h4>
+                        <p>Digital output is used to control switch-type devices such as LEDs, relays, buzzers, etc. We will use an external LED (or an LED connected to an unused GPIO on the development board) for demonstration.</p>
+                        
+                        <h4>3.2.1 Hardware Connection</h4>
+                        <p>Prepare a 5mm LED and a 220Ω~1kΩ current-limiting resistor. Connect the LED's positive electrode (long leg) to GPIO4 through the resistor, and the negative electrode to the development board's GND.</p>
+                        <p>If you don't have an external LED temporarily, you can also use the onboard WS2812 RGB-LED for testing, but WS2812 is not a regular LED and requires a dedicated library (which will be detailed in Chapter 4). This chapter recommends using an external LED to learn basic output.</p>
+                        
+                        <h4>3.2.2 Controlling LED On/Off</h4>
+                        <p>In MicroPython, first import the Pin class from the machine module, then create a Pin object and set it to output mode.</p>
+                        <pre><code>from machine import Pin
+import time
+
+# Configure GPIO4 as output mode
+led = Pin(4, Pin.OUT)
+
+# Turn on LED (high level)
+led.value(1)
+time.sleep(1)
+
+# Turn off LED (low level)
+led.value(0)
+time.sleep(1)
+
+# You can also use led.on() and led.off() methods
+led.on()   # Turn on
+time.sleep(1)
+led.off()  # Turn off</code></pre>
+                        
+                        <h4>3.2.3 Blinking LED (Classic Example)</h4>
+                        <pre><code>from machine import Pin
+import time
+
+led = Pin(4, Pin.OUT)
+
+while True:
+    led.value(1)
+    time.sleep(0.5)
+    led.value(0)
+    time.sleep(0.5)</code></pre>
+                        <p>Press Ctrl+C to terminate the loop.</p>
+                        
+                        <h4>3.2.4 Using PWM to Control LED Brightness (Preview)</h4>
+                        <p>Although GPIO digital output only has high/low two states, different brightness levels can be simulated through Pulse Width Modulation (PWM). PWM will be detailed in Chapter 10, here is a simple breathing light effect preview.</p>
+                        <pre><code>from machine import Pin, PWM
+import time
+
+led_pwm = PWM(Pin(4), freq=1000)  # Frequency 1kHz
+
+# Gradually increase duty cycle (0~1023)
+while True:
+    for duty in range(0, 1024, 10):
+        led_pwm.duty(duty)
+        time.sleep_ms(10)
+    for duty in range(1023, -1, -10):
+        led_pwm.duty(duty)
+        time.sleep_ms(10)</code></pre>
+                        
+                        <h4>3.3 Digital Input: Reading Button Status</h4>
+                        <p>The development board has a BOOT button connected to GPIO0, and when the button is pressed, the pin becomes low level (GND), and when not pressed, it remains high level due to internal pull-up (or external pull-up). Therefore, we can read the level of GPIO0 to determine whether the button is pressed.</p>
+                        
+                        <h4>3.3.1 Reading BOOT Button</h4>
+                        <pre><code>from machine import Pin
+import time
+
+# Configure GPIO0 as input mode (internal pull-up already exists, PULL_UP can be omitted)
+button = Pin(0, Pin.IN)
+
+while True:
+    if button.value() == 0:   # Low level when pressed
+        print("BOOT button pressed!")
+        # Avoid repeated triggering, wait for button release
+        while button.value() == 0:
+            time.sleep_ms(10)
+    time.sleep(0.1)
+</code></pre>
+                        
+                        <h4>3.3.2 Explicitly Enabling Internal Pull-up Resistor</h4>
+                        <p>By default, GPIO0 already has an external pull-up resistor on the development board, but if you use other pins without external pull-up as input, you can enable the chip's internal pull-up resistor to avoid uncertain level when the pin is floating.</p>
+                        <pre><code># Enable internal pull-up resistor
+button = Pin(0, Pin.IN, Pin.PULL_UP)</code></pre>
+                        <p>Similarly, you can use Pin.PULL_DOWN to enable internal pull-down resistor (ESP32-S3 supports internal pull-down).</p>
+                        <p>Note: GPIO0 already has external pull-up, if you enable internal pull-up again, the effect is still high level, no conflict will occur.</p>
+                        
+                        <h4>3.3.3 Button Debouncing</h4>
+                        <p>Mechanical buttons produce multiple level transitions (bouncing) at the moment of pressing and releasing. If not handled, it may cause program misjudgment. A common method for software debouncing is to detect a press and then delay for a short time to confirm the state.</p>
+                        <pre><code>from machine import Pin
+import time
+
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+def read_button_debounced(pin, delay_ms=50):
+    if pin.value() == 0:
+        time.sleep_ms(delay_ms)
+        if pin.value() == 0:
+            # Wait for button release
+            while pin.value() == 0:
+                time.sleep_ms(10)
+            return True
+    return False
+
+while True:
+    if read_button_debounced(button):
+        print("Button confirmed pressed")
+</code></pre>
+                        
+                        <h4>3.4 Internal Pull-up/Pull-down Resistor Configuration</h4>
+                        <p>Most GPIOs of ESP32-S3 have built-in programmable pull-up and pull-down resistors (resistance value is about 45kΩ). Specify in the third parameter of the Pin constructor.</p>
+                        
+                        <h4>3.4.1 Pull-up Mode</h4>
+                        <pre><code># Input mode, enable internal pull-up
+pin_in = Pin(4, Pin.IN, Pin.PULL_UP)
+</code></pre>
+                        <p>When the pin is floating (no external connection), the read level is high level (1). Commonly used for connecting mechanical buttons, the other end of the button is connected to GND, and low level is read when pressed.</p>
+                        
+                        <h4>3.4.2 Pull-down Mode</h4>
+                        <pre><code># Input mode, enable internal pull-down
+pin_in = Pin(4, Pin.IN, Pin.PULL_DOWN)
+</code></pre>
+                        <p>Low level (0) is read when floating. If the button is connected to 3.3V, high level is read when pressed.</p>
+                        
+                        <h4>3.4.3 Floating Mode (High Impedance)</h4>
+                        <pre><code># No pull-up/down, level is uncertain when pin is floating
+pin_in = Pin(4, Pin.IN)
+</code></pre>
+                        <p>It is usually not recommended to leave input pins floating for long periods unless the external circuit already provides a definite level.</p>
+                        
+                        <h4>3.5 Comprehensive Example: Button Control LED</h4>
+                        <p>Integrate the knowledge learned earlier to implement a simple button-controlled LED switch function: each time the BOOT button is pressed, the LED state toggles.</p>
+                        <pre><code>from machine import Pin
+import time
+
+# Initialize LED (GPIO4 output) and button (GPIO0 input, pull-up)
+led = Pin(4, Pin.OUT)
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+led_state = False  # Current LED state
+
+def debounce_read(pin):
+    """Debounced button reading, returns valid trigger after press and release"""
+    if pin.value() == 0:          # Detect press
+        time.sleep_ms(50)         # Delay for debouncing
+        if pin.value() == 0:      # Confirm still pressed
+            # Wait for release
+            while pin.value() == 0:
+                time.sleep_ms(10)
+            return True
+    return False
+
+while True:
+    if debounce_read(button):
+        # Toggle LED state
+        led_state = not led_state
+        led.value(1 if led_state else 0)
+        print(f"LED is now {'ON' if led_state else 'OFF'}")
+    time.sleep(0.01)  # Short rest to reduce CPU usage
+</code></pre>
+                        <p>Save the above code as main.py and upload it to the development board,</p>
+                        
+                        <h4>3.6 Chapter Summary</h4>
+                    </div>
+                </div>
+
+                <div id="module5-4" class="submodule">
+                    <h3>4. Onboard RGB-LED (WS2812) Programming</h3>
+                    <div class="submodule-content">
+                        <p>WS2812 (also known as NeoPixel) is an intelligent RGB-LED with integrated driver circuit, which can achieve 256-level brightness, full-color display and cascade control with just one data line. This development board has an onboard WS2812 RGB-LED connected to GPIO48. This chapter will learn how to use MicroPython's neopixel library to control this RGB-LED, realize single-color display, color mixing, rainbow effects, etc., and make smart indicator lights combined with WiFi connection status.</p>
+                        
+                        <h4>4.1 WS2812 Introduction</h4>
+                        <h4>4.1.1 What is WS2812</h4>
+                        <p>WS2812 is a highly integrated intelligent LED that integrates RGB-LED chip, constant current driver circuit and single-wire communication protocol controller. This means that only one GPIO pin is needed to control the brightness and color of the LED, and it supports cascading multiple LEDs (the first LED processes its own data and then passes the remaining data to the next LED).</p>
+                        
+                        <h4>4.1.2 Working Principle</h4>
+                        <p>WS2812 uses a unique single-wire return-to-zero (NRZ) communication protocol, encoding data by precisely controlling the duration of high and low levels of IO pins.</p>
+                        <ul>
+                            <li>Each LED requires 24 bits of data (GRB order: 8 bits green + 8 bits red + 8 bits blue)</li>
+                            <li>Each color channel has 256 levels of brightness (0~255), which can combine to produce about 16.77 million colors</li>
+                            <li>After sending data for all LEDs, the bus needs to be pulled low for more than 50μs (reset pulse) before the LEDs will light up</li>
+                        </ul>
+                        <p>Data format (24 bits per LED): G7 G6 ... G0 R7 R6 ... R0 B7 B6 ... B0</p>
+                        <p>← 8 bits green →  ← 8 bits red →  ← 8 bits blue →</p>
+                        <p>WS2812 has high timing accuracy requirements, but MicroPython's built-in neopixel library has handled the timing details, so we don't need to care about the underlying implementation.</p>
+                        
+                        <h4>4.1.3 Notes</h4>
+                        <ul>
+                            <li>Timing sensitivity: WS2812 has strict timing requirements, so when controlling, make sure there are no long blocking operations in the code, such as performing a lot of calculations or long time.sleep during data transmission.</li>
+                            <li>Power supply considerations: A single WS2812 has a peak current of about 60mA in RGB full white (255,255,255) state. This development board has only one RGB-LED and can be directly powered by the board's 3.3V. If external multiple WS2812 light strips are connected, an external power supply is required.</li>
+                            <li>Voltage matching: 3.3V logic level can generally drive WS2812 directly. However, when connecting long-distance light strips, it is recommended to connect a 33Ω~47Ω resistor in series near the MCU on the data pin to suppress signal reflection.</li>
+                        </ul>
+                        
+                        <h4>4.2 neopixel Library Basics</h4>
+                        <h4>4.2.1 Import Modules</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import time</code></pre>
+                        
+                        <h4>4.2.2 Create NeoPixel Object</h4>
+                        <pre><code>np = neopixel.NeoPixel(pin, n, bpp=3, timing=1)</code></pre>
+                        <p>Parameter description：</p>
+                        <table>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Description</th>
+                                <th>Value for this board</th>
+                            </tr>
+                            <tr>
+                                <td>pin</td>
+                                <td>Control pin (machine.Pin object)</td>
+                                <td>Pin(48)</td>
+                            </tr>
+                            <tr>
+                                <td>n</td>
+                                <td>Number of LEDs</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>bpp</td>
+                                <td>Bytes: 3 (RGB) or 4 (RGBW)</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>timing</td>
+                                <td>Timing: 0=400KHz, 1=800KHz</td>
+                                <td>1</td>
+                            </tr>
+                        </table>
+                        <pre><code># Initialize onboard WS2812 (GPIO48, 1 LED)
+np = neopixel.NeoPixel(Pin(48), 1)</code></pre>
+                        
+                        <h4>4.2.3 Core Methods</h4>
+                        <table>
+                            <tr>
+                                <th>Method</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>np[index] = (r, g, b)</td>
+                                <td>Set the color of the LED at the specified index</td>
+                            </tr>
+                            <tr>
+                                <td>np.fill((r, g, b))</td>
+                                <td>Set all LEDs to the same color</td>
+                            </tr>
+                            <tr>
+                                <td>np.write()</td>
+                                <td>Must be called to send color data to LEDs and light them up</td>
+                            </tr>
+                            <tr>
+                                <td>len(np)</td>
+                                <td>Get the number of LEDs</td>
+                            </tr>
+                        </table>
+                        <pre><code># Set and display color
+np[0] = (255, 0, 0)   # Set the 1st LED to red
+np.write()            # Important: Must call write() to take effect</code></pre>
+                        
+                        <h4>4.3 Color Representation</h4>
+                        <p>Colors are represented using (R, G, B) tuples, with each component ranging from 0 to 255.</p>
+                        <table>
+                            <tr>
+                                <th>Color</th>
+                                <th>(R, G, B)</th>
+                            </tr>
+                            <tr>
+                                <td>Red</td>
+                                <td>(255, 0, 0)</td>
+                            </tr>
+                            <tr>
+                                <td>Green</td>
+                                <td>(0, 255, 0)</td>
+                            </tr>
+                            <tr>
+                                <td>Blue</td>
+                                <td>(0, 0, 255)</td>
+                            </tr>
+                            <tr>
+                                <td>Yellow</td>
+                                <td>(255, 255, 0)</td>
+                            </tr>
+                            <tr>
+                                <td>Cyan</td>
+                                <td>(0, 255, 255)</td>
+                            </tr>
+                            <tr>
+                                <td>Magenta</td>
+                                <td>(255, 0, 255)</td>
+                            </tr>
+                            <tr>
+                                <td>White</td>
+                                <td>(255, 255, 255)</td>
+                            </tr>
+                            <tr>
+                                <td>Off</td>
+                                <td>(0, 0, 0)</td>
+                            </tr>
+                        </table>
+                        <p>Tip: Full brightness white (255,255,255) consumes a lot of current. For long-term lighting, it is recommended to reduce the brightness (e.g., (32,32,32)).</p>
+                        
+                        <h4>4.4 Basic Examples: Single Color Control</h4>
+                        <h4>Example 1: Cycle Through Red, Green, Blue</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+
+np = neopixel.NeoPixel(Pin(48), 1)  # Initialize GPIO48, 1 LED
+
+# Define basic colors
+colors = [
+    (255, 0, 0),    # Red
+    (0, 255, 0),    # Green
+    (0, 0, 255),    # Blue
+    (255, 255, 0),  # Yellow
+    (255, 0, 255),  # Magenta
+    (0, 255, 255),  # Cyan
+    (255, 255, 255) # White (note current consumption)
+]
+
+while True:
+    for color in colors:
+        np[0] = color
+        np.write()
+        time.sleep(0.5)</code></pre>
+                        
+                        <h4>Example 2: Breathing Light Effect (Brightness Gradient)</h4>
+                        <p>Implement gradient effect by changing the brightness value of colors.</p>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+
+np = neopixel.NeoPixel(Pin(48), 1)
+
+def breathe(r, g, b, steps=50, delay=20):
+    """Breathing light effect: from dark to bright and back to dark"""
+    for i in range(steps):
+        brightness = i / steps  # 0 → 1
+        np[0] = (int(r * brightness), int(g * brightness), int(b * brightness))
+        np.write()
+        time.sleep_ms(delay)
+    
+    for i in range(steps):
+        brightness = 1 - (i / steps)  # 1 → 0
+        np[0] = (int(r * brightness), int(g * brightness), int(b * brightness))
+        np.write()
+        time.sleep_ms(delay)
+
+while True:
+    breathe(255, 0, 0, steps=50, delay=20)   # Red breathing
+    breathe(0, 255, 0, steps=50, delay=20)   # Green breathing
+    breathe(0, 0, 255, steps=50, delay=20)   # Blue breathing</code></pre>
+                        
+                        <h4>4.5 Advanced Example: Rainbow Gradient</h4>
+                        <p>The rainbow effect is achieved by smoothly traversing the HSV color wheel. The wheel() function maps position values (0~255) to RGB colors:</p>
+                        <ul>
+                            <li>0~84: Red → Yellow → Green</li>
+                            <li>85~169: Green → Cyan → Blue</li>
+                            <li>170~254: Blue → Magenta → Red</li>
+                        </ul>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+
+np = neopixel.NeoPixel(Pin(48), 1)
+
+def wheel(pos):
+    """Input 0~255, return corresponding RGB color"""
+    if pos < 85:
+        return (pos * 3, 255 - pos * 3, 0)
+    elif pos < 170:
+        pos -= 85
+        return (255 - pos * 3, 0, pos * 3)
+    else:
+        pos -= 170
+        return (0, pos * 3, 255 - pos * 3)
+
+# Loop to display rainbow gradient
+while True:
+    for i in range(0, 256, 2):   # Step 2 for smoother change
+        np[0] = wheel(i)
+        np.write()
+        time.sleep_ms(20)</code></pre>
+                        
+                        <h4>Rainbow Gradient Effect Optimization</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+import math
+
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# Method 2: Use sine wave for smoother gradient
+def rainbow_smooth():
+    offset = 0
+    while True:
+        # R = sin(offset)    G = sin(offset + 2π/3)   B = sin(offset + 4π/3)
+        r = int((math.sin(offset) + 1) / 2 * 255)
+        g = int((math.sin(offset + 2 * math.pi / 3) + 1) / 2 * 255)
+        b = int((math.sin(offset + 4 * math.pi / 3) + 1) / 2 * 255)
+        
+        np[0] = (r, g, b)
+        np.write()
+        offset += 0.05
+        time.sleep_ms(20)
+
+# Run
+rainbow_smooth()</code></pre>
+                        
+                        <h4>4.6 Advanced Examples: Multiple Lighting Effects</h4>
+                        <h4>Effect 1: Random Color Blinking</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+import random
+
+np = neopixel.NeoPixel(Pin(48), 1)
+
+while True:
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    np[0] = (r, g, b)
+    np.write()
+    time.sleep(random.uniform(0.1, 0.5))</code></pre>
+                        
+                        <h4>Effect 2: Pulse Effect (Quick Blink Then Fade)</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+
+np = neopixel.NeoPixel(Pin(48), 1)
+
+def pulse(r, g, b, duration=0.5):
+    """Pulse effect: Quick light up then slow fade"""
+    # Quick light up
+    np[0] = (r, g, b)
+    np.write()
+    time.sleep(0.05)
+    
+    # Gradually fade out
+    steps = 30
+    for i in range(steps):
+        brightness = 1 - (i / steps)
+        np[0] = (int(r * brightness), int(g * brightness), int(b * brightness))
+        np.write()
+        time.sleep(duration / steps)
+
+while True:
+    pulse(255, 0, 0)   # Red pulse
+    time.sleep(0.5)
+    pulse(0, 0, 255)   # Blue pulse
+    time.sleep(0.5)</code></pre>
+                        
+                        <h4>Effect 3: Color Gradient Transition</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+
+np = neopixel.NeoPixel(Pin(48), 1)
+
+def fade_between(color1, color2, steps=50, delay=20):
+    """Smooth transition between two colors"""
+    r1, g1, b1 = color1
+    r2, g2, b2 = color2
+    
+    for i in range(steps + 1):
+        t = i / steps  # 0 → 1
+        r = int(r1 + (r2 - r1) * t)
+        g = int(g1 + (g2 - g1) * t)
+        b = int(b1 + (b2 - b1) * t)
+        np[0] = (r, g, b)
+        np.write()
+        time.sleep_ms(delay)
+
+# Demonstrate color transition
+while True:
+    fade_between((255, 0, 0), (0, 255, 0), steps=50, delay=20)   # Red → Green
+    fade_between((0, 255, 0), (0, 0, 255), steps=50, delay=20)   # Green → Blue
+    fade_between((0, 0, 255), (255, 0, 0), steps=50, delay=20)   # Blue → Red</code></pre>
+                        
+                        <h4>4.7 Comprehensive Practice: WiFi Connection Status Indicator</h4>
+                        <p>The factory program function of this development board is: the RGB automatically lights up after connecting to WiFi and turns off when disconnected. Let's implement this function below.</p>
+                        
+                        <h4>4.7.1 WiFi Connection Status Indication</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import network
+import time
+
+# Initialize RGB-LED
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# WiFi configuration (modify to your WiFi name and password)
+SSID = "your_wifi_ssid"
+PASSWORD = "your_wifi_password"
+
+# Connect to WiFi
+def connect_wifi():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    
+    # Display blue before connection (indicating connecting)
+    np[0] = (0, 0, 255)   # Blue blinking indicates connecting
+    np.write()
+    
+    if not wlan.isconnected():
+        print("Connecting to WiFi...")
+        wlan.connect(SSID, PASSWORD)
+        
+        # Wait for connection, timeout 10 seconds
+        timeout = 10
+        while not wlan.isconnected() and timeout > 0:
+            # Blink during connection
+            np[0] = (0, 0, 255)
+            np.write()
+            time.sleep(0.2)
+            np[0] = (0, 0, 0)
+            np.write()
+            time.sleep(0.2)
+            timeout -= 1
+        
+        if wlan.isconnected():
+            print("WiFi connected!")
+            print("IP:", wlan.ifconfig()[0])
+            # Connection successful, display green steady light
+            np[0] = (0, 255, 0)
+            np.write()
+            return True
+        else:
+            print("WiFi connection failed!")
+            # Connection failed, display red steady light
+            np[0] = (255, 0, 0)
+            np.write()
+            return False
+    else:
+        print("Already connected")
+        np[0] = (0, 255, 0)
+        np.write()
+        return True
+
+# Run
+connect_wifi()</code></pre>
+                        
+                        <h4>4.7.2 WiFi Status Indicator with Heartbeat Effect</h4>
+                        <p>After WiFi connection is successful, you can display more status information through the RGB-LED (such as periodic blinking to indicate network activity).</p>
+                        <pre><code>from machine import Pin
+import neopixel
+import network
+import time
+
+np = neopixel.NeoPixel(Pin(48), 1)
+
+SSID = "your_wifi_ssid"
+PASSWORD = "your_wifi_password"
+
+def connect_wifi_with_status():
+    wlan = network.WLAN(network.STA_IF)
+    wlan.active(True)
+    
+    # Connecting: blue breathing effect
+    print("Connecting to WiFi...")
+    for i in range(30):
+        brightness = (i % 20) / 20  # 0~1 cycle
+        np[0] = (0, 0, int(128 * brightness))
+        np.write()
+        time.sleep_ms(100)
+    
+    wlan.connect(SSID, PASSWORD)
+    
+    timeout = 15
+    while not wlan.isconnected() and timeout > 0:
+        time.sleep(1)
+        timeout -= 1
+    
+    if wlan.isconnected():
+        print("Connected! IP:", wlan.ifconfig()[0])
+        # Connection successful: green heartbeat effect
+        for _ in range(3):
+            np[0] = (0, 255, 0)
+            np.write()
+            time.sleep(0.1)
+            np[0] = (0, 0, 0)
+            np.write()
+            time.sleep(0.2)
+        # Finally steady green light
+        np[0] = (0, 255, 0)
+        np.write()
+        return True
+    else:
+        print("Connection failed!")
+        # Connection failed: red blinking
+        for _ in range(5):
+            np[0] = (255, 0, 0)
+            np.write()
+            time.sleep(0.3)
+            np[0] = (0, 0, 0)
+            np.write()
+            time.sleep(0.3)
+        return False
+
+connect_wifi_with_status()</code></pre>
+                        
+                        <h4>4.8</h4>
+                    </div>
+                </div>
+
+                <div id="module5-5" class="submodule">
+                    <h3>5. Button Input and Interrupts</h3>
+                    <div class="submodule-content">
+                        <p>Buttons are one of the most commonly used human-computer interaction devices in embedded systems. This chapter will learn how to use MicroPython to read the BOOT button on the development board and implement two button detection methods: polling and external interrupts. At the same time, it will solve the common "bouncing" problem of mechanical buttons, and comprehensively apply the knowledge learned to control the color switching of the onboard RGB-LED through buttons.</p>
+                        
+                        <h4>5.1 Polling Method to Detect BOOT Button</h4>
+                        <p>Polling is the simplest input detection method: the program continuously reads the pin level in a loop and performs corresponding operations when a valid change is detected.</p>
+                        
+                        <h4>5.1.1 Basic Polling Example</h4>
+                        <p>The BOOT button on the development board is connected to GPIO0 and has been pulled up to high level (3.3V) through an external resistor. When the button is pressed, GPIO0 is pulled low (0); when released, it returns to high level (1).</p>
+                        <pre><code>from machine import Pin
+import time
+
+button = Pin(0, Pin.IN, Pin.PULL_UP)   # Pull-up mode (external pull-up already exists, can be omitted)
+
+while True:
+    if button.value() == 0:            # Pressed
+        print("Button pressed")
+        # Wait for release to avoid repeated printing
+        while button.value() == 0:
+            time.sleep_ms(10)
+    time.sleep_ms(50)                  # Short delay to reduce CPU usage</code></pre>
+                        
+                        <h4>5.1.2 Advantages and Disadvantages of Polling</h4>
+                        <table>
+                            <tr>
+                                <th>Advantages</th>
+                                <th>Disadvantages</th>
+                            </tr>
+                            <tr>
+                                <td>Simple to implement, no additional configuration required</td>
+                                <td>CPU is always occupied, even when there are no button events</td>
+                            </tr>
+                            <tr>
+                                <td>Suitable for scenarios with low response speed requirements</td>
+                                <td>If there is a long delay in the loop (such as time.sleep(1)), button response will be delayed</td>
+                            </tr>
+                            <tr>
+                                <td>No involvement of interrupt context, easy to debug</td>
+                                <td>Cannot work in low-power sleep mode</td>
+                            </tr>
+                        </table>
+                        <p>Improvement direction: You can add time.sleep_ms(10) in the loop to reduce polling frequency, but this will introduce a maximum response delay of 10ms. For most interactive scenarios, this delay is acceptable.</p>
+                        
+                        <h4>5.2 External Interrupt (IRQ) for Button Response</h4>
+                        <p>External interrupts (Interrupt Request) allow the CPU to pause the current task when the pin level changes and immediately execute a predefined callback function. This method has fast response speed, and the CPU can enter sleep or perform other tasks when not processing buttons.</p>
+                        
+                        <h4>5.2.1 Basic Concepts of Interrupts</h4>
+                        <p>Trigger modes：</p>
+                        <ul>
+                            <li>Pin.IRQ_FALLING: Falling edge trigger (high→low, when button is pressed)</li>
+                            <li>Pin.IRQ_RISING: Rising edge trigger (low→high, when button is released)</li>
+                            <li>Pin.IRQ_LOW_LEVEL: Low level trigger (level sensitive, generally not recommended)</li>
+                            <li>Pin.IRQ_HIGH_LEVEL: High level trigger</li>
+                        </ul>
+                        <p>Callback function: When an interrupt is triggered, the system will call this function. The callback function must be as short as possible, avoiding time-consuming operations (such as delays, printing large amounts of data, memory allocation), otherwise it may affect system stability or cause interrupt nesting.</p>
+                        
+                        <h4>5.2.2 Using External Interrupts to Detect Button Presses</h4>
+                        <pre><code>from machine import Pin
+import time
+
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+# Interrupt callback function
+def button_handler(pin):
+    # Note: This function runs in the interrupt context, should be as short as possible
+    print("Button interrupt triggered")
+
+# Configure falling edge interrupt (triggered when pressed)
+button.irq(trigger=Pin.IRQ_FALLING, handler=button_handler)
+
+# Main program continues to do other things
+while True:
+    print("Main loop running...")
+    time.sleep(2)</code></pre>
+                        <p>Running result: Each time the BOOT button is pressed, the console will print a message, while the main loop continues to print every 2 seconds.</p>
+                        
+                        <h4>5.2.3 Distinguishing Press and Release</h4>
+                        <p>By registering both rising edge and falling edge interrupts and reading the current level in the callback function, you can distinguish between press and release events.</p>
+                        <pre><code>from machine import Pin
+
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+def button_handler(pin):
+    if pin.value() == 0:
+        print("Button pressed")
+    else:
+        print("Button released")
+
+# Register both falling and rising edges
+button.irq(trigger=Pin.IRQ_FALLING | Pin.IRQ_RISING, handler=button_handler)
+
+# Keep program running
+while True:
+    pass</code></pre>
+                        
+                        <h4>5.2.4 Interrupt Callback Function Limitations and Best Practices</h4>
+                        <p>Due to MicroPython's interrupt handling mechanism, the following functions cannot be used in callback functions：</p>
+                        <ul>
+                            <li>Dynamic memory allocation (such as creating lists, dictionaries, strings, etc.)</li>
+                            <li>Using blocking delays such as time.sleep() or time.sleep_ms()</li>
+                            <li>Performing operations that may trigger garbage collection</li>
+                            <li>Using print() for large amounts of output (small amounts are okay but not recommended)</li>
+                        </ul>
+                        <p>Recommended practice: Only set a flag variable in the callback function (such as global pressed_flag = True), then check the flag in the main loop and perform time-consuming operations.</p>
+                        <pre><code>from machine import Pin
+import time
+
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+button_pressed = False
+
+def button_handler(pin):
+    global button_pressed
+    # 仅设置标志，不执行复杂操作
+    button_pressed = True
+
+button.irq(trigger=Pin.IRQ_FALLING, handler=button_handler)
+
+while True:
+    if button_pressed:
+        print("Button pressed detected in main loop")
+        # 执行耗时操作
+        button_pressed = False
+    # 其他任务...
+    time.sleep_ms(100)</code></pre>
+                        
+                        <h4>5.3 Button Debouncing</h4>
+                        <p>Mechanical buttons, at the moment of pressing and releasing, produce multiple level transitions due to elastic collision of metal shrapnel (usually lasting 5~20ms). Without debouncing, a single button press may be mistaken for multiple triggers.</p>
+                        
+                        <h4>5.3.1 Hardware Debouncing</h4>
+                        <p>Connecting a 0.1μF capacitor in parallel across the button can filter out high-frequency bouncing. This development board already includes such hardware debouncing circuit, but for high-reliability scenarios, software-assisted debouncing is still needed.</p>
+                        
+                        <h4>5.3.2 Software Debouncing</h4>
+                        <p>A common method for software debouncing is: after detecting a level change, delay for a short period (such as 20~50ms), then read the level again to confirm if the state is stable.</p>
+                        <p>Implementing debouncing in polling：</p>
+                        <pre><code>from machine import Pin
+import time
+
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+def read_button_debounced():
+    if button.value() == 0:                # Detect press
+        time.sleep_ms(30)                  # Delay for debouncing
+        if button.value() == 0:            # Confirm again
+            # Wait for button release
+            while button.value() == 0:
+                time.sleep_ms(10)
+            return True
+    return False
+
+while True:
+    if read_button_debounced():
+        print("Button confirmed pressed")
+    time.sleep_ms(10)</code></pre>
+                        <p>Implementing debouncing in interrupts：</p>
+                        <p>Since delays cannot be used in interrupt callback functions, the debouncing logic can be moved to the main loop.</p>
+                        <pre><code>from machine import Pin
+import time
+
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+interrupt_flag = False
+last_trigger_time = 0
+
+def button_handler(pin):
+    global interrupt_flag
+    interrupt_flag = True
+
+button.irq(trigger=Pin.IRQ_FALLING, handler=button_handler)
+
+while True:
+    if interrupt_flag:
+        interrupt_flag = False
+        # Debouncing: Check if time since last trigger is greater than 50ms
+        current_time = time.ticks_ms()
+        if time.ticks_diff(current_time, last_trigger_time) > 50:
+            # Confirm level again (after 20ms wait)
+            time.sleep_ms(20)
+            if button.value() == 0:
+                print("Button pressed (debounced)")
+                # Wait for release
+                while button.value() == 0:
+                    time.sleep_ms(10)
+        last_trigger_time = current_time
+    time.sleep_ms(10)</code></pre>
+                        
+                        <h4>5.3.3 More Concise Debouncing Implementation (Using machine.Timer)</h4>
+                        <p>You can use a timer to implement non-blocking debouncing, but to keep the code concise, this chapter recommends using the above main loop with timestamp method.</p>
+                        
+                        <h4>5.4 Comprehensive Example: Button-Controlled RGB Color Switching</h4>
+                        <p>Now we will comprehensively apply GPIO input, external interrupts, RGB-LED control, and debouncing techniques to implement a function: each time the BOOT button is pressed, the onboard RGB-LED's color cycles through red, green, blue, yellow, cyan, magenta, and white.</p>
+                        
+                        <h4>5.4.1 Hardware Connection</h4>
+                        <p>RGB-LED control pin: GPIO48 (WS2812)</p>
+                        <p>Button pin: GPIO0 (BOOT button)</p>
+                        
+                        <h4>5.4.2 Complete Code</h4>
+                        <pre><code>from machine import Pin
+import neopixel
+import time
+
+# Initialize RGB-LED
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# Initialize button (GPIO0, pull-up)
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+# Predefined color list (RGB format)
+colors = [
+    (255, 0, 0),    # Red
+    (0, 255, 0),    # Green
+    (0, 0, 255),    # Blue
+    (255, 255, 0),  # Yellow
+    (255, 0, 255),  # Magenta
+    (0, 255, 255),  # Cyan
+    (255, 255, 255) # White
+]
+color_index = 0
+
+# Interrupt flag
+key_pressed = False
+last_interrupt_time = 0
+DEBOUNCE_MS = 50
+
+def button_handler(pin):
+    global key_pressed
+    key_pressed = True
+
+# Configure falling edge interrupt
+button.irq(trigger=Pin.IRQ_FALLING, handler=button_handler)
+
+def set_rgb_color(color):
+    """Set RGB-LED color"""
+    np[0] = color
+    np.write()
+
+def show_current_color():
+    """Show current color"""
+    set_rgb_color(colors[color_index])
+    print("Current color:", color_index)
+
+# Initialization: show red
+show_current_color()
+
+while True:
+    if key_pressed:
+        key_pressed = False
+        
+        # Debounce processing
+        now = time.ticks_ms()
+        if time.ticks_diff(now, last_interrupt_time) < DEBOUNCE_MS:
+            continue   # Bouncing, ignore
+        last_interrupt_time = now
+        
+        # Confirm button is actually pressed (not bouncing)
+        time.sleep_ms(20)
+        if button.value() == 0:
+            # Switch to next color
+            color_index = (color_index + 1) % len(colors)
+            show_current_color()
+            
+            # Wait for button release (avoid continuous switching when held)
+            while button.value() == 0:
+                time.sleep_ms(10)
+    
+    # Other tasks can be placed here
+    time.sleep_ms(20)</code></pre>
+                        
+                        <h4>5.4.3 Running Effects</h4>
+                        <ul>
+                            <li>After power-on, the RGB-LED displays red.</li>
+                            <li>Each time the BOOT button is pressed, the LED switches to the next preset color, and the color index is printed in the REPL.</li>
+                            <li>The button has debouncing processing, so a single short press only switches the color once, and a long press does not continuously switch (only allows the next switch after release).</li>
+                        </ul>
+                        
+                        <h4>5.5 Extension: Using _thread for Non-blocking Button Detection (Advanced)</h4>
+                        <p>For more complex applications, you can use MicroPython's _thread module to create an independent thread to poll the button, avoiding interrupt limitations. However, attention should be paid to thread safety and memory management.</p>
+                        <pre><code>import _thread
+from machine import Pin
+import neopixel
+import time
+
+np = neopixel.NeoPixel(Pin(48), 1)
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+color_index = 0
+colors = [(255,0,0), (0,255,0), (0,0,255)]
+
+def button_task():
+    global color_index
+    last_state = 1
+    while True:
+        current_state = button.value()
+        if last_state == 1 and current_state == 0:  # Falling edge
+            time.sleep_ms(30)                       # Debouncing
+            if button.value() == 0:
+                color_index = (color_index + 1) % len(colors)
+                np[0] = colors[color_index]
+                np.write()
+                # Wait for release
+                while button.value() == 0:
+                    time.sleep_ms(10)
+        last_state = current_state
+        time.sleep_ms(10)
+
+_thread.start_new_thread(button_task, ())
+
+# Main thread can do other things
+while True:
+    print("Main thread running...")
+    time.sleep(2)</code></pre>
+                        <p>Warning: MicroPython's _thread module has limited functionality and is unstable, which may cause memory errors or crashes on ESP32-S3. Please use with caution. It is recommended to use the interrupt + main loop flag method.</p>
+                        
+                        <h4>5.6 Chapter Summary</h4>
+                        <p>This chapter learned the following content：</p>
+                        <ul>
+                            <li>Polling method: Simple and direct, suitable for scenarios with low response speed requirements.</li>
+                            <li>External interrupts: Fast response, suitable for applications that require immediate reaction; callback functions must be short, avoiding blocking and memory allocation.</li>
+                            <li>Button debouncing: Filter mechanical bouncing through delay or timestamp to improve detection reliability.</li>
+                            <li>Comprehensive example: Using interrupt + main loop flag to implement button-controlled RGB color switching, with debouncing and release waiting logic.</li>
+                        </ul>
+                        <p>Through the study of this chapter, you can now interact with the RGB-LED using buttons. The next chapter will learn serial communication (UART) to realize data transmission and reception between the development board and PC or other devices.</p>
+                    </div>
+                </div>
+
+                <div id="module5-6" class="submodule">
+                    <h3>6. Serial Communication (UART)</h3>
+                    <div class="submodule-content">
+                        <p>Serial communication (UART, Universal Asynchronous Receiver/Transmitter) is one of the most commonly used communication interfaces in embedded systems. This development board provides two ways to perform serial communication with external devices (such as PC, sensors, other microcontrollers): one is through the CH343P USB-to-serial chip connected to the PC's Type-C interface (marked "COM"); the other is through the USB-OTG Type-C interface to simulate a virtual serial port (CDC). This chapter will learn how to use MicroPython to operate the hardware UART of ESP32-S3, realize data sending and receiving, and interact with PC serial port debugging assistant.</p>
+                        
+                        <h4>6.1 Relationship Between Hardware Serial Port and USB-to-Serial</h4>
+                        <h4>6.1.1 UART Resources of ESP32-S3</h4>
+                        <p>ESP32-S3 has built-in 3 hardware UART controllers (UART0, UART1, UART2), each of which can independently configure parameters such as baud rate, data bits, stop bits, and parity bits.</p>
+                        
+                        <table>
+                            <tr>
+                                <th>UART</th>
+                                <th>Default Pins (Common)</th>
+                                <th>Usage Description</th>
+                            </tr>
+                            <tr>
+                                <td>UART0</td>
+                                <td>TX: GPIO43, RX: GPIO44</td>
+                                <td>Connected to CH343P chip, used for communication with PC (REPL)</td>
+                            </tr>
+                            <tr>
+                                <td>UART1</td>
+                                <td>TX: GPIO17, RX: GPIO18</td>
+                                <td>Can be freely used to connect external serial devices</td>
+                            </tr>
+                            <tr>
+                                <td>UART2</td>
+                                <td>TX: GPIO21, RX: GPIO20</td>
+                                <td>Note: GPIO20 is also USB_D+, conflict if using USB-OTG</td>
+                            </tr>
+                        </table>
+                        <p>Note: When the development board leaves the factory, UART0 is already connected to CH343P, so after connecting to the PC through the "COM" port Type-C, you can see the serial port in tools such as Arduino IDE and Thonny, and use it for REPL interaction and firmware burning.</p>
+                        
+                        <h4>6.1.2 Serial Port Functions of the Two Type-C Interfaces</h4>
+                        <table>
+                            <tr>
+                                <th>Interface Silkscreen</th>
+                                <th>Chip/Function</th>
+                                <th>Corresponding Serial Port</th>
+                                <th>Typical Usage</th>
+                            </tr>
+                            <tr>
+                                <td>COM</td>
+                                <td>CH343P (USB to Serial)</td>
+                                <td>ESP32-S3 UART0</td>
+                                <td>Firmware burning, REPL interaction, printing debug information</td>
+                            </tr>
+                            <tr>
+                                <td>USB</td>
+                                <td>ESP32-S3 native USB-OTG</td>
+                                <td>Can simulate CDC virtual serial port</td>
+                                <td>As keyboard/mouse, read U disk, second serial port</td>
+                            </tr>
+                        </table>
+                        <p>COM port: Always available, no configuration required, plug into the computer to be recognized as a serial device.</p>
+                        <p>USB port: Need to short-circuit the USB pad on the board (0Ω resistor) and write MicroPython code to enable TinyUSB's CDC function to be recognized as a virtual serial port.</p>
+                        <p>This chapter will introduce how to use these two serial ports respectively.</p>
+                        
+                        <h4>6.2 UART Basic Operations</h4>
+                        <h4>6.2.1 Import Module and Constructor</h4>
+                        <pre><code>from machine import UART, Pin
+
+# Create UART object
+uart = UART(id, baudrate, tx=None, rx=None, bits=8, parity=None, stop=1, timeout=500, timeout_char=10)</code></pre>
+                        <p>Parameter description：</p>
+                        <table>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Description</th>
+                                <th>Common Values</th>
+                            </tr>
+                            <tr>
+                                <td>id</td>
+                                <td>UART number (0, 1, 2)</td>
+                                <td>0, 1, 2</td>
+                            </tr>
+                            <tr>
+                                <td>baudrate</td>
+                                <td>Baud rate (bps)</td>
+                                <td>9600, 115200, 921600</td>
+                            </tr>
+                            <tr>
+                                <td>tx</td>
+                                <td>Transmit pin (Pin object or GPIO number)</td>
+                                <td>e.g., Pin(17) or directly 17</td>
+                            </tr>
+                            <tr>
+                                <td>rx</td>
+                                <td>Receive pin</td>
+                                <td>Same as above</td>
+                            </tr>
+                            <tr>
+                                <td>bits</td>
+                                <td>Data bits (5~8)</td>
+                                <td>8</td>
+                            </tr>
+                            <tr>
+                                <td>parity</td>
+                                <td>Parity bit (None, 0=even, 1=odd)</td>
+                                <td>None</td>
+                            </tr>
+                            <tr>
+                                <td>stop</td>
+                                <td>Stop bits (1 or 2)</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>timeout</td>
+                                <td>Read timeout (milliseconds)</td>
+                                <td>500</td>
+                            </tr>
+                            <tr>
+                                <td>timeout_char</td>
+                                <td>Inter-character timeout (milliseconds)</td>
+                                <td>10</td>
+                            </tr>
+                        </table>
+                        
+                        <h4>6.2.2 Basic Send/Receive Methods</h4>
+                        <pre><code># Send data
+uart.write("Hello UART\n")          # Send string
+uart.write(b'\x01\x02\x03')         # Send bytes
+
+# Read data
+data = uart.read()                  # Read all available bytes
+data = uart.read(10)                # Read up to 10 bytes
+data = uart.readline()              # Read one line (ending with \n)
+num = uart.any()                    # Return number of bytes waiting to be read
+
+# Other settings
+uart.init(baudrate=9600)            # Re-initialize parameters
+uart.deinit()                       # Close UART</code></pre>
+                        
+                        <h4>6.3 Using UART0 to Communicate with PC (COM Port)</h4>
+                        <p>Since UART0 is connected to CH343P by default, we don't need any additional hardware. We just need to operate UART0 in MicroPython to view the sent data through the serial port debugging assistant on the PC or receive instructions from the PC.</p>
+                        
+                        <h4>6.3.1 Note: REPL Occupation Issue</h4>
+                        <p>After MicroPython starts, UART0 is occupied by REPL (interactive interpreter) by default, used to display the >>> prompt and run user code. If we want to directly use UART0 to send and receive data in code, we need to release REPL or redirect REPL to another UART first.</p>
+                        <p>Method 1 (simple): Do not release REPL, only use UART0 to send data (reception will conflict with REPL, not recommended).</p>
+                        <p>Method 2 (recommended): Move REPL to UART1, then release UART0 for user programs. Or directly use UART1 to communicate with external devices, leaving UART0 for REPL.</p>
+                        <p>Since this development board is already connected to UART0 through the COM port, we usually leave UART0 for REPL and use UART1 to connect external serial devices. But if you want to communicate with the serial assistant on the PC without interfering with REPL, you can create a virtual serial port (see section 6.5) or use UART1 to connect to the PC through an external USB-to-serial module.</p>
+                        <p>Simple demonstration: The following code will send data through UART0, but you will see these outputs mixed in the REPL, which is not a good practice. Recommended only for debugging output.</p>
+                        <pre><code>from machine import UART
+import time
+
+uart0 = UART(0, baudrate=115200, tx=43, rx=44)
+while True:
+    uart0.write("Hello from UART0\n")
+    time.sleep(1)</code></pre>
+                        <p>After running, you can see the message in the PC serial assistant (such as Putty, connect to COM port, baud rate 115200), but the REPL may be interfered.</p>
+                        
+                        <h4>6.3.2 Using UART1 to Communicate with External Serial Devices (Recommended)</h4>
+                        <p>If you need to connect GPS modules, Bluetooth modules, etc., it is recommended to use UART1 (TX=GPIO17, RX=GPIO18). The wiring is as follows：</p>
+                        <ul>
+                            <li>ESP32-S3 GPIO17 → External device RX</li>
+                            <li>ESP32-S3 GPIO18 → External device TX</li>
+                            <li>Common ground</li>
+                        </ul>
+                        <pre><code>from machine import UART, Pin
+import time
+
+# Initialize UART1
+uart1 = UART(1, baudrate=9600, tx=17, rx=18)
+
+# Send data
+uart1.write("AT\r\n")
+
+# Receive data
+while True:
+    if uart1.any():
+        data = uart1.read()
+        print("Received:", data)
+    time.sleep(0.1)</code></pre>
+                        
+                        <h4>6.4 Example of Communicating with PC Serial Debugging Assistant</h4>
+                        <p>Suppose we use UART1 and connect to the PC through a USB to TTL module (such as CH340). Connect the module's TX to ESP32-S3's RX18, RX to TX17, and GND to GND. Then open the serial debugging assistant on the PC (such as SSCOM, Putty, CoolTerm), select the corresponding COM port, and set the baud rate to 9600.</p>
+                        
+                        <h4>6.4.1 Sending and Receiving Data</h4>
+                        <pre><code>from machine import UART
+import time
+
+uart = UART(1, baudrate=9600, tx=17, rx=18)
+
+# Send string
+uart.write("Hello PC!\r\n")
+
+# Loop echo: send back whatever is received
+while True:
+    if uart.any():
+        recv = uart.read()
+        uart.write(recv)
+    time.sleep(0.01)</code></pre>
+                        <p>In the serial debugging assistant, send any character and you will immediately receive the same reply.</p>
+                        
+                        <h4>6.4.2 Command Parsing Example</h4>
+                        <pre><code>from machine import UART
+import neopixel
+from machine import Pin
+
+# Initialize RGB-LED
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# Initialize UART1
+uart = UART(1, baudrate=115200, tx=17, rx=18)
+
+def set_color(color_str):
+    # Command format: R,G,B  such as "255,0,100"
+    try:
+        r, g, b = map(int, color_str.split(','))
+        np[0] = (r, g, b)
+        np.write()
+        return "OK\r\n"
+    except:
+        return "ERROR\r\n"
+
+while True:
+    if uart.any():
+        cmd = uart.readline()
+        if cmd:
+            cmd = cmd.decode().strip()
+            if cmd.startswith("RGB"):
+                _, color = cmd.split('=')
+                response = set_color(color)
+                uart.write(response)</code></pre>
+                        <p>PC sends RGB=255,0,0 to set the RGB-LED to red.</p>
+                        
+                        <h4>6.5 Using USB-OTG as Virtual Serial Port (CDC)</h4>
+                        <p>The other Type-C interface on the development board (silkscreen "USB") is directly connected to the built-in USB controller of ESP32-S3 (GPIO19/20). Through MicroPython's usb_cdc module, it can be configured as a virtual serial port (CDC), so that when plugged into the computer, it will be recognized as a new COM port, no need for an external USB-to-TTL module.</p>
+                        
+                        <h4>6.5.1 Hardware Preparation</h4>
+                        <p>Confirm that the USB pad on the development board is short-circuited (usually a 0Ω resistor or solder short-circuit) to connect the USB interface to the USB D+/D- of ESP32-S3.</p>
+                        <p>Use a USB cable to connect this Type-C port to the computer.</p>
+                        
+                        <h4>6.5.2 Enabling USB-CDC Virtual Serial Port</h4>
+                        <p>MicroPython does not enable USB-CDC by default on ESP32-S3, it needs to be manually enabled. There are two ways：</p>
+                        <p>Method 1: Enable in boot.py (recommended)</p>
+                        <p>Add the following code to the boot.py file of the development board, it will take effect after restart.</p>
+                        <pre><code>import usb_cdc
+
+# Enable USB-CDC, create a virtual serial port
+usb_cdc.enable(console=False, data=True)
+# console=False means not taking over REPL, only as data serial port
+# data=True means creating a normal data serial port</code></pre>
+                        <p>Method 2: Enable dynamically in REPL</p>
+                        <pre><code>import usb_cdc
+
+usb_cdc.enable(console=False, data=True)</code></pre>
+                        <p>After enabling, a new COM port (e.g., COM5) will appear in the computer's device manager. You can open it with a serial assistant.</p>
+                        
+                        <h4>6.5.3 Using USB-CDC Serial Port to Send and Receive Data</h4>
+                        <p>After enabling, the usb_cdc module will create a usb_cdc.data object, which is also a UART-like stream interface that supports methods such as read(), write(), any(), etc.</p>
+                        <pre><code>import usb_cdc
+import time
+
+# Enable USB-CDC
+usb_cdc.enable(console=False, data=True)
+
+# Get data serial port object
+usb_serial = usb_cdc.data
+
+while True:
+    if usb_serial.any():
+        data = usb_serial.read()
+        usb_serial.write(b"Echo: ")
+        usb_serial.write(data)
+    time.sleep(0.01)</code></pre>
+                        <p>After running, open the corresponding virtual serial port on the computer, and any content you send will receive a reply of "Echo: xxx".</p>
+                        
+                        <h4>6.5.4 Moving REPL to USB-CDC (Advanced)</h4>
+                        <p>If you want to use the USB port as a REPL interactive terminal (similar to through the COM port), you can set console=True：</p>
+                        <pre><code>import usb_cdc
+usb_cdc.enable(console=True, data=False)</code></pre>
+                        <p>After restart, the REPL will appear on the USB virtual serial port, while the original CH343P COM port will no longer have REPL (but can still be used for firmware burning). This allows you to use two serial ports simultaneously: one for REPL and another for data transmission.</p>
+                        
+                        <h4>6.6 Comprehensive Example: Dual Serial Port Interaction</h4>
+                        <p>This example implements the following functions：</p>
+                        <p>UART0 (COM port) is reserved for REPL, used for printing debug information.</p>
+                    </div>
+                </div>
+
+                <div id="module5-7" class="submodule">
+                    <h3>7. I2C and SPI Interfaces</h3>
+                    <div class="submodule-content">
+                        <p>I2C (Inter-Integrated Circuit) and SPI (Serial Peripheral Interface) are two commonly used serial communication protocols for connecting microcontrollers with various peripherals, such as sensors, displays, storage devices, etc. This chapter will learn how to use MicroPython to operate the I2C and SPI interfaces of ESP32-S3 to realize communication with common peripherals.</p>
+                        
+                        <h4>7.1 I2C Bus Scanning for Devices</h4>
+                        <p>I2C is a two-wire serial bus that uses SCL (clock line) and SDA (data line) for communication. Before using an I2C device, you first need to determine the I2C address of the device.</p>
+                        
+                        <h4>7.1.1 Hardware Connection</h4>
+                        <p>The default I2C pin assignments for ESP32-S3 are as follows：</p>
+                        <table>
+                            <tr>
+                                <th>I2C</th>
+                                <th>SCL</th>
+                                <th>SDA</th>
+                            </tr>
+                            <tr>
+                                <td>I2C0</td>
+                                <td>GPIO1</td>
+                                <td>GPIO2</td>
+                            </tr>
+                            <tr>
+                                <td>I2C1</td>
+                                <td>GPIO4</td>
+                                <td>GPIO5</td>
+                            </tr>
+                        </table>
+                        <p>Connect the SCL and SDA of the peripheral to the corresponding pins of ESP32-S3, and ensure common ground.</p>
+                        
+                        <h4>7.1.2 Scanning I2C Devices</h4>
+                        <pre><code>from machine import I2C, Pin
+
+# Initialize I2C (using default pins)
+i2c = I2C(0, scl=Pin(1), sda=Pin(2), freq=400000)
+
+# Scan for devices
+devices = i2c.scan()
+print("I2C devices found:", len(devices))
+for device in devices:
+    print("Device address: 0x{:02x}".format(device))</code></pre>
+                        <p>After running, the console will display all device addresses connected to the I2C bus. Common I2C device addresses：</p>
+                        <table>
+                            <tr>
+                                <th>Device</th>
+                                <th>Address</th>
+                            </tr>
+                            <tr>
+                                <td>AHT10 (temperature/humidity sensor)</td>
+                                <td>0x38</td>
+                            </tr>
+                            <tr>
+                                <td>SSD1306 (OLED display)</td>
+                                <td>0x3c or 0x3d</td>
+                            </tr>
+                            <tr>
+                                <td>BH1750 (light sensor)</td>
+                                <td>0x23 or 0x5c</td>
+                            </tr>
+                            <tr>
+                                <td>MPU6050 (accelerometer/gyroscope)</td>
+                                <td>0x68</td>
+                            </tr>
+                        </table>
+                        
+                        <h4>7.2 Driving Common I2C Sensors (e.g., AHT10, SSD1306 OLED)</h4>
+                        
+                        <h4>7.2.1 Driving AHT10 Temperature and Humidity Sensor</h4>
+                        <p>AHT10 is a high-precision temperature and humidity sensor that uses I2C communication.</p>
+                        <pre><code>from machine import I2C, Pin
+import time
+
+class AHT10:
+    def __init__(self, i2c, address=0x38):
+        self.i2c = i2c
+        self.address = address
+        self.init_sensor()
+    
+    def init_sensor(self):
+        # Initialize sensor
+        self.i2c.writeto(self.address, b'\x71')
+        time.sleep_ms(10)
+        # Check status
+        status = self.i2c.readfrom(self.address, 1)[0]
+        if not (status & 0x08):
+            print("AHT10 initialization failed!")
+    
+    def measure(self):
+        # Trigger measurement
+        self.i2c.writeto(self.address, b'\xac\x33\x00')
+        time.sleep_ms(80)  # Wait for measurement to complete
+        
+        # Read data
+        data = self.i2c.readfrom(self.address, 6)
+        
+        # Parse data
+        humidity = ((data[1] << 12) | (data[2] << 4) | (data[3] >> 4)) * 100 / (1 << 20)
+        temperature = (((data[3] & 0x0F) << 16) | (data[4] << 8) | data[5]) * 200 / (1 << 20) - 50
+        
+        return humidity, temperature
+
+# Initialize I2C
+i2c = I2C(0, scl=Pin(1), sda=Pin(2), freq=400000)
+
+# Create AHT10 instance
+sensor = AHT10(i2c)
+
+# Read data
+while True:
+    humidity, temperature = sensor.measure()
+    print("Temperature: {:.2f}°C, Humidity: {:.2f}%".format(temperature, humidity))
+    time.sleep(2)</code></pre>
+                        
+                        <h4>7.2.2 Driving SSD1306 OLED Display</h4>
+                        <p>SSD1306 is a commonly used 128x64 pixel OLED display that uses I2C communication.</p>
+                        <pre><code>from machine import I2C, Pin
+import time
+
+class SSD1306:
+    def __init__(self, i2c, address=0x3c, width=128, height=64):
+        self.i2c = i2c
+        self.address = address
+        self.width = width
+        self.height = height
+        self.buf = bytearray(width * height // 8)
+        self.init_display()
+    
+    def init_display(self):
+        # Initialization command sequence
+        init_cmds = [
+            0xAE,  # Turn off display
+            0xD5, 0x80,  # Set display clock
+            0xA8, 0x3F,  # Set multiplex rate
+            0xD3, 0x00,  # Set display offset
+            0x40,  # Set start line
+            0x8D, 0x14,  # Enable charge pump
+            0x20, 0x00,  # Set memory addressing mode
+            0xA1,  # Horizontal flip
+            0xC8,  # Vertical flip
+            0xDA, 0x12,  # Set COM pins
+            0x81, 0xCF,  # Set contrast
+            0xD9, 0xF1,  # Set pre-charge period
+            0xDB, 0x40,  # Set VCOMH
+            0xA4,  # Display all pixels
+            0xA6,  # Normal display
+            0xAF   # Turn on display
+        ]
+        for cmd in init_cmds:
+            self._send_cmd(cmd)
+    
+    def _send_cmd(self, cmd):
+        self.i2c.writeto(self.address, b'\x00' + bytes([cmd]))
+    
+    def _send_data(self, data):
+        self.i2c.writeto(self.address, b'\x40' + data)
+    
+    def clear(self):
+        self.buf = bytearray(len(self.buf))
+        self.show()
+    
+    def show(self):
+        # Set display area
+        self._send_cmd(0x21)
+        self._send_cmd(0)
+        self._send_cmd(self.width - 1)
+        self._send_cmd(0x22)
+        self._send_cmd(0)
+        self._send_cmd(self.height // 8 - 1)
+        # Send data
+        self._send_data(self.buf)
+    
+    def pixel(self, x, y, color):
+        if x < 0 or x >= self.width or y < 0 or y >= self.height:
+            return
+        index = x + (y // 8) * self.width
+        if color:
+            self.buf[index] |= 1 << (y % 8)
+        else:
+            self.buf[index] &= ~(1 << (y % 8))
+
+# Initialize I2C
+i2c = I2C(0, scl=Pin(1), sda=Pin(2), freq=400000)
+
+# Create SSD1306 instance
+display = SSD1306(i2c)
+
+# Display a pixel
+display.pixel(64, 32, 1)
+display.show()
+time.sleep(2)
+
+# Clear screen
+display.clear()</code></pre>
+                        
+                        <h4>7.3 SPI Interface Basics: Driving LCD or SD Card</h4>
+                        <p>SPI is a high-speed serial communication protocol that uses four lines: SCK (clock), MOSI (master output slave input), MISO (master input slave output), and CS (chip select).</p>
+                        
+                        <h4>7.3.1 Hardware Connection</h4>
+                        <p>The default SPI pin assignments for ESP32-S3 are as follows：</p>
+                        <table>
+                            <tr>
+                                <th>SPI</th>
+                                <th>SCK</th>
+                                <th>MOSI</th>
+                                <th>MISO</th>
+                                <th>CS</th>
+                            </tr>
+                            <tr>
+                                <td>SPI1</td>
+                                <td>GPIO7</td>
+                                <td>GPIO8</td>
+                                <td>GPIO9</td>
+                                <td>可自定义</td>
+                            </tr>
+                            <tr>
+                                <td>SPI2</td>
+                                <td>GPIO36</td>
+                                <td>GPIO35</td>
+                                <td>GPIO37</td>
+                                <td>可自定义</td>
+                            </tr>
+                        </table>
+                        
+                        <h4>7.3.2 初始化 SPI</h4>
+                        <pre><code>from machine import SPI, Pin
+
+# 初始化 SPI
+spi = SPI(1, baudrate=10000000, polarity=0, phase=0, sck=Pin(7), mosi=Pin(8), miso=Pin(9))
+
+# 片选引脚
+cs = Pin(10, Pin.OUT, value=1)
+
+# 发送数据
+def spi_write(data):
+    cs.value(0)
+    spi.write(data)
+    cs.value(1)
+
+# 读取数据
+def spi_read(n):
+    cs.value(0)
+    data = spi.read(n)
+    cs.value(1)
+    return data
+
+# 示例：发送并读取
+tx_data = b'\x01\x02\x03'
+spi_write(tx_data)
+rx_data = spi_read(3)
+print("Received:", rx_data)</code></pre>
+                        
+                        <h4>7.3.3 驱动 SD 卡</h4>
+                        <p>MicroPython 内置了 SD 卡驱动，使用 SPI 接口连接 SD 卡模块。</p>
+                        <pre><code>from machine import SPI, Pin
+import os
+
+# 初始化 SPI
+spi = SPI(1, baudrate=10000000, sck=Pin(7), mosi=Pin(8), miso=Pin(9))
+
+# 片选引脚
+cs = Pin(10, Pin.OUT, value=1)
+
+# 挂载 SD 卡
+try:
+    os.mount(spi, "/sd")
+    print("SD card mounted successfully")
+    
+    # 列出文件
+    print("Files on SD card:")
+    for file in os.listdir("/sd"):
+        print(f"  - {file}")
+    
+except Exception as e:
+    print(f"Failed to mount SD card: {e}")</code></pre>
+                    </div>
+                </div>
+
+                <div id="module5-8" class="submodule">
+                    <h3>8. WiFi Networking and Network Communication</h3>
+                    <div class="submodule-content">
+                        <p>ESP32-S3 has a built-in Wi-Fi module that supports both STA (Station, client) and AP (Access Point) modes. This chapter will teach you how to use MicroPython to connect to WiFi networks, create hotspots, send HTTP requests, and build a simple web server to control the onboard RGB-LED.</p>
+                        
+                        <h4>8.1 Connecting to WiFi Network (STA Mode)</h4>
+                        <p>In STA mode, ESP32-S3 acts as a client connecting to an existing WiFi network.</p>
+                        
+                        <h4>8.1.1 Basic Connection Example</h4>
+                        <pre><code>import network
+import time
+
+# Create WiFi station interface
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+
+# Connect to WiFi
+ssid = "your_wifi_ssid"
+password = "your_wifi_password"
+
+print("Connecting to WiFi...")
+wlan.connect(ssid, password)
+
+# Wait for connection
+max_wait = 10
+while max_wait > 0:
+    if wlan.status() < 0 or wlan.status() >= 3:
+        break
+    max_wait -= 1
+    print('waiting for connection...')
+    time.sleep(1)
+
+# Check connection status
+if wlan.status() != 3:
+    raise RuntimeError('WiFi connection failed')
+else:
+    print('Connected')
+    status = wlan.ifconfig()
+    print('IP address:', status[0])
+
+# Disconnect (optional)
+# wlan.disconnect()</code></pre>
+                        
+                        <h4>8.1.2 Connection Status Codes</h4>
+                        <table>
+                            <tr>
+                                <th>Status Code</th>
+                                <th>Meaning</th>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>Connecting</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Connected</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Obtaining IP</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Connected and obtained IP</td>
+                            </tr>
+                            <tr>
+                                <td>-1</td>
+                                <td>Connection failed</td>
+                            </tr>
+                            <tr>
+                                <td>-2</td>
+                                <td>Authentication failed</td>
+                            </tr>
+                        </table>
+                        
+                        <h4>8.2 Creating Hotspot (AP Mode)</h4>
+                        <p>In AP mode, ESP32-S3 acts as a WiFi hotspot that other devices can connect to.</p>
+                        
+                        <h4>8.2.1 Hotspot Creation Example</h4>
+                        <pre><code>import network
+
+# Create WiFi access point interface
+ap = network.WLAN(network.AP_IF)
+ap.active(True)
+
+# Configure hotspot
+ap.config(essid="ESP32-S3 AP", password="12345678")
+
+# Wait for AP to start
+while not ap.active():
+    pass
+
+print('AP started')
+print('AP SSID:', ap.config('essid'))
+print('AP IP address:', ap.ifconfig()[0])
+
+# Turn off AP (optional)
+# ap.active(False)</code></pre>
+                        <p>Note: The password length for AP mode must be at least 8 characters.</p>
+                        
+                        <h4>8.3 Sending HTTP Requests with Socket</h4>
+                        <p>After connecting to WiFi, you can use the socket module to send HTTP requests to communicate with internet services.</p>
+                        
+                        <h4>8.3.1 Sending GET Request</h4>
+                        <pre><code>import socket
+import time
+
+# Ensure WiFi is connected
+
+# Target server information
+host = "example.com"
+port = 80
+path = "/"
+
+# Create socket
+addr = socket.getaddrinfo(host, port)[0][-1]
+s = socket.socket()
+s.connect(addr)
+
+# Build HTTP request
+request = f"GET {path} HTTP/1.1\r\nHost: {host}\r\nConnection: close\r\n\r\n"
+
+# Send request
+s.send(request.encode())
+
+# Receive response
+response = b""
+while True:
+    data = s.recv(1024)
+    if not data:
+        break
+    response += data
+
+# Close connection
+s.close()
+
+# Print response
+print(response.decode())</code></pre>
+                        
+                        <h4>8.3.2 Sending POST Request</h4>
+                        <pre><code>import socket
+
+# Ensure WiFi is connected
+
+# Target server information
+host = "httpbin.org"
+port = 80
+path = "/post"
+
+# Create socket
+addr = socket.getaddrinfo(host, port)[0][-1]
+s = socket.socket()
+s.connect(addr)
+
+# Build POST data
+data = "name=ESP32-S3&message=Hello from MicroPython"
+
+# Build HTTP request
+request = f"POST {path} HTTP/1.1\r\n"
+request += f"Host: {host}\r\n"
+request += f"Content-Type: application/x-www-form-urlencoded\r\n"
+request += f"Content-Length: {len(data)}\r\n"
+request += "Connection: close\r\n"
+request += "\r\n"
+request += data
+
+# Send request
+s.send(request.encode())
+
+# Receive response
+response = b""
+while True:
+    data = s.recv(1024)
+    if not data:
+        break
+    response += data
+
+# Close connection
+s.close()
+
+# Print response
+print(response.decode())</code></pre>
+                        
+                        <h4>8.4 Building a Simple Web Server to Control RGB-LED</h4>
+                        <p>Use the socket module to build a simple web server that can control the onboard RGB-LED through browser access.</p>
+                        
+                        <h4>8.4.1 Complete Implementation</h4>
+                        <pre><code>import socket
+import network
+import neopixel
+from machine import Pin
+import time
+
+# Initialize RGB-LED
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# Connect to WiFi
+ssid = "your_wifi_ssid"
+password = "your_wifi_password"
+
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(ssid, password)
+
+while wlan.status() != 3:
+    time.sleep(1)
+    print("Connecting to WiFi...")
+
+print("Connected to WiFi")
+print("IP address:", wlan.ifconfig()[0])
+
+# Color control function
+def set_color(r, g, b):
+    np[0] = (r, g, b)
+    np.write()
+
+# Create web server
+def web_server():
+    # Create socket
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(('', 80))
+    s.listen(5)
+    
+    while True:
+        # Accept connection
+        conn, addr = s.accept()
+        print('Got a connection from', addr)
+        
+        # Receive request
+        request = conn.recv(1024)
+        request = str(request)
+        print('Request:', request)
+        
+        # Parse request
+        if '/red' in request:
+            set_color(255, 0, 0)
+            response = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n'
+            response += '<html><body><h1>ESP32-S3 RGB Control</h1>'
+            response += '<p>Color set to Red</p>'
+            response += '<a href="/red">Red</a> | '
+            response += '<a href="/green">Green</a> | '
+            response += '<a href="/blue">Blue</a> | '
+            response += '<a href="/off">Off</a>'
+            response += '</body></html>'
+        elif '/green' in request:
+            set_color(0, 255, 0)
+            response = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n'
+            response += '<html><body><h1>ESP32-S3 RGB Control</h1>'
+            response += '<p>Color set to Green</p>'
+            response += '<a href="/red">Red</a> | '
+            response += '<a href="/green">Green</a> | '
+            response += '<a href="/blue">Blue</a> | '
+            response += '<a href="/off">Off</a>'
+            response += '</body></html>'
+        elif '/blue' in request:
+            set_color(0, 0, 255)
+            response = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n'
+            response += '<html><body><h1>ESP32-S3 RGB Control</h1>'
+            response += '<p>Color set to Blue</p>'
+            response += '<a href="/red">Red</a> | '
+            response += '<a href="/green">Green</a> | '
+            response += '<a href="/blue">Blue</a> | '
+            response += '<a href="/off">Off</a>'
+            response += '</body></html>'
+        elif '/off' in request:
+            set_color(0, 0, 0)
+            response = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n'
+            response += '<html><body><h1>ESP32-S3 RGB Control</h1>'
+            response += '<p>Color set to Off</p>'
+            response += '<a href="/red">Red</a> | '
+            response += '<a href="/green">Green</a> | '
+            response += '<a href="/blue">Blue</a> | '
+            response += '<a href="/off">Off</a>'
+            response += '</body></html>'
+        else:
+            # Default page
+            response = 'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n'
+            response += '<html><body><h1>ESP32-S3 RGB Control</h1>'
+            response += '<p>Choose a color:</p>'
+            response += '<a href="/red">Red</a> | '
+            response += '<a href="/green">Green</a> | '
+            response += '<a href="/blue">Blue</a> | '
+            response += '<a href="/off">Off</a>'
+            response += '</body></html>'
+        
+        # Send response
+        conn.send(response.encode())
+        
+        # Close connection
+        conn.close()
+
+# Start web server
+web_server()</code></pre>
+                        
+                        <h4>8.4.2 Usage Instructions</h4>
+                        <ol>
+                            <li>Replace `ssid` and `password` in the code with your WiFi network information.</li>
+                            <li>Save the code to the board and run it.</li>
+                            <li>Check the board's IP address in the serial monitor.</li>
+                            <li>Enter this IP address in a browser to see the control page.</li>
+                            <li>Click the links on the page to control the RGB-LED color.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div id="module5-9" class="submodule">
+                    <h3>9. USB-OTG Function Usage</h3>
+                    <div class="submodule-content">
+                        <p>ESP32-S3 supports USB-OTG (On-The-Go) functionality, which allows it to act as a USB host to connect external USB devices such as USB drives, keyboards, mice, etc. This chapter will teach you how to use MicroPython to enable USB-OTG functionality and implement interaction with external USB devices.</p>
+                        
+                        <h4>9.1 USB-OTG Hardware Description (Type-C Port Requires Resistor Shorting)</h4>
+                        <p>The Type-C port (silk-screened "USB") on the development board needs to have the USB pad on the board shorted (usually with a 0Ω resistor or solder) to enable USB-OTG functionality.</p>
+                        
+                        <h4>9.1.1 Hardware Connection</h4>
+                        <ol>
+                            <li>Ensure the USB pad on the development board is shorted.</li>
+                            <li>Connect the Type-C port to a computer or external USB device using a USB cable.</li>
+                            <li>Note: When acting as a USB host, additional power supply may be required as the USB interface of ESP32-S3 has limited power supply capability.</li>
+                        </ol>
+                        
+                        <h4>9.2 Mounting USB Drive (Using TinyUSB or Built-in Library)</h4>
+                        <p>MicroPython supports mounting USB drives through the TinyUSB library to implement file read/write operations.</p>
+                        
+                        <h4>9.2.1 Enabling USB-OTG and Mounting USB Drive</h4>
+                        <pre><code>import usb_host
+import os
+
+# Initialize USB host
+usb_host.init()
+
+# Wait for USB device insertion
+print("Waiting for USB device...")
+while True:
+    devices = usb_host.devices()
+    if devices:
+        break
+
+# Print device information
+for dev in devices:
+    print(f"Device found: {dev}")
+
+# Try to mount USB drive
+try:
+    # Assume the USB drive is the first device
+    os.mount(devices[0], "/usb")
+    print("USB drive mounted successfully")
+    
+    # List files
+    print("Files on USB drive:")
+    for file in os.listdir("/usb"):
+        print(f"  - {file}")
+    
+    # Read file example
+    try:
+        with open("/usb/test.txt", "r") as f:
+            content = f.read()
+            print("File content:", content)
+    except Exception as e:
+        print(f"Failed to read file: {e}")
+    
+    # Write file example
+    try:
+        with open("/usb/esp32_test.txt", "w") as f:
+            f.write("Hello from ESP32-S3!")
+        print("File written successfully")
+    except Exception as e:
+        print(f"Failed to write file: {e}")
+    
+except Exception as e:
+    print(f"Failed to mount USB drive: {e}")
+finally:
+    # Unmount USB drive
+    try:
+        os.umount("/usb")
+        print("USB drive unmounted")
+    except:
+        pass</code></pre>
+                        
+                        <h4>9.2.2 Notes</h4>
+                        <ul>
+                            <li>Only FAT32 formatted USB drives are supported.</li>
+                            <li>USB drive capacity should not be too large, it is recommended to use USB drives below 32GB.</li>
+                            <li>Read/write operations may be slow, especially for large files.</li>
+                            <li>USB drives should be properly unmounted after use to avoid data corruption.</li>
+                        </ul>
+                        
+                        <h4>9.3 Connecting USB Keyboard/Mouse (HID Host)</h4>
+                        <p>ESP32-S3 can act as a HID (Human Interface Device) host to connect USB keyboards and mice.</p>
+                        
+                        <h4>9.3.1 Connecting USB Keyboard</h4>
+                        <pre><code>import usb_host
+import time
+
+# Initialize USB host
+usb_host.init()
+
+# Wait for keyboard insertion
+print("Waiting for keyboard...")
+keyboard = None
+while keyboard is None:
+    devices = usb_host.devices()
+    for dev in devices:
+        if dev.interface_class == 3:  # HID class
+            keyboard = dev
+            break
+    time.sleep(0.5)
+
+print("Keyboard connected!")
+
+# Read keyboard input
+while True:
+    try:
+        # Read keyboard report
+        report = keyboard.read(8, timeout=1000)
+        if report:
+            # Simple processing, actual implementation needs HID protocol parsing
+            print("Keyboard report:", report)
+    except Exception as e:
+        print(f"Error reading keyboard: {e}")
+    time.sleep(0.1)</code></pre>
+                        
+                        <h4>9.3.2 Connecting USB Mouse</h4>
+                        <pre><code>import usb_host
+import time
+
+# Initialize USB host
+usb_host.init()
+
+# Wait for mouse insertion
+print("Waiting for mouse...")
+mouse = None
+while mouse is None:
+    devices = usb_host.devices()
+    for dev in devices:
+        if dev.interface_class == 3:  # HID class
+            mouse = dev
+            break
+    time.sleep(0.5)
+
+print("Mouse connected!")
+
+# Read mouse input
+while True:
+    try:
+        # Read mouse report
+        report = mouse.read(4, timeout=1000)
+        if report:
+            # Simple processing, actual implementation needs HID protocol parsing
+            # Usually the first byte is button state, the next two bytes are movement delta
+            buttons = report[0]
+            dx = report[1]
+            dy = report[2]
+            print(f"Mouse: buttons={buttons}, dx={dx}, dy={dy}")
+    except Exception as e:
+        print(f"Error reading mouse: {e}")
+    time.sleep(0.1)</code></pre>
+                        
+                        <h4>9.3.3 Notes</h4>
+                        <ul>
+                            <li>Different keyboards/mice may have different HID report formats, which need to be parsed according to the specific device.</li>
+                            <li>In USB host mode, ESP32-S3 has limited current supply and may not be able to drive some high-power USB devices.</li>
+                            <li>Memory leaks may occur during long-term operation, it is recommended to restart regularly or monitor memory usage.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module5-10" class="submodule">
+                    <h3>10. Timers and PWM</h3>
+                    <div class="submodule-content">
+                        <p>Timers and PWM (Pulse Width Modulation) are commonly used functions in embedded systems. This chapter will teach you how to use MicroPython to operate ESP32-S3's software timers, hardware PWM, as well as RTC (Real-Time Clock) and low-power modes.</p>
+                        
+                        <h4>10.1 Software Timers</h4>
+                        <p>ESP32-S3 supports multiple software timers, which can be used to execute tasks periodically without polling in the main loop.</p>
+                        
+                        <h4>10.1.1 Basic Usage</h4>
+                        <pre><code>from machine import Timer
+import time
+
+# Timer callback function
+def timer_callback(timer):
+    print("Timer triggered!")
+
+# Create timer
+timer = Timer(0)  # Use timer 0
+
+# Initialize timer (1000ms period, periodic mode)
+timer.init(period=1000, mode=Timer.PERIODIC, callback=timer_callback)
+
+# Main program continues to run
+print("Main program running...")
+time.sleep(5)
+
+# Stop timer
+timer.deinit()
+print("Timer stopped")</code></pre>
+                        
+                        <h4>10.1.2 Timer Modes</h4>
+                        <table>
+                            <tr>
+                                <th>Mode</th>
+                                <th>Description</th>
+                            </tr>
+                            <tr>
+                                <td>Timer.ONE_SHOT</td>
+                                <td>Timer triggers only once</td>
+                            </tr>
+                            <tr>
+                                <td>Timer.PERIODIC</td>
+                                <td>Timer triggers periodically</td>
+                            </tr>
+                        </table>
+                        
+                        <h4>10.1.3 Example: Using Timer to Control LED Blinking</h4>
+                        <pre><code>from machine import Timer, Pin
+
+# Initialize LED
+led = Pin(4, Pin.OUT)
+led_state = False
+
+# Timer callback function
+def toggle_led(timer):
+    global led_state
+    led_state = not led_state
+    led.value(led_state)
+
+# Create and initialize timer
+timer = Timer(0)
+timer.init(period=500, mode=Timer.PERIODIC, callback=toggle_led)
+
+# Program will continue to run, LED blinks every 500ms</code></pre>
+                        
+                        <h4>10.2 Hardware PWM Output: Controlling LED Brightness, Servo</h4>
+                        <p>PWM (Pulse Width Modulation) is a technique that controls output power by changing the duty cycle of a signal, which can be used to control LED brightness, servo angles, etc.</p>
+                        
+                        <h4>10.2.1 Basic Usage</h4>
+                        <pre><code>from machine import Pin, PWM
+import time
+
+# Initialize PWM (GPIO4, 1kHz frequency)
+pwm = PWM(Pin(4), freq=1000, duty=0)
+
+# Gradually increase brightness
+for duty in range(0, 1024, 10):
+    pwm.duty(duty)
+    time.sleep_ms(50)
+
+# Gradually decrease brightness
+for duty in range(1023, -1, -10):
+    pwm.duty(duty)
+    time.sleep_ms(50)
+
+# Turn off PWM
+pwm.deinit()</code></pre>
+                        
+                        <h4>10.2.2 Controlling Servo</h4>
+                        <p>Servos typically use a 50Hz (20ms period) PWM signal, with angle controlled by duty cycle:</p>
+                        <ul>
+                            <li>0.5ms pulse width (2.5% duty cycle): 0°</li>
+                            <li>1.5ms pulse width (7.5% duty cycle): 90°</li>
+                            <li>2.5ms pulse width (12.5% duty cycle): 180°</li>
+                        </ul>
+                        <pre><code>from machine import Pin, PWM
+import time
+
+# Initialize PWM (GPIO5, 50Hz frequency)
+servo = PWM(Pin(5), freq=50, duty=0)
+
+# Convert servo angle to duty cycle (0-1023)
+def set_servo_angle(angle):
+    # Angle range: 0-180
+    # Duty cycle range: 2.5%-12.5% corresponds to duty: 26-128
+    duty = int((angle / 180) * 102 + 26)
+    servo.duty(duty)
+
+# Test different angles
+angles = [0, 45, 90, 135, 180, 90, 0]
+for angle in angles:
+    print(f"Setting angle: {angle}°")
+    set_servo_angle(angle)
+    time.sleep(1)
+
+# Turn off PWM
+servo.deinit()</code></pre>
+                        
+                        <h4>10.3 RTC and Low-Power Mode Introduction</h4>
+                        <p>RTC (Real-Time Clock) can maintain time in low-power mode, and low-power mode can significantly extend battery life.</p>
+                        
+                        <h4>10.3.1 RTC Usage</h4>
+                        <pre><code>from machine import RTC
+import time
+
+# Initialize RTC
+rtc = RTC()
+
+# Set time (year, month, day, weekday, hour, minute, second, microsecond)
+rtc.datetime((2023, 12, 25, 1, 10, 30, 0, 0))
+
+# Read time
+print("Current time:", rtc.datetime())
+
+# Formatted output
+t = rtc.datetime()
+print(f"{t[0]}-{t[1]:02d}-{t[2]:02d} {t[4]:02d}:{t[5]:02d}:{t[6]:02d}")
+
+# Wait for a while
+print("Waiting 5 seconds...")
+time.sleep(5)
+
+# Read time again
+print("Time after 5 seconds:", rtc.datetime())</code></pre>
+                        
+                        <h4>10.3.2 Low-Power Mode</h4>
+                        <p>ESP32-S3 supports multiple low-power modes, with deep sleep mode being the most commonly used.</p>
+                        <pre><code>from machine import RTC, Pin, deepsleep
+import time
+
+# Initialize RTC
+rtc = RTC()
+
+# Set wake-up time (after 10 seconds)
+rtc.alarm(RTC.ALARM0, 10000)  # 10000ms = 10s
+
+# Enter deep sleep
+print("Going to deep sleep for 10 seconds...")
+deepsleep()
+
+# Execution will start from here after waking up
+print("Woke up from deep sleep!")
+print("Current time:", rtc.datetime())</code></pre>
+                        
+                        <h4>10.3.3 External Wake-up</h4>
+                        <p>In addition to RTC alarm, ESP32-S3 in deep sleep can also be woken up by external pins.</p>
+                        <pre><code>from machine import Pin, deepsleep
+
+# Configure wake-up pin
+wake_pin = Pin(0, Pin.IN, Pin.PULL_UP)
+
+# Enter deep sleep, set external wake-up
+print("Going to deep sleep, wake up by pressing BOOT button...")
+deepsleep(wake_pin.irq(trigger=Pin.IRQ_FALLING))
+
+# Execute after waking up
+print("Woke up from deep sleep by external interrupt!")</code></pre>
+                        
+                        <h4>10.3.4 Notes</h4>
+                        <ul>
+                            <li>During deep sleep, all peripherals except RTC and wake-up pins are turned off.</li>
+                            <li>Deep sleep will lose data in SRAM, so important data needs to be saved to Flash or using RTC memory.</li>
+                            <li>After waking up, the program will start executing from the beginning, not from the position before sleep.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="module5-11" class="submodule">
+                    <h3>11. Advanced Features and Project Practice</h3>
+                    <div class="submodule-content">
+                        <p>This chapter will introduce some advanced features of ESP32-S3 and guide you through several practical projects to apply what you've learned.</p>
+                        
+                        <h4>11.1 File System Operations (Internal Flash and External USB Drive)</h4>
+                        <p>ESP32-S3 has internal Flash storage and can also access external storage via USB-OTG. This section will show you how to perform file system operations.</p>
+                        
+                        <h4>11.1.1 Internal Flash Operations</h4>
+                        <pre><code>import os
+
+# List files in root directory
+print("Files in root directory:")
+for file in os.listdir("/"):
+    print(f"  - {file}")
+
+# Create a directory
+try:
+    os.mkdir("/data")
+    print("Directory '/data' created")
+except OSError as e:
+    print(f"Error creating directory: {e}")
+
+# Write to a file
+with open("/data/test.txt", "w") as f:
+    f.write("Hello ESP32-S3!")
+    f.write("\nThis is a test file.")
+print("File written successfully")
+
+# Read from a file
+with open("/data/test.txt", "r") as f:
+    content = f.read()
+    print("File content:")
+    print(content)
+
+# Remove a file
+try:
+    os.remove("/data/test.txt")
+    print("File removed successfully")
+except OSError as e:
+    print(f"Error removing file: {e}")
+
+# Remove a directory
+try:
+    os.rmdir("/data")
+    print("Directory removed successfully")
+except OSError as e:
+    print(f"Error removing directory: {e}")</code></pre>
+                        
+                        <h4>11.1.2 External USB Drive Operations</h4>
+                        <pre><code>import usb_host
+import os
+
+# Initialize USB host
+usb_host.init()
+
+# Wait for USB drive insertion
+print("Waiting for USB drive...")
+while True:
+    devices = usb_host.devices()
+    if devices:
+        break
+
+# Mount USB drive
+try:
+    os.mount(devices[0], "/usb")
+    print("USB drive mounted at /usb")
+    
+    # List files
+    print("Files on USB drive:")
+    for file in os.listdir("/usb"):
+        print(f"  - {file}")
+    
+    # Write a file to USB drive
+    with open("/usb/esp32_test.txt", "w") as f:
+        f.write("Data written from ESP32-S3")
+    print("File written to USB drive")
+    
+finally:
+    # Unmount USB drive
+    try:
+        os.umount("/usb")
+        print("USB drive unmounted")
+    except:
+        pass</code></pre>
+                        
+                        <h4>11.2 Multi-threading (_thread) Notes</h4>
+                        <p>MicroPython supports multi-threading through the _thread module, but it has some limitations.</p>
+                        
+                        <h4>11.2.1 Basic Multi-threading</h4>
+                        <pre><code>import _thread
+import time
+
+# Thread function
+def thread_function(name):
+    while True:
+        print(f"Thread {name} running")
+        time.sleep(2)
+
+# Start a new thread
+_thread.start_new_thread(thread_function, ("A",))
+
+# Main thread continues
+while True:
+    print("Main thread running")
+    time.sleep(1)</code></pre>
+                        
+                        <h4>11.2.2 Notes and Limitations</h4>
+                        <ul>
+                            <li>MicroPython's _thread module is limited and may be unstable on ESP32-S3.</li>
+                            <li>Avoid sharing resources between threads without proper synchronization.</li>
+                            <li>Threads may cause memory issues if not managed properly.</li>
+                            <li>For most applications, consider using timers or state machines instead of threads.</li>
+                        </ul>
+                        
+                        <h4>11.3 Project Practice 1: WiFi Clock + RGB Ambient Light</h4>
+                        <p>This project creates a WiFi-connected clock that displays the current time and has RGB ambient lighting effects.</p>
+                        
+                        <h4>11.3.1 Hardware Requirements</h4>
+                        <ul>
+                            <li>ESP32-S3 development board</li>
+                            <li>OLED display (optional, for time display)</li>
+                            <li>Internet connection</li>
+                        </ul>
+                        
+                        <h4>11.3.2 Implementation</h4>
+                        <pre><code>import network
+import ntptime
+import time
+import neopixel
+from machine import Pin, RTC
+
+# Initialize RGB-LED
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# Connect to WiFi
+ssid = "your_wifi_ssid"
+password = "your_wifi_password"
+
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(ssid, password)
+
+while not wlan.isconnected():
+    time.sleep(1)
+print("Connected to WiFi")
+
+# Synchronize time with NTP
+try:
+    ntptime.settime()
+    print("Time synchronized with NTP")
+except Exception as e:
+    print(f"Failed to sync time: {e}")
+
+# Get RTC
+rtc = RTC()
+
+# RGB color patterns
+colors = [
+    (255, 0, 0),    # Red
+    (0, 255, 0),    # Green
+    (0, 0, 255),    # Blue
+    (255, 255, 0),  # Yellow
+    (0, 255, 255),  # Cyan
+    (255, 0, 255)   # Magenta
+]
+color_index = 0
+
+# Main loop
+while True:
+    # Get current time
+    current_time = rtc.datetime()
+    year, month, day, weekday, hour, minute, second, _ = current_time
+    
+    # Print time
+    print(f"{year}-{month:02d}-{day:02d} {hour:02d}:{minute:02d}:{second:02d}")
+    
+    # Update RGB color every minute
+    if second == 0:
+        np[0] = colors[color_index]
+        np.write()
+        color_index = (color_index + 1) % len(colors)
+    
+    time.sleep(1)</code></pre>
+                        
+                        <h4>11.4 Project Practice 2: Button-controlled RGB Color + USB Serial Command Control</h4>
+                        <p>This project allows users to switch RGB colors using the BOOT button and control via USB serial commands.</p>
+                        
+                        <h4>11.4.1 Implementation</h4>
+                        <pre><code>import neopixel
+from machine import Pin, UART
+import time
+
+# Initialize RGB-LED
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# Initialize button (BOOT button on GPIO0)
+button = Pin(0, Pin.IN, Pin.PULL_UP)
+
+# Initialize UART0 for serial communication
+uart = UART(0, baudrate=115200, tx=43, rx=44)
+
+# Predefined colors
+colors = [
+    (255, 0, 0),    # Red
+    (0, 255, 0),    # Green
+    (0, 0, 255),    # Blue
+    (255, 255, 0),  # Yellow
+    (0, 255, 255),  # Cyan
+    (255, 0, 255),  # Magenta
+    (255, 255, 255) # White
+]
+color_index = 0
+
+# Button debounce variables
+last_button_state = 1
+last_debounce_time = 0
+DEBOUNCE_DELAY = 50
+
+# Set initial color
+np[0] = colors[color_index]
+np.write()
+print("Initial color: Red")
+print("Press BOOT button to change color")
+print("Send 'RGB:R,G,B' via serial to set custom color")
+
+while True:
+    # Check button state with debounce
+    current_button_state = button.value()
+    current_time = time.ticks_ms()
+    
+    if current_button_state != last_button_state:
+        last_debounce_time = current_time
+    
+    if time.ticks_diff(current_time, last_debounce_time) > DEBOUNCE_DELAY:
+        if current_button_state == 0 and last_button_state == 1:
+            # Button pressed
+            color_index = (color_index + 1) % len(colors)
+            np[0] = colors[color_index]
+            np.write()
+            print(f"Color changed to: {['Red', 'Green', 'Blue', 'Yellow', 'Cyan', 'Magenta', 'White'][color_index]}")
+        last_button_state = current_button_state
+    
+    # Check serial input
+    if uart.any():
+        data = uart.readline().decode().strip()
+        if data.startswith("RGB:"):
+            try:
+                # Parse RGB values
+                rgb_str = data.split(":")[1]
+                r, g, b = map(int, rgb_str.split(","))
+                # Clamp values to 0-255
+                r = min(255, max(0, r))
+                g = min(255, max(0, g))
+                b = min(255, max(0, b))
+                # Set color
+                np[0] = (r, g, b)
+                np.write()
+                print(f"Custom color set: ({r}, {g}, {b})")
+            except:
+                print("Invalid RGB format. Use 'RGB:R,G,B'")
+    
+    time.sleep(0.01)</code></pre>
+                        
+                        <h4>11.5 Project Practice 3: Connecting to MQTT Server for Remote Control</h4>
+                        <p>This project connects to an MQTT server to enable remote control of the RGB-LED.</p>
+                        
+                        <h4>11.5.1 Requirements</h4>
+                        <ul>
+                            <li>ESP32-S3 development board</li>
+                            <li>MQTT broker (e.g., Mosquitto, HiveMQ)</li>
+                            <li>Internet connection</li>
+                        </ul>
+                        
+                        <h4>11.5.2 Implementation</h4>
+                        <pre><code>import network
+import time
+import neopixel
+from machine import Pin
+from umqtt.simple import MQTTClient
+
+# Initialize RGB-LED
+np = neopixel.NeoPixel(Pin(48), 1)
+
+# Connect to WiFi
+ssid = "your_wifi_ssid"
+password = "your_wifi_password"
+
+wlan = network.WLAN(network.STA_IF)
+wlan.active(True)
+wlan.connect(ssid, password)
+
+while not wlan.isconnected():
+    time.sleep(1)
+print("Connected to WiFi")
+
+# MQTT configuration
+mqtt_broker = "test.mosquitto.org"  # Public MQTT broker
+client_id = "esp32s3_rgb"
+topic_sub = "esp32s3/rgb/control"
+topic_pub = "esp32s3/rgb/status"
+
+# Callback function for MQTT messages
+def mqtt_callback(topic, msg):
+    print(f"Received message: {msg} on topic: {topic}")
+    try:
+        # Parse RGB values
+        rgb_str = msg.decode()
+        r, g, b = map(int, rgb_str.split(","))
+        # Clamp values to 0-255
+        r = min(255, max(0, r))
+        g = min(255, max(0, g))
+        b = min(255, max(0, b))
+        # Set color
+        np[0] = (r, g, b)
+        np.write()
+        print(f"Color set to: ({r}, {g}, {b})")
+        # Publish status
+        client.publish(topic_pub, f"Color set to: ({r}, {g}, {b})")
+    except:
+        print("Invalid message format. Use 'R,G,B'")
+
+# Connect to MQTT broker
+client = MQTTClient(client_id, mqtt_broker)
+client.set_callback(mqtt_callback)
+client.connect()
+client.subscribe(topic_sub)
+print(f"Connected to MQTT broker and subscribed to {topic_sub}")
+
+# Main loop
+while True:
+    client.check_msg()
+    time.sleep(0.1)</code></pre>
+                        
+                        <h4>11.5.3 Usage</h4>
+                        <ol>
+                            <li>Install the umqtt.simple library using upip or copy it to the board.</li>
+                            <li>Update the WiFi credentials and MQTT broker information.</li>
+                            <li>Run the code on the board.</li>
+                            <li>Use an MQTT client (e.g., MQTT Explorer, mosquitto_pub) to publish messages to the topic "esp32s3/rgb/control" with the format "R,G,B" (e.g., "255,0,0" for red).</li>
+                            <li>The RGB-LED will change color according to the received message.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div id="module5-12" class="submodule">
+                    <h3>12. Common Issues and Debugging Tips</h3>
+                    <div class="submodule-content">
+                        <p>This chapter addresses common issues you may encounter when working with ESP32-S3 and provides debugging tips to help you resolve them.</p>
+                        
+                        <h4>12.1 Pin Short Circuit Protection Reminder</h4>
+                        <p>ESP32-S3 pins are not protected against short circuits. Proper precautions should be taken to avoid damaging the chip.</p>
+                        
+                        <h4>12.1.1 Protection Measures</h4>
+                        <ul>
+                            <li><strong>Use current-limiting resistors</strong>: Always use resistors (e.g., 220Ω) when driving LEDs or other loads directly from GPIO pins.</li>
+                            <li><strong>Check wiring</strong>: Double-check connections before powering up the board.</li>
+                            <li><strong>Avoid 5V signals</strong>: ESP32-S3 uses 3.3V logic. Do not connect 5V signals directly to GPIO pins.</li>
+                            <li><strong>Use input protection</strong>: For external inputs, consider adding protection diodes or transient voltage suppressors.</li>
+                        </ul>
+                        
+                        <h4>12.1.2 What to Do If a Short Circuit Occurs</h4>
+                        <ol>
+                            <li>Immediately disconnect power.</li>
+                            <li>Inspect the board for visible damage (burn marks, etc.).</li>
+                            <li>Check the affected pins with a multimeter for continuity to ground.</li>
+                            <li>If damage is severe, the board may need to be replaced.</li>
+                        </ol>
+                        
+                        <h4>12.2 Firmware Update Failure Handling</h4>
+                        <p>Firmware update failures can occur due to various reasons. Here's how to troubleshoot them.</p>
+                        
+                        <h4>12.2.1 Common Causes and Solutions</h4>
+                        <table>
+                            <tr>
+                                <th>Issue</th>
+                                <th>Possible Cause</th>
+                                <th>Solution</th>
+                            </tr>
+                            <tr>
+                                <td>Failed to connect to ESP32-S3</td>
+                                <td>Not in download mode</td>
+                                <td>Follow the correct procedure: hold BOOT, press RST, release RST, release BOOT</td>
+                            </tr>
+                            <tr>
+                                <td>Serial port not found</td>
+                                <td>Driver not installed</td>
+                                <td>Install CH343P driver</td>
+                            </tr>
+                            <tr>
+                                <td>Write failed</td>
+                                <td>Incorrect flash address</td>
+                                <td>Use 0x0 for ESP32-S3</td>
+                            </tr>
+                            <tr>
+                                <td>Verification failed</td>
+                                <td>Corrupted firmware file</td>
+                                <td>Download firmware again</td>
+                            </tr>
+                        </table>
+                        
+                        <h4>12.2.2 Recovery Steps</h4>
+                        <ol>
+                            <li>Try erasing the entire flash first: <code>esptool.py --chip esp32s3 --port COM4 erase_flash</code></li>
+                            <li>Use a lower baud rate for flashing: <code>--baud 921600</code> or <code>--baud 115200</code></li>
+                            <li>Try a different USB cable and port</li>
+                            <li>Check if the board is getting sufficient power</li>
+                        </ol>
+                        
+                        <h4>12.3 Memory and Performance Optimization Tips</h4>
+                        <p>ESP32-S3 has limited memory resources. Here are some tips to optimize your code.</p>
+                        
+                        <h4>12.3.1 Memory Optimization</h4>
+                        <ul>
+                            <li><strong>Use efficient data types</strong>: Prefer integers over floats when possible.</li>
+                            <li><strong>Avoid string concatenation</strong>: Use lists to collect strings and join them at the end.</li>
+                            <li><strong>Limit global variables</strong>: Use local variables where possible.</li>
+                            <li><strong>Free memory when done</strong>: Explicitly delete large objects when they're no longer needed.</li>
+                            <li><strong>Use gc module</strong>: Manually trigger garbage collection with <code>import gc; gc.collect()</code> after memory-intensive operations.</li>
+                        </ul>
+                        
+                        <h4>12.3.2 Performance Optimization</h4>
+                        <ul>
+                            <li><strong>Avoid blocking operations</strong>: Use non-blocking code or timers instead of long delays.</li>
+                            <li><strong>Optimize loops</strong>: Minimize operations inside loops.</li>
+                            <li><strong>Use native modules</strong>: For performance-critical code, consider using C modules or inline assembly.</li>
+                            <li><strong>Limit network operations</strong>: Batch network requests and use appropriate timeouts.</li>
+                        </ul>
+                        
+                        <h4>12.3.3 Memory Monitoring</h4>
+                        <pre><code>import gc
+
+# Check free memory
+def check_memory():
+    gc.collect()
+    free_memory = gc.mem_free()
+    print(f"Free memory: {free_memory} bytes")
+
+check_memory()</code></pre>
+                        
+                        <h4>12.4 Recommended Resources (Official Documentation, Community)</h4>
+                        <p>Here are some valuable resources to help you learn more about ESP32-S3 and MicroPython.</p>
+                        
+                        <h4>12.4.1 Official Documentation</h4>
+                        <ul>
+                            <li><strong>MicroPython Documentation</strong>: <a href="https://docs.micropython.org/en/latest/" target="_blank">https://docs.micropython.org/en/latest/</a></li>
+                            <li><strong>ESP32-S3 Datasheet</strong>: <a href="https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf" target="_blank">https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf</a></li>
+                            <li><strong>Espressif Documentation</strong>: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/" target="_blank">https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/</a></li>
+                        </ul>
+                        
+                        <h4>12.4.2 Community Resources</h4>
+                        <ul>
+                            <li><strong>MicroPython Forum</strong>: <a href="https://forum.micropython.org/" target="_blank">https://forum.micropython.org/</a></li>
+                            <li><strong>ESP32 Forum</strong>: <a href="https://esp32.com/" target="_blank">https://esp32.com/</a></li>
+                            <li><strong>GitHub Repositories</strong>:
+                                <ul>
+                                    <li>MicroPython: <a href="https://github.com/micropython/micropython" target="_blank">https://github.com/micropython/micropython</a></li>
+                                    <li>ESP32 MicroPython: <a href="https://github.com/espressif/esp32-arduino" target="_blank">https://github.com/espressif/esp32-arduino</a></li>
+                                </ul>
+                            </li>
+                            <li><strong>Tutorials and Blogs</strong>:
+                                <ul>
+                                    <li>Random Nerd Tutorials: <a href="https://randomnerdtutorials.com/" target="_blank">https://randomnerdtutorials.com/</a></li>
+                                    <li>ESP32 Learning: <a href="https://esp32learning.com/" target="_blank">https://esp32learning.com/</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+                        <h4>12.4.3 Troubleshooting Checklist</h4>
+                        <ol>
+                            <li><strong>Check power supply</strong>: Ensure the board is receiving stable 3.3V-5V power.</li>
+                            <li><strong>Verify connections</strong>: Double-check all wiring, especially ground connections.</li>
+                            <li><strong>Check serial port</strong>: Ensure the correct COM port is selected.</li>
+                            <li><strong>Update firmware</strong>: Make sure you're using the latest MicroPython firmware.</li>
+                            <li><strong>Test with minimal code</strong>: Start with a simple test script to isolate issues.</li>
+                            <li><strong>Check for hardware issues</strong>: Test with a different board if possible.</li>
+                            <li><strong>Search for similar issues</strong>: Use the community resources to find solutions to common problems.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="module1.html">Introduction</a>
+                    <a href="module2.html">Hardware Preparation</a>
+                    <a href="module3.html">Arduino IDE Setup</a>
+                    <a href="module4.html">ESP32-S3 ESP-IDF Guide</a>
+                    <a href="module5.html">MicroPython Development</a>
+                    <a href="module6.html">ESP32 Advanced Tutorials</a>
+                    <a href="module7.html">Expansion & Summary</a>
+                    <a href="module8.html">Technical Support & FAQ</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2026 ESP32-S3 Getting Started Guide</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

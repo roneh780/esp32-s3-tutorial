@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition) - ESP32-S3 Development Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">ESP32-S3 Development Board</div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="module1.html">Introduction</a></li>
+                    <li><a href="module2.html">Hardware Preparation</a></li>
+                    <li><a href="module3.html">Arduino IDE Setup</a></li>
+                    <li><a href="module4.html">ESP32-S3 ESP-IDF Guide</a></li>
+                    <li><a href="module5.html">MicroPython Development</a></li>
+                    <li><a href="module6.html">ESP32 Advanced Tutorials</a></li>
+                    <li><a href="module7.html">Expansion & Summary</a></li>
+                    <li><a href="module8.html">Technical Support & FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container main-container">
+        <aside class="sidebar">
+            <h3>Guide Navigation</h3>
+            <ul class="sidebar-nav">
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module1.html">1. Introduction</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module1.html#module1-1">1.1 ESP32-S3 Series Overview</a></li>
+                        <li><a href="module1.html#module1-2">1.2 ESP32-S3 N16R8 Core Features</a></li>
+                        <li><a href="module1.html#module1-3">1.3 Typical Application Scenarios</a></li>
+                        <li><a href="module1.html#module1-4">1.4 Development Environment and Arduino Support</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module2.html">2. Hardware Preparation</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module2.html#module2-1">2.1 Required Materials</a></li>
+                        <li><a href="module2.html#module2-2">2.2 Notes</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module3.html">3. Arduino IDE Setup & Complete Guide</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module3.html#module3-1">3.1 Chapter 1: Arduino Development Environment Installation and Configuration</a></li>
+                        <li><a href="module3.html#module3-2">3.2 Chapter 2: Hardware Basics and Pin Description</a></li>
+                        <li><a href="module3.html#module3-3">3.3 Chapter 3: Arduino Programming Basics</a></li>
+                        <li><a href="module3.html#module3-4">3.4 Chapter 4: LED Control (Digital Output)</a></li>
+                        <li><a href="module3.html#module3-5">3.5 Chapter 5: Delay and Non-blocking Delay</a></li>
+                        <li><a href="module3.html#module3-6">3.6 Chapter 6: Buttons (Digital Input)</a></li>
+                        <li><a href="module3.html#module3-7">3.7 Chapter 7: External Interrupts</a></li>
+                        <li><a href="module3.html#module3-8">3.8 Chapter 8: Serial Communication</a></li>
+                        <li><a href="module3.html#module3-9">3.9 Chapter 9: Hardware Timers</a></li>
+                        <li><a href="module3.html#module3-10">3.10 Chapter 10: PWM Pulse Width Modulation</a></li>
+                        <li><a href="module3.html#module3-11">3.11 Chapter 11: ADC Analog-to-Digital Conversion</a></li>
+                        <li><a href="module3.html#module3-12">3.12 Chapter 12: I2C Communication</a></li>
+                        <li><a href="module3.html#module3-13">3.13 Chapter 13: SPI Communication</a></li>
+                        <li><a href="module3.html#module3-14">3.14 Chapter 14: WiFi Network Communication</a></li>
+                        <li><a href="module3.html#module3-15">3.15 Chapter 15: Bluetooth Communication</a></li>
+                        <li><a href="module3.html#module3-16">3.16 Chapter 16: DVP Camera Module Usage</a></li>
+                        <li><a href="module3.html#module3-17">3.17 Chapter 17: Comprehensive Project Practice</a></li>
+                        <li><a href="module3.html#module3-18">3.18 Chapter 18: Common Problems and Troubleshooting</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module4.html">4. ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition)</a>
+                        <span class="toggle">-</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module4.html#module4-1">1. Preparation</a></li>
+                        <li><a href="module4.html#module4-1-1">1.1 Hardware List</a></li>
+                        <li><a href="module4.html#module4-1-2">1.2 Software Preparation</a></li>
+                        <li><a href="module4.html#module4-1-3">1.3 Driver Installation</a></li>
+                        <li><a href="module4.html#module4-2">2. Install ESP-IDF Development Environment</a></li>
+                        <li><a href="module4.html#module4-2-1">2.1 Online Installation Method</a></li>
+                        <li><a href="module4.html#module4-2-2">2.2 Offline Installation Method</a></li>
+                        <li><a href="module4.html#module4-2-3">2.3 Environment Verification and PATH Check</a></li>
+                        <li><a href="module4.html#module4-3">3. Configure VS Code Development Environment</a></li>
+                        <li><a href="module4.html#module4-3-1">3.1 Install Espressif IDF Plugin</a></li>
+                        <li><a href="module4.html#module4-3-2">3.2 Configure Plugin Basic Parameters</a></li>
+                        <li><a href="module4.html#module4-3-3">3.3 Set Target Chip to ESP32-S3</a></li>
+                        <li><a href="module4.html#module4-3-4">3.4 Configure Serial Port and Flashing Tool</a></li>
+                        <li><a href="module4.html#module4-4">4. Hardware Feature Configuration (N16R8 Exclusive)</a></li>
+                        <li><a href="module4.html#module4-4-1">4.1 Understanding N16R8</a></li>
+                        <li><a href="module4.html#module4-4-2">4.2 Configure Flash Size</a></li>
+                        <li><a href="module4.html#module4-4-3">4.3 Enable and Configure Octal PSRAM</a></li>
+                        <li><a href="module4.html#module4-4-4">4.4 Custom Partition Table Configuration</a></li>
+                        <li><a href="module4.html#module4-5">5. Create and Run First Project</a></li>
+                        <li><a href="module4.html#module4-5-1">5.1 Create New ESP-IDF Project</a></li>
+                        <li><a href="module4.html#module4-5-2">5.2 Common Build Options</a></li>
+                        <li><a href="module4.html#module4-5-3">5.3 Flash Firmware and Serial Monitor</a></li>
+                        <li><a href="module4.html#module4-5-4">5.4 Verify PSRAM Functionality</a></li>
+                        <li><a href="module4.html#module4-6">6. Advanced: Using Built-in JTAG Debugging</a></li>
+                        <li><a href="module4.html#module4-6-1">6.1 ESP32-S3 USB-JTAG Principle and Connection</a></li>
+                        <li><a href="module4.html#module4-6-2">6.2 Configure VS Code launch.json</a></li>
+                        <li><a href="module4.html#module4-6-3">6.3 Start JTAG Debugging and Set Breakpoints</a></li>
+                        <li><a href="module4.html#module4-6-4">6.4 Common Debugging Error Troubleshooting</a></li>
+                        <li><a href="module4.html#module4-7">7. Common Issues and Solutions</a></li>
+                        <li><a href="module4.html#module4-7-1">7.1 Compilation Failure: Environment Variables or Path Issues</a></li>
+                        <li><a href="module4.html#module4-7-2">7.2 Flashing Failure: Cannot Enter Download Mode</a></li>
+                        <li><a href="module4.html#module4-7-3">7.3 PSRAM Initialization Failure Troubleshooting</a></li>
+                        <li><a href="module4.html#module4-7-4">7.4 JTAG Connection Instability and Driver Issues</a></li>
+                        <li><a href="module4.html#module4-8">8. Next Learning Suggestions</a></li>
+                        <li><a href="module4.html#module4-8-1">8.1 Official ESP-IDF Programming Guide Reading Path</a></li>
+                        <li><a href="module4.html#module4-8-2">8.2 Recommended Example Projects</a></li>
+                        <li><a href="module4.html#module4-8-3">8.3 Community Resources and Forums</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module5.html">5. MicroPython Development Guide for ESP32-S3</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module5.html#module5-1">1. MicroPython Basics and Environment Setup</a></li>
+                        <li><a href="module5.html#module5-2">2. MicroPython Basic Programming</a></li>
+                        <li><a href="module5.html#module5-3">3. On-board RGB LED Control (NeoPixel / WS2812B)</a></li>
+                        <li><a href="module5.html#module5-4">4. WiFi and Network Communication</a></li>
+                        <li><a href="module5.html#module5-5">5. Peripheral Interfaces and Sensor Applications</a></li>
+                        <li><a href="module5.html#module5-6">6. USB and OTG Features (HW-678 Special)</a></li>
+                        <li><a href="module5.html#module5-7">7. Low Power and Advanced Features</a></li>
+                        <li><a href="module5.html#module5-8">8. Comprehensive Project Practice</a></li>
+                        <li><a href="module5.html#module5-9">Appendix</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module6.html">6. ESP32 Advanced Tutorials</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module6.html#module6-1">6.1 Project 1: Smart Environment Monitoring Station</a></li>
+                        <li><a href="module6.html#module6-2">6.2 Project 2: WiFi Smart Switch</a></li>
+                        <li><a href="module6.html#module6-3">6.3 Project 3: Bluetooth Low Energy Device</a></li>
+                        <li><a href="module6.html#module6-4">6.4 Project 4: USB Device Simulation</a></li>
+                        <li><a href="module6.html#module6-5">6.5 Project 5: Low Power Sensor Node</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module7.html">7. Expansion & Summary</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module7.html#module7-1">7.1 Further Experiment Suggestions</a></li>
+                        <li><a href="module7.html#module7-2">7.2 Summary</a></li>
+                    </ul>
+                </li>
+                <li class="module-item">
+                    <div class="module-header">
+                        <a href="module8.html">8. Technical Support & FAQ</a>
+                        <span class="toggle">+</span>
+                    </div>
+                    <ul class="submodule-list">
+                        <li><a href="module8.html#module8-1">8.1 Technical Support Resources</a></li>
+                        <li><a href="module8.html#module8-2">8.2 Frequently Asked Questions</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="content">
+            <section id="module4" class="module">
+                <h2>4. ESP32-S3 ESP-IDF Getting Started Guide (VS Code Edition)</h2>
+                
+                <div id="module4-1" class="submodule">
+                    <h3>1. Preparation</h3>
+                    <div class="submodule-content">
+                        <p>Before setting up the ESP-IDF development environment, you'll need to prepare the necessary hardware and software to ensure a smooth setup process for subsequent steps.</p>
+                        
+                        <div id="module4-1-1" class="submodule">
+                            <h4>1.1 Hardware List</h4>
+                            <ul>
+                                <li><strong>ESP32-S3 N16R8 Development Board</strong>: The target board for this guide, featuring 16MB Flash and 8MB PSRAM</li>
+                                <li><strong>USB Type-C Cable</strong>: Ensure it supports data transfer (some charging cables only provide power)</li>
+                                <li><strong>Computer</strong>: Windows 10/11, macOS 10.14+, or Linux (Ubuntu 18.04+ recommended)</li>
+                                <li><strong>Stable Network Connection</strong>: Required for downloading ESP-IDF and related components</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-1-2" class="submodule">
+                            <h4>1.2 Software Preparation</h4>
+                            <ul>
+                                <li><strong>Visual Studio Code (VS Code)</strong>: Latest version, download from: <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a></li>
+                                <li><strong>Python 3.8+</strong>: Recommended version 3.8-3.10, be sure to check "Add Python to PATH" during installation</li>
+                                <li><strong>Git</strong>: For version control and downloading ESP-IDF, download from: <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a></li>
+                                <li><strong>CMake</strong>: ESP-IDF build system dependency, typically installed automatically during ESP-IDF setup</li>
+                                <li><strong>Ninja</strong>: Build tool, also installed automatically during ESP-IDF installation</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-1-3" class="submodule">
+                            <h4>1.3 Driver Installation</h4>
+                            <h5>1.3.1 Serial Port Driver</h5>
+                            <p>ESP32-S3 development boards typically use one of the following serial chips:</p>
+                            <ul>
+                                <li><strong>CP210x</strong>: Silicon Labs serial chip, driver download: <a href="https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers" target="_blank">https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers</a></li>
+                                <li><strong>CH343</strong>: WCH serial chip, driver download: <a href="https://www.wch.cn/downloads/CH343SER_EXE.html" target="_blank">https://www.wch.cn/downloads/CH343SER_EXE.html</a></li>
+                            </ul>
+                            
+                            <h5>1.3.2 USB JTAG Driver (for debugging)</h5>
+                            <p>ESP32-S3 includes built-in USB-JTAG functionality. Windows systems require using the Zadig tool to install the WinUSB driver:</p>
+                            <ol>
+                                <li>Download Zadig: <a href="https://zadig.akeo.ie/" target="_blank">https://zadig.akeo.ie/</a></li>
+                                <li>Connect your ESP32-S3 development board to your computer</li>
+                                <li>Open Zadig and locate "ESP32-S3 USB JTAG/serial debug unit" in the device list</li>
+                                <li>Select "WinUSB" as the driver and click "Install Driver"</li>
+                                <li>Wait for the driver installation to complete</li>
+                            </ol>
+                            
+                            <h5>1.3.3 Driver Verification</h5>
+                            <p>After installation, connect the development board to your computer. Open Device Manager (Windows) or use <code>ls /dev/tty*</code> (Linux/macOS) to verify that the serial device is recognized.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module4-2" class="submodule">
+                    <h3>2. Install ESP-IDF Development Environment</h3>
+                    <div class="submodule-content">
+                        <p>ESP-IDF (Espressif IoT Development Framework) is Espressif's official IoT development framework, providing comprehensive development support for chips like the ESP32-S3. Below are two installation methods:</p>
+                        
+                        <div id="module4-2-1" class="submodule">
+                            <h4>2.1 Online Installation Method (VS Code Plugin One-click Installation)</h4>
+                            <p>This is the recommended installation method for most users:</p>
+                            <ol>
+                                <li>Open VS Code and click the Extensions icon on the left (or press Ctrl+Shift+X)</li>
+                                <li>Search for and install the "Espressif IDF" plugin (published by Espressif Systems)</li>
+                                <li>After installation, press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: Configure ESP-IDF Extension" and press Enter</li>
+                                <li>Select the "Express" installation method</li>
+                                <li>Choose an ESP-IDF version (recommend the latest stable version, such as v5.2.1)</li>
+                                <li>Select an installation path (preferably one without Chinese characters or spaces, such as C:\Espressif)</li>
+                                <li>Click "Install" to begin the installation process, and wait for the automatic download and installation to complete (approximately 10-30 minutes, depending on your network speed)</li>
+                            </ol>
+                            <p><strong>Note:</strong> During installation, you may encounter network issues like download failures. If this happens, try changing your network environment or use the offline installation method.</p>
+                        </div>
+                        
+                        <div id="module4-2-2" class="submodule">
+                            <h4>2.2 Offline Installation Method (ESP-IDF Official Installer)</h4>
+                            <p>Ideal for users with limited network connectivity or those needing specific versions:</p>
+                            <ol>
+                                <li>Visit Espressif's official download page: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/windows-setup.html#esp-idf-installer" target="_blank">https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/get-started/windows-setup.html#esp-idf-installer</a></li>
+                                <li>Download the offline installer for your operating system</li>
+                                <li>Run the installer and select an installation path (preferably without Chinese characters or spaces)</li>
+                                <li>Choose the ESP-IDF version to install</li>
+                                <li>Select ESP32-S3 as the target chip</li>
+                                <li>Wait for the installation to complete (approximately 5-10 minutes)</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-2-3" class="submodule">
+                            <h4>2.3 Environment Verification and PATH Check</h4>
+                            <p>After installation, verify that your environment is correctly configured:</p>
+                            <ol>
+                                <li>Open Command Prompt (Windows) or Terminal (macOS/Linux)</li>
+                                <li>Run the following command to check your ESP-IDF version:</li>
+                            </ol>
+                            <div class="code-box">
+                                <pre><code>idf.py --version</code></pre>
+                            </div>
+                            <p>If it displays information like "esp-idf v5.2.1", the installation was successful.</p>
+                            
+                            <h5>2.3.1 Environment Variables Check</h5>
+                            <p>Ensure the following environment variables are properly set:</p>
+                            <ul>
+                                <li><strong>IDF_PATH</strong>: Points to your ESP-IDF installation directory</li>
+                                <li><strong>PATH</strong>: Includes paths to Python, Git, CMake, Ninja, and other required tools</li>
+                            </ul>
+                            
+                            <h5>2.3.2 Common Issues Troubleshooting</h5>
+                            <ul>
+                                <li><strong>idf.py command not found</strong>: Verify that the PATH environment variable includes ESP-IDF tool paths</li>
+                                <li><strong>Python dependencies missing</strong>: Run <code>python -m pip install -r $IDF_PATH/requirements.txt</code> to install missing dependencies</li>
+                                <li><strong>Git errors</strong>: Ensure Git is correctly installed and added to your PATH</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module4-3" class="submodule">
+                    <h3>3. Configure VS Code Development Environment</h3>
+                    <div class="submodule-content">
+                        <p>After installing ESP-IDF, you'll need to configure VS Code to support ESP32-S3 development. Here are the detailed steps:</p>
+                        
+                        <div id="module4-3-1" class="submodule">
+                            <h4>3.1 Install Espressif IDF Plugin</h4>
+                            <ol>
+                                <li>Open VS Code and click the Extensions icon on the left (or press Ctrl+Shift+X)</li>
+                                <li>Type "Espressif IDF" in the search box</li>
+                                <li>Find the plugin published by Espressif Systems and click "Install"</li>
+                                <li>After installation, VS Code will prompt you to restart to activate the plugin</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-3-2" class="submodule">
+                            <h4>3.2 Configure Plugin Basic Parameters</h4>
+                            <ol>
+                                <li>Press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: Configure ESP-IDF Extension" and press Enter</li>
+                                <li>Select "USE EXISTING SETUP" (if ESP-IDF is already installed)</li>
+                                <li>Set the following paths:</li>
+                                <ul>
+                                    <li><strong>IDF_PATH</strong>: Points to your ESP-IDF installation directory, e.g., C:\Espressif\frameworks\esp-idf-v5.2.1</li>
+                                    <li><strong>Python Environment</strong>: Select auto-detect or manually specify your Python interpreter path</li>
+                                    <li><strong>Toolchain Path</strong>: Usually automatically detected, no manual setting needed</li>
+                                </ul>
+                                <li>Click "Finish" to complete the configuration</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-3-3" class="submodule">
+                            <h4>3.3 Set Target Chip to ESP32-S3</h4>
+                            <ol>
+                                <li>Press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: Set Target Device" and press Enter</li>
+                                <li>Select "esp32s3" from the popup list</li>
+                                <li>Wait for VS Code to complete the configuration update</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-3-4" class="submodule">
+                            <h4>3.4 Configure Serial Port and Flashing Tool</h4>
+                            <h5>3.4.1 Serial Port Configuration</h5>
+                            <ol>
+                                <li>Connect your ESP32-S3 development board to your computer via USB cable</li>
+                                <li>In the VS Code bottom status bar, click the serial port icon (usually displays "No Serial Port")</li>
+                                <li>Select the corresponding serial port from the popup list (e.g., COM3, /dev/ttyUSB0, etc.)</li>
+                            </ol>
+                            
+                            <h5>3.4.2 Flashing Configuration</h5>
+                            <ol>
+                                <li>Press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: Configure Flash Tool" and press Enter</li>
+                                <li>Set the following parameters:</li>
+                                <ul>
+                                    <li><strong>Flash Speed</strong>: Default is 921600, can be adjusted as needed</li>
+                                    <li><strong>Flash Mode</strong>: Default is qio, keep this setting</li>
+                                    <li><strong>Flash Size</strong>: Select based on your actual board configuration, choose 16MB for N16R8</li>
+                                </ul>
+                            </ol>
+                            
+                            <h5>3.4.3 Configuration Verification</h5>
+                            <p>After configuration, you can verify it using the following method:</p>
+                            <ol>
+                                <li>Press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: Show ESP-IDF Environment Information" and press Enter</li>
+                                <li>Check the environment information in the output window to confirm all paths and configurations are correct</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module4-4" class="submodule">
+                    <h3>4. Hardware Feature Configuration (N16R8 Exclusive)</h3>
+                    <div class="submodule-content">
+                        <p>The ESP32-S3 N16R8 development board features 16MB Flash and 8MB PSRAM, which require proper configuration to fully utilize their performance advantages. Here are the detailed configuration steps:</p>
+                        
+                        <div id="module4-4-1" class="submodule">
+                            <h4>4.1 Understanding N16R8: 16MB Flash and 8MB PSRAM</h4>
+                            <ul>
+                                <li><strong>N16</strong>: Indicates 16MB of Flash storage for firmware, file systems, and data</li>
+                                <li><strong>R8</strong>: Indicates 8MB of PSRAM (Pseudo Static RAM) for runtime memory, enhancing system performance</li>
+                                <li><strong>Advantages</strong>: Larger storage capacity accommodates more complex applications, while additional memory supports multitasking and large data processing</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-4-2" class="submodule">
+                            <h4>4.2 Configure Flash Size (16 MB) using menuconfig</h4>
+                            <ol>
+                                <li>Press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: SDK Configuration Editor (menuconfig)" and press Enter</li>
+                                <li>Navigate to "Serial flasher config" → "Flash size" in the configuration editor</li>
+                                <li>Select "16MB" from the dropdown menu</li>
+                                <li>Press Ctrl+S to save the configuration, then press ESC to exit</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-4-3" class="submodule">
+                            <h4>4.3 Enable and Configure Octal PSRAM (8 MB Mode)</h4>
+                            <ol>
+                                <li>Navigate to "Component config" → "ESP32S3-specific" in menuconfig</li>
+                                <li>Check the "Support for external, SPI-connected RAM" option</li>
+                                <li>In the "SPI RAM config" section, select "Octal RAM" mode</li>
+                                <li>Set "SPI RAM size" to "8MB"</li>
+                                <li>Configure other PSRAM-related options as needed, such as memory allocation strategy</li>
+                                <li>Press Ctrl+S to save the configuration, then press ESC to exit</li>
+                            </ol>
+                            <p><strong>Note:</strong> Octal PSRAM is an ESP32-S3 feature that offers higher bandwidth and performance compared to traditional SPI RAM.</p>
+                        </div>
+                        
+                        <div id="module4-4-4" class="submodule">
+                            <h4>4.4 Custom Partition Table (partitions.csv) Configuration</h4>
+                            <p>The 16MB Flash provides ample space, allowing you to customize the partition table based on your project requirements:</p>
+                            <ol>
+                                <li>Locate the partitions.csv file in your project directory</li>
+                                <li>Modify the partition table as needed, for example:</li>
+                            </ol>
+                            <div class="code-box">
+                                <pre><code># Name,   Type, SubType, Offset,  Size, Flags
+nvs,      data, nvs,     0x9000,  0x6000,
+phy_init, data, phy,     0xf000,  0x1000,
+factory,  app,  factory, 0x10000, 1M,
+ota_0,    app,  ota_0,   0x110000,1M,
+ota_1,    app,  ota_1,   0x210000,1M,
+spiffs,   data, spiffs,  0x310000,12M,
+</code></pre>
+                            </div>
+                            <p><strong>Explanation:</strong> The partition table example above allocates 1MB for factory firmware, 2MB for OTA updates, and 12MB for the SPIFFS file system. Adjust the size of each partition according to your specific needs.</p>
+                            <ol start="3">
+                                <li>After making modifications, confirm the partition table settings in menuconfig:</li>
+                                <li>Navigate to "Partition Table" → "Partition table"</li>
+                                <li>Select "Custom partition table CSV"</li>
+                                <li>Set "Custom partition CSV file" to partitions.csv</li>
+                                <li>Press Ctrl+S to save the configuration</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module4-5" class="submodule">
+                    <h3>5. Create and Run First Project</h3>
+                    <div class="submodule-content">
+                        <p>Now that we've completed the environment setup and configuration, let's create and run our first ESP32-S3 project to verify that the development environment works properly.</p>
+                        
+                        <div id="module4-5-1" class="submodule">
+                            <h4>5.1 Create New ESP-IDF Project</h4>
+                            <ol>
+                                <li>Press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: New Project" and press Enter</li>
+                                <li>Fill in the project information:</li>
+                                <ul>
+                                    <li><strong>Project Name</strong>: hello_world_s3</li>
+                                    <li><strong>Project Path</strong>: Select an English-named folder, avoiding Chinese characters and spaces</li>
+                                    <li><strong>Template</strong>: Choose the "hello_world" template, which is the most basic example</li>
+                                    <li><strong>Chip Target</strong>: esp32s3</li>
+                                </ul>
+                                <li>Click the "Create" button to generate the project</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-5-2" class="submodule">
+                            <h4>5.2 Common Build Options</h4>
+                            <ol>
+                                <li>In the VS Code bottom status bar, click the "Build" button (or press F1 → ESP-IDF: Build Project)</li>
+                                <li>Wait for the compilation to complete; the first compilation may take longer (5-10 minutes)</li>
+                                <li>After successful compilation, you'll see a "Build complete." message in the terminal</li>
+                            </ol>
+                            
+                            <h5>5.2.1 Build Options Configuration</h5>
+                            <p>Build options can be configured in the following files:</p>
+                            <ul>
+                                <li><strong>CMakeLists.txt</strong>: Project-level build configuration</li>
+                                <li><strong>sdkconfig</strong>: Configuration file generated through menuconfig</li>
+                                <li><strong>component.mk</strong>: Component-level build configuration (if using components)</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-5-3" class="submodule">
+                            <h4>5.3 Flash Firmware and Serial Monitor</h4>
+                            <h5>5.3.1 Flash Firmware</h5>
+                            <ol>
+                                <li>Ensure your ESP32-S3 development board is connected to your computer</li>
+                                <li>In the VS Code bottom status bar, click the "Flash" button (or press F1 → ESP-IDF: Flash Project)</li>
+                                <li>Wait for the flashing process to complete; you'll see a "Flash complete." message after successful flashing</li>
+                            </ol>
+                            
+                            <h5>5.3.2 Serial Monitor</h5>
+                            <ol>
+                                <li>After flashing is complete, click the "Monitor" button in the bottom status bar (or press F1 → ESP-IDF: Monitor)</li>
+                                <li>In the serial monitor window, you can view the device's startup information and output</li>
+                                <li>Press Ctrl+] to exit the serial monitor</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-5-4" class="submodule">
+                            <h4>5.4 Verify PSRAM Functionality</h4>
+                            <p>Modify the main.c file of the hello_world project to add PSRAM test code:</p>
+                            <div class="code-box">
+                                <pre><code>#include &lt;stdio.h&gt;
+#include "esp_heap_caps.h"
+#include "esp_chip_info.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+void app_main(void)
+{
+    esp_chip_info_t chip_info;
+    esp_chip_info(&chip_info);
+    printf("Chip info: %s\n", CONFIG_IDF_TARGET);
+    printf("CPU cores: %d\n", chip_info.cores);
+    printf("Flash size: %d MB\n", spi_flash_get_chip_size() / (1024 * 1024));
+    
+    // Detect PSRAM
+    if (chip_info.features & CHIP_FEATURE_EMB_PSRAM) {
+        printf("PSRAM is available\n");
+        size_t psram_size = heap_caps_get_free_size(MALLOC_CAP_SPIRAM);
+        printf("Free PSRAM: %zu bytes (%zu MB)\n", psram_size, psram_size / (1024 * 1024));
+        
+        // Try to allocate PSRAM memory
+        void *psram_ptr = heap_caps_malloc(1024 * 1024, MALLOC_CAP_SPIRAM);
+        if (psram_ptr) {
+            printf("PSRAM allocation successful! Allocated 1MB\n");
+            heap_caps_free(psram_ptr);
+        } else {
+            printf("PSRAM allocation failed!\n");
+        }
+    } else {
+        printf("PSRAM is not available\n");
+    }
+    
+    // Print Hello World
+    printf("Hello world!\n");
+    
+    // Delay 5 seconds before exiting
+    vTaskDelay(5000 / portTICK_PERIOD_MS);
+}
+</code></pre>
+                            </div>
+                            <ol>
+                                <li>After saving the file, recompile and flash the project</li>
+                                <li>Open the serial monitor to view the output</li>
+                                <li>If PSRAM is configured correctly, you'll see output similar to:</li>
+                            </ol>
+                            <div class="code-box">
+                                <pre><code>Chip info: esp32s3
+CPU cores: 2
+Flash size: 16 MB
+PSRAM is available
+Free PSRAM: 8388608 bytes (8 MB)
+PSRAM allocation successful! Allocated 1MB
+Hello world!
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module4-6" class="submodule">
+                    <h3>6. Advanced: Using Built-in JTAG Debugging</h3>
+                    <div class="submodule-content">
+                        <p>The ESP32-S3 features built-in USB-JTAG functionality, eliminating the need for additional debugger hardware. Professional hardware debugging can be achieved through the USB Type-C interface. Here are the detailed debugging configuration and usage steps:</p>
+                        
+                        <div id="module4-6-1" class="submodule">
+                            <h4>6.1 ESP32-S3 USB-JTAG Principle and Connection</h4>
+                            <ul>
+                                <li><strong>Principle</strong>: The ESP32-S3 integrates a USB-JTAG controller, providing JTAG debugging functionality through the USB Type-C interface</li>
+                                <li><strong>Advantages</strong>: No need for additional debugger hardware, saving cost and space</li>
+                                <li><strong>Connection Method</strong>: Directly connect the development board and computer using a USB Type-C cable</li>
+                                <li><strong>Driver Requirements</strong>: Windows systems require WinUSB driver installation (using the Zadig tool)</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-6-2" class="submodule">
+                            <h4>6.2 Configure VS Code launch.json Debug File</h4>
+                            <ol>
+                                <li>Press F1 to open the command palette</li>
+                                <li>Type "ESP-IDF: Select Debug Method" and press Enter</li>
+                                <li>Select the "JTAG" debugging method</li>
+                                <li>Press F5 to start debugging</li>
+                                <li>Select "ESP32-S3 Built-in JTAG" in the popup dialog</li>
+                                <li>VS Code will automatically generate the launch.json file</li>
+                            </ol>
+                            <p>Generated launch.json file example:</p>
+                            <div class="code-box">
+                                <pre><code>{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "ESP32-S3 Built-in JTAG",
+      "type": "cppdbg",
+      "request": "launch",
+      "MIMode": "gdb",
+      "miDebuggerPath": "${command:espIdf.getGdbPath}",
+      "program": "${workspaceFolder}/build/${command:espIdf.getProjectName}.elf",
+      "setupCommands": [
+        {
+          "text": "target remote ${config:idf.debug.port}",
+          "description": "Connect to target"
+        },
+        {
+          "text": "mon reset halt",
+          "description": "Reset target"
+        },
+        {
+          "text": "flushregs",
+          "description": "Flush registers"
+        }
+      ],
+      "externalConsole": false,
+      "logging": {
+        "engineLogging": true
+      }
+    }
+  ]
+}
+</code></pre>
+                            </div>
+                        </div>
+                        
+                        <div id="module4-6-3" class="submodule">
+                            <h4>6.3 Start JTAG Debugging (F5) and Set Breakpoints</h4>
+                            <h5>6.3.1 Set Breakpoints</h5>
+                            <ol>
+                                <li>In the code editor, click the blank area to the left of the line number to set a breakpoint</li>
+                                <li>The breakpoint will be displayed as a red dot</li>
+                            </ol>
+                            
+                            <h5>6.3.2 Start Debugging</h5>
+                            <ol>
+                                <li>Press F5 to start debugging</li>
+                                <li>VS Code will automatically compile, flash, and start the debugging session</li>
+                                <li>The program will stop execution at the breakpoint</li>
+                            </ol>
+                            
+                            <h5>6.3.3 Debugging Operations</h5>
+                            <ul>
+                                <li><strong>Step Over</strong>: F10 (skip function) or F11 (enter function)</li>
+                                <li><strong>Continue Execution</strong>: F5</li>
+                                <li><strong>Pause Execution</strong>: F6</li>
+                                <li><strong>View Variables</strong>: View in the "Variables" panel of the debug window</li>
+                                <li><strong>View Memory</strong>: View in the "Memory" panel of the debug window</li>
+                                <li><strong>View Call Stack</strong>: View in the "Call Stack" panel of the debug window</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-6-4" class="submodule">
+                            <h4>6.4 Common Debugging Error Troubleshooting</h4>
+                            <h5>6.4.1 Driver Issues</h5>
+                            <ul>
+                                <li><strong>Symptoms</strong>: Cannot connect to JTAG device</li>
+                                <li><strong>Solution</strong>: Reinstall the WinUSB driver using Zadig</li>
+                            </ul>
+                            
+                            <h5>6.4.2 Connection Issues</h5>
+                            <ul>
+                                <li><strong>Symptoms</strong>: Connection unstable or disconnected</li>
+                                <li><strong>Solution</strong>: Try reconnecting the USB cable, use a high-quality USB data cable</li>
+                            </ul>
+                            
+                            <h5>6.4.3 Permission Issues</h5>
+                            <ul>
+                                <li><strong>Symptoms</strong>: Cannot access USB device</li>
+                                <li><strong>Solution</strong>: Run VS Code as administrator (Windows) or add udev rules (Linux)</li>
+                            </ul>
+                            
+                            <h5>6.4.4 Firmware Issues</h5>
+                            <ul>
+                                <li><strong>Symptoms</strong>: Program crashes or behaves abnormally during debugging</li>
+                                <li><strong>Solution</strong>: Ensure firmware is correctly flashed, check for hardware access errors in code</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module4-7" class="submodule">
+                    <h3>7. Common Issues and Solutions</h3>
+                    <div class="submodule-content">
+                        <p>During ESP32-S3 ESP-IDF development, you may encounter various issues. Here are some common problems and their solutions:</p>
+                        
+                        <div id="module4-7-1" class="submodule">
+                            <h4>7.1 Compilation Failure: Environment Variables or Path Issues</h4>
+                            <h5>Problem Description</h5>
+                            <ul>
+                                <li>Compilation error: "idf.py: command not found"</li>
+                                <li>Compilation error: missing Python dependencies</li>
+                                <li>Compilation error: cannot find header files or library files</li>
+                            </ul>
+                            
+                            <h5>Solution</h5>
+                            <ol>
+                                <li>Verify that the system environment variable PATH includes ESP-IDF-related paths</li>
+                                <li>Reconfigure VS Code plugin paths to ensure IDF_PATH is set correctly</li>
+                                <li>Run <code>python -m pip install -r $IDF_PATH/requirements.txt</code> to install missing Python dependencies</li>
+                                <li>Ensure your ESP-IDF version is compatible with the project</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-7-2" class="submodule">
+                            <h4>7.2 Flashing Failure: Cannot Enter Download Mode</h4>
+                            <h5>Problem Description</h5>
+                            <ul>
+                                <li>Flashing error: "Failed to connect to ESP32-S3"</li>
+                                <li>Flashing error: "Timed out waiting for packet header"</li>
+                                <li>Development board not recognized</li>
+                            </ul>
+                            
+                            <h5>Solution</h5>
+                            <ol>
+                                <li>Ensure your USB cable supports data transfer</li>
+                                <li>Manually enter download mode: hold the BOOT button, press the EN button once, then release the BOOT button</li>
+                                <li>Verify the serial port driver is correctly installed</li>
+                                <li>Try using a different USB port or computer</li>
+                                <li>Check for potential hardware issues with the development board</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-7-3" class="submodule">
+                            <h4>7.3 PSRAM Initialization Failure Troubleshooting</h4>
+                            <h5>Problem Description</h5>
+                            <ul>
+                                <li>Startup error: "PSRAM initialization failed"</li>
+                                <li>Program cannot allocate PSRAM memory</li>
+                                <li>System runs unstable</li>
+                            </ul>
+                            
+                            <h5>Solution</h5>
+                            <ol>
+                                <li>Verify PSRAM configuration in menuconfig:</li>
+                                <ul>
+                                    <li>Confirm "Support for external, SPI-connected RAM" is enabled</li>
+                                    <li>Confirm "Octal RAM" mode is selected</li>
+                                    <li>Confirm the correct RAM size (8MB) is set</li>
+                                </ul>
+                                <li>Check hardware connections</li>
+                                <li>Try reducing PSRAM frequency (adjust in menuconfig)</li>
+                                <li>Ensure your ESP-IDF version supports Octal PSRAM</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-7-4" class="submodule">
+                            <h4>7.4 JTAG Connection Instability and Driver Issues</h4>
+                            <h5>Problem Description</h5>
+                            <ul>
+                                <li>Cannot connect to JTAG device</li>
+                                <li>Connection disconnects during debugging</li>
+                                <li>Driver installation failure</li>
+                            </ul>
+                            
+                            <h5>Solution</h5>
+                            <ol>
+                                <li>Reinstall the WinUSB driver using Zadig:</li>
+                                <ul>
+                                    <li>Open Zadig and select "ESP32-S3 USB JTAG/serial debug unit"</li>
+                                    <li>Select "WinUSB" as the driver and click "Install Driver"</li>
+                                </ul>
+                                <li>Use a high-quality USB data cable</li>
+                                <li>Try running VS Code as administrator</li>
+                                <li>Check if the USB port is stable, try a different USB port</li>
+                                <li>Ensure your ESP32-S3 firmware supports JTAG debugging</li>
+                            </ol>
+                        </div>
+                        
+                        <div id="module4-7-5" class="submodule">
+                            <h4>7.5 Flash Space Insufficient Issues</h4>
+                            <h5>Problem Description</h5>
+                            <ul>
+                                <li>Compilation error: "region `iram0_0_seg' overflowed by xxx bytes"</li>
+                                <li>Flashing error: insufficient Flash space</li>
+                            </ul>
+                            
+                            <h5>Solution</h5>
+                            <ol>
+                                <li>Optimize code to reduce memory usage</li>
+                                <li>Adjust partition table configuration in menuconfig</li>
+                                <li>Use PSRAM to store large data</li>
+                                <li>Consider using higher level compilation optimizations (set in menuconfig)</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="module4-8" class="submodule">
+                    <h3>8. Next Learning Suggestions</h3>
+                    <div class="submodule-content">
+                        <p>After completing the ESP32-S3 ESP-IDF environment setup and basic project, here are recommended learning paths and resources to help you further improve your development skills:</p>
+                        
+                        <div id="module4-8-1" class="submodule">
+                            <h4>8.1 Official ESP-IDF Programming Guide Reading Path</h4>
+                            <h5>Basic Stage</h5>
+                            <ul>
+                                <li><strong>Get Started</strong>: Official getting started guide, understand basic concepts and workflow of ESP-IDF</li>
+                                <li><strong>Hello World Example</strong>: Familiarize yourself with project structure and basic compilation process</li>
+                                <li><strong>Build System</strong>: Understand CMake and build system working principles</li>
+                            </ul>
+                            
+                            <h5>Intermediate Stage</h5>
+                            <ul>
+                                <li><strong>FreeRTOS</strong>: Learn real-time operating system usage, including task management, queues, semaphores, etc.</li>
+                                <li><strong>Peripheral Drivers</strong>: Learn usage of GPIO, I2C, SPI, UART and other peripherals</li>
+                                <li><strong>Network Programming</strong>: Learn implementation of Wi-Fi, TCP/IP, MQTT and other network protocols</li>
+                                <li><strong>File Systems</strong>: Learn usage of SPIFFS, FATFS and other file systems</li>
+                            </ul>
+                            
+                            <h5>Advanced Stage</h5>
+                            <ul>
+                                <li><strong>Power Management</strong>: Learn low-power modes and power optimization</li>
+                                <li><strong>Security Features</strong>: Learn secure boot, flash encryption and other security functions</li>
+                                <li><strong>OTA Updates</strong>: Learn implementation of firmware remote updates</li>
+                                <li><strong>AI Features</strong>: Explore ESP32-S3's AI acceleration capabilities</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-8-2" class="submodule">
+                            <h4>8.2 Recommended Example Projects</h4>
+                            <h5>Network Related</h5>
+                            <ul>
+                                <li><strong>station</strong>: Wi-Fi client mode example</li>
+                                <li><strong>softap</strong>: Wi-Fi access point mode example</li>
+                                <li><strong>web_server</strong>: Build a simple web server</li>
+                                <li><strong>mqtt</strong>: MQTT client example</li>
+                            </ul>
+                            
+                            <h5>Bluetooth Related</h5>
+                            <ul>
+                                <li><strong>ble_peripheral</strong>: BLE peripheral mode example</li>
+                                <li><strong>ble_central</strong>: BLE central mode example</li>
+                                <li><strong>ble_uart</strong>: BLE UART service example</li>
+                            </ul>
+                            
+                            <h5>Graphical Interface</h5>
+                            <ul>
+                                <li><strong>lvgl</strong>: LVGL graphics library example</li>
+                                <li><strong>tft</strong>: TFT display driver example</li>
+                            </ul>
+                            
+                            <h5>Advanced Features</h5>
+                            <ul>
+                                <li><strong>usb</strong>: USB device/host function example</li>
+                                <li><strong>camera</strong>: Camera interface example</li>
+                                <li><strong>audio</strong>: Audio processing example</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-8-3" class="submodule">
+                            <h4>8.3 Community Resources and Forums</h4>
+                            <h5>Official Resources</h5>
+                            <ul>
+                                <li><strong>Espressif Official Forum</strong>: <a href="https://www.esp32.com/" target="_blank">https://www.esp32.com/</a></li>
+                                <li><strong>ESP-IDF Documentation</strong>: <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/" target="_blank">https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/</a></li>
+                                <li><strong>GitHub Repository</strong>: <a href="https://github.com/espressif/esp-idf" target="_blank">https://github.com/espressif/esp-idf</a></li>
+                            </ul>
+                            
+                            <h5>International Communities</h5>
+                            <ul>
+                                <li><strong>ESP32 Community Forum</strong>: Global technical exchange and resource sharing</li>
+                                <li><strong>Reddit r/esp32</strong>: Discussion forum for ESP32-related topics</li>
+                                <li><strong>YouTube</strong>: Many ESP32-related video tutorials and project demonstrations</li>
+                            </ul>
+                            
+                            <h5>Learning Resources</h5>
+                            <ul>
+                                <li><strong>Espressif Technical Blog</strong>: Follow official blog posts and technical articles</li>
+                                <li><strong>Online Courses</strong>: ESP32-related courses on platforms like Coursera, Udemy</li>
+                                <li><strong>Open Source Projects</strong>: Explore excellent ESP32 open source projects on GitHub</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="module4-8-4" class="submodule">
+                            <h4>8.4 Practical Project Suggestions</h4>
+                            <ul>
+                                <li><strong>Smart Environment Monitoring Station</strong>: Use sensors to collect temperature, humidity, air quality and other data, then upload to cloud platform via Wi-Fi</li>
+                                <li><strong>Wi-Fi Smart Switch</strong>: Remotely control home appliances through a mobile app</li>
+                                <li><strong>BLE Low Power Device</strong>: Develop BLE devices that can connect to smartphones</li>
+                                <li><strong>USB Device Simulation</strong>: Use ESP32-S3's USB-OTG function to simulate keyboard, mouse and other devices</li>
+                                <li><strong>Low Power Sensor Node</strong>: Develop battery-powered low-power sensor nodes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="module1.html">Introduction</a>
+                    <a href="module2.html">Hardware Preparation</a>
+                    <a href="module3.html">Arduino IDE Setup</a>
+                    <a href="module4.html">ESP32-S3 ESP-IDF Guide</a>
+                    <a href="module5.html">MicroPython Development</a>
+                    <a href="module6.html">ESP32 Advanced Tutorials</a>
+                    <a href="module7.html">Expansion & Summary</a>
+                    <a href="module8.html">Technical Support & FAQ</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2026 ESP32-S3 Getting Started Guide</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
