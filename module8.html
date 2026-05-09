@@ -51,7 +51,10 @@
                     </div>
                     <ul class="submodule-list">
                         <li><a href="module2.html#module2-1">2.1 Required Materials</a></li>
-                        <li><a href="module2.html#module2-2">2.2 Notes</a></li>
+                        <li><a href="module2.html#module2-2">2.2 Detailed Notes and Operation Specifications</a></li>
+                        <li><a href="module2.html#module2-3">2.3 Recommended Expansion Materials (Advanced Experiments)</a></li>
+                        <li><a href="module2.html#module2-4">2.4 Common Errors and Troubleshooting</a></li>
+                        <li><a href="module2.html#module2-5">2.5 Hardware Checklist (Before Each Experiment)</a></li>
                     </ul>
                 </li>
                 <li class="module-item">
@@ -166,22 +169,52 @@
                 </div>
 
                 <div id="module8-2" class="submodule">
-                    <h3>8.2 Frequently Asked Questions</h3>
+                    <h3>8.2 常见问题解答</h3>
                     <div class="submodule-content">
-                        <h4>Q: Why is my ESP32-S3 resetting randomly?</h4>
-                        <p>A: This is often caused by insufficient power. Use a 5V external power supply with at least 500mA current capacity, especially when using Wi-Fi.</p>
+                        <h4>问：为什么我的ESP32-S3会随机重置？</h4>
+                        <p>答：这通常是由于电力不足引起的。使用至少500mA电流容量的5V外接电源，尤其是在使用Wi-Fi时。</p>
                         
-                        <h4>Q: How do I update the ESP32 firmware?</h4>
-                        <p>A: You can update the firmware through Arduino IDE by uploading a new sketch, or using the ESP Flash Download Tool for more advanced updates.</p>
+                        <h4>问：我该如何更新ESP32固件？</h4>
+                        <p>答：你可以通过Arduino IDE上传新草图来更新固件，或者使用ESP Flash下载工具获取更高级的更新。</p>
                         
-                        <h4>Q: Can I use ESP32-S3 with other programming languages?</h4>
-                        <p>A: Yes, you can use MicroPython, Lua, or C/C++ with the ESP-IDF framework.</p>
+                        <h4>问：我可以将ESP32-S3与其他编程语言一起使用吗？</h4>
+                        <p>答：可以，你可以在ESP-IDF框架中使用MicroPython、Lua或C/C++。</p>
                         
-                        <h4>Q: What's the maximum number of GPIO pins I can use?</h4>
-                        <p>A: ESP32-S3 has up to 45 GPIO pins, but some are reserved for specific functions. Refer to the pinout diagram for details.</p>
+                        <h4>问：我最多可以使用多少个GPIO引脚？</h4>
+                        <p>答：ESP32-S3最多有45个GPIO引脚，但其中一些是专门用于特定功能的。详情请参阅引脚图。</p>
                         
-                        <h4>Q: How to connect multiple sensors to ESP32-S3?</h4>
-                        <p>A: You can use I2C, SPI, or individual GPIO pins depending on the sensor type. Use a breadboard or prototyping shield for easier connections.</p>
+                        <h4>问：如何将多个传感器连接到ESP32-S3？</h4>
+                        <p>答：根据传感器类型，你可以使用I2C、SPI，或单个GPIO引脚。使用面包板或原型盾，连接更方便。</p>
+                        
+                        <h4>问：ESP32-S3的Wi-Fi连接不稳定怎么办？</h4>
+                        <p>答：确保你的路由器信号强度足够，ESP32-S3与路由器的距离不要太远。同时检查电源是否稳定，Wi-Fi天线是否正确连接。你也可以尝试在代码中添加重连机制来提高连接稳定性。</p>
+                        
+                        <h4>问：如何让ESP32-S3进入低功耗模式？</h4>
+                        <p>答：你可以使用ESP-IDF中的电源管理API，或者在Arduino中使用LowPower库。根据不同的应用场景，可以选择轻度睡眠、深度睡眠或hibernation模式，以达到不同程度的功耗降低。</p>
+                        
+                        <h4>问：ESP32-S3的ADC精度如何？</h4>
+                        <p>答：ESP32-S3内置12位ADC，理论精度为0.3mV。但实际使用中可能会受到噪声影响，建议使用硬件滤波或软件平均来提高精度。对于需要更高精度的应用，可以考虑使用外部ADC模块。</p>
+                        
+                        <h4>问：如何使用ESP32-S3的蓝牙功能？</h4>
+                        <p>答：在Arduino IDE中，你可以使用BLE库来实现蓝牙低功耗功能。在ESP-IDF中，可以使用官方的蓝牙API。常见应用包括与手机APP通信、连接蓝牙传感器或其他蓝牙设备。</p>
+                        
+                        <h4>问：ESP32-S3的最大上传速度是多少？</h4>
+                        <p>答：通过USB接口上传代码的速度通常在115200bps到921600bps之间，具体取决于你的USB驱动和线缆质量。使用高速USB线缆和最新的驱动程序可以获得更快的上传速度。</p>
+                        
+                        <h4>问：如何解决编译错误 "esp32s3\tools\sdk\include\stdint.h:51:16: error: redefinition of 'int32_t'"？</h4>
+                        <p>答：这通常是由于头文件冲突引起的。确保你的Arduino IDE和ESP32核心库是最新版本，并且没有重复包含的头文件。你也可以尝试清理项目并重新编译。</p>
+                        
+                        <h4>问：ESP32-S3可以驱动多大的负载？</h4>
+                        <p>答：每个GPIO引脚的最大输出电流约为40mA，整个芯片的最大总电流约为120mA。对于较大的负载（如电机、继电器等），建议使用外部驱动电路，如晶体管或继电器模块。</p>
+                        
+                        <h4>问：如何使用ESP32-S3的内置JTAG调试功能？</h4>
+                        <p>答：ESP32-S3支持通过USB接口进行JTAG调试。在VS Code中使用ESP-IDF扩展，你可以设置断点、查看变量值并单步执行代码。这对于复杂项目的调试非常有帮助。</p>
+                        
+                        <h4>问：ESP32-S3的内存容量是多少？</h4>
+                        <p>答：ESP32-S3 N16R8型号具有16MB闪存和8MB SRAM。其中SRAM分为IRAM（指令RAM）和DRAM（数据RAM），可用于程序执行和数据存储。</p>
+                        
+                        <h4>问：如何解决 "Failed to connect to ESP32: Timed out waiting for packet header" 错误？</h4>
+                        <p>答：这通常是由于上传时的连接问题。尝试以下方法：1. 确保ESP32-S3处于上传模式（按住BOOT键并按一下RESET键）；2. 检查USB线缆是否连接良好；3. 尝试不同的USB端口；4. 确保选择了正确的开发板和端口。</p>
                     </div>
                 </div>
             </section>
@@ -192,18 +225,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="module1.html">Introduction</a>
-                    <a href="module2.html">Hardware Preparation</a>
-                    <a href="module3.html">Arduino IDE Setup</a>
-                    <a href="module4.html">ESP32-S3 ESP-IDF Guide</a>
-                    <a href="module5.html">MicroPython Development</a>
-                    <a href="module6.html">ESP32 Advanced Tutorials</a>
-                    <a href="module7.html">Expansion & Summary</a>
-                    <a href="module8.html">Technical Support & FAQ</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Resources</a>
                 </div>
                 <div class="copyright">
-                    <p>&copy; 2026 ESP32-S3 Getting Started Guide</p>
+                    <p>&copy; 2026 ESP32-S3 Development Board Guide</p>
                 </div>
             </div>
         </div>
